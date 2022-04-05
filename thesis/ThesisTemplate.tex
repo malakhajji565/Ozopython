@@ -329,6 +329,10 @@ $x_i$               &:     & the $i$-th bit of some binary sequence $x$, st. $x_
 
 {\bf Unlike the frontmatter up to and including the Summary of Changes, which you should not deviate from, Chapters 1--5 represent a suggested outline only. This outline will only be appropriate for a specific type of project. You should talk with your supervisor about the best way to structure your own dissertation, but ultimately the choice is yours. However, almost every project will want to include the content discussed in these chapters in some way. For more advice on structuring your dissertation, see the unit handbook.}
 \vspace{1cm} 
+\section{Problem}
+\section{Approach}
+\section{Aims}
+
 
 \noindent
 This chapter should introduce the project context and motivate each of the proposed aims and objectives.  Ideally, it is written at a fairly high-level, and easily understood by a reader who is technically competent but not an expert in the topic itself.
@@ -359,9 +363,13 @@ More specifically, the concrete aims are:
 
 % -----------------------------------------------------------------------------
 
-\chapter{Background}
+\chapter{Contextual Background}
 \label{chap:technical}
 
+\section{Learning Computational Thinking}  
+\section{Visual Programming Languages}
+\section{Non-Visual Programming Languages}
+\section{Ozobot}
 
 \noindent
 This chapter is intended to describe the background on which execution of the project depends. This may be a technical or a contextual background, or both. The goal is to provide a detailed explanation of the specific problem at hand, and existing work that is relevant (e.g., an existing algorithm that you use, alternative solutions proposed, supporting technologies).  
@@ -371,8 +379,13 @@ Per the same advice in the handbook, note there is a subtly difference from this
 
 % -----------------------------------------------------------------------------
 
-\chapter{Project Execution}
+\chapter{Related Work}
 \label{chap:execution}
+
+\section{Block-based Tools for Learning}
+\section{Robots for Learning}
+\section{Discussion} 
+
 
 \noindent
 This chapter is intended to describe what you did: the goal is to explain
@@ -406,36 +419,6 @@ is useful and/or informative in some way: for example, if there was a
 decision to be made then explain the trade-offs and implications 
 involved.
 
-\section{Example Section}
-
-This is an example section; 
-the following content is auto-generated dummy text.
-\lipsum
-
-\subsection{Example Sub-section}
-
-\begin{figure}[t]
-\centering
-foo
-\caption{This is an example figure.}
-\label{fig}
-\end{figure}
-
-\begin{table}[t]
-\centering
-\begin{tabular}{|cc|c|}
-\hline
-foo      & bar      & baz      \\
-\hline
-$0     $ & $0     $ & $0     $ \\
-$1     $ & $1     $ & $1     $ \\
-$\vdots$ & $\vdots$ & $\vdots$ \\
-$9     $ & $9     $ & $9     $ \\
-\hline
-\end{tabular}
-\caption{This is an example table.}
-\label{tab}
-\end{table}
 
 \begin{algorithm}[t]
 \For{$i=0$ {\bf upto} $n$}{
@@ -473,7 +456,7 @@ which is intended to ensure it does not run into the text.
 \chapter{Technical Background}
 \label{chap:evaluation}
 
-\section{Introduction}
+
 
 \noindent
 In this chapter, I will be discussing the technologies I used while building my system. It involves a combination of:
@@ -500,6 +483,7 @@ A fiducial marker system consists of a set of generated patterns that can be det
 Therefore, in this project, I am using fiducial markers to enable my system to detect the different programming blocks and create a flashing light sequence, which translates to a set of actions completed by the Ozobot. The markers also allow my system to execute the block recognition feature, where the system plays an audio file describing the action associated with the detected fiducial marker.  Before adopting fiducial markers in my system, I have considered different marker systems and eventually decided to employ arUco markers. In the following section, I will describe why the Aruco library is the most suitable for my system instead of other fidual marker systems.
 
 \subsection{Types of Fiducial Marker Systems}
+\subsubsection{}
 
 
 
@@ -521,13 +505,90 @@ The resize function grabs the frame from the threaded video stream and resizes i
 To analyse the frames rendered by the imutils library, I have used the OpenCV library. OpenCV is a programming function library primarily used for Computer Vision applications. The three functions I have used to generate and detect markers obtained from my webcam are described here. 
 
 \subsubsection{Drawmarker()}
-Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. Marker images can be generated using the OpenCV drawmarker() function. The critical parameter of this function is the marker dictionary. By specifying the desired marker dictionary, the function generates a set of markers with a specific marker size. For example, choosing the dictionary 'DICT-6X6-250 means this dictionary is composed of 250 markers and a marker size of 6x6 bits (DICT-6X6-250). In this system, I have chosen the DICT-7X7-50, this is because … 
-I have generated a total of 15 markers for my system with ID’s in the range of [1,15], with one increment.
+
+Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. The OpenCV library has a built-in ArUco marker generator through its 
+cv2.aruco.drawMarker function.The main parameters of this function is the marker dictionary  and the ID of the marker which has to be a valid ID In the ArUco dictionary. By specifying the marker dictionary and the marker ID, the drawMarker function then returns the output image with the ArUco marker drawn on it. 
+
+There are 21 different ArUco dictionaries built into OpenCV. The majority of these dictionaries follow a specific naming convention, \texttt{cv2.aruco.DICT\_NxN\_M}, with an NxN size followed by an integer value, M. For example \texttt{DICT\_6X6\_250} means this dictionary is composed of 250 markers and a marker size of 6x6 bits. There are some settings to consider in order to choose the ideal dictionary, and these differ from system to system. It is generally more ideal to pick a dictionary with a larger NxN grid size, balanced with a low number of unique ArUco IDs such that the inter-marker distance can be used to correct misread markers. 
+Therefore, for my system, I have chosen the \texttt{DICT\_7X7\_50}, this is because my system requires 15 unique IDs for 15 different actions, and this dictionary has the smallest number of unique IDs (50 IDs). The marker size of 7x7 bits also provides more accurate detection results than other marker sizes due to the larger grid size and inter-marker distance. 
+I have generated a total of 15 markers for my system with ID’s in the range of [1,15], with one increment. 
+
+\subsubsection{Detectmarker()}
+
+The OpenCV library is used to detect the markers in the frames rendered by the imutils video library. I have made use of OpenCV’s cv2.aruco module specifically made to detect aruco markers. The marker detection process is comprised of two main steps:
+\begin{enumerate}
+    \item Detection of marker candidates. In this step, the frame read by the VideoStream.read() function described in 4.3.1. is analyzed in order to find square shapes that are candidates to be markers. It starts with an adaptive thresholding to segment the markers, then outlines are extracted from the thresholded image and those that do not approximate to a square shape are discarded. Some extra filtering is also applied to removing contours that are too small, too big, or too close to each other.
+    \item After the candidate detection, it is necessary to determine if they are actually markers by analyzing their inner codification. This step starts by extracting the marker bits of each marker. The image is divided into different cells according to the marker size and the border size. Then the number of black or white pixels in each cell is counted to determine if it is a white or a black bit. Finally, the bits are analyzed to determine if the marker belongs to the specific dictionary. Error correction techniques are employed when necessary.
+\end{enumerate}
+I have designed my system to specifically detect markers from the dictionary \texttt{DICT\_7X7\_50} as specified in the previous paragraph. Since my system makes use of a live stream video from the webcam, I have included code to draw the outlines, the center and the ID of the detected tag on the screen to show real time detection. 
+Finally, the IDs of the detected markers are stored in a list and used to translate to a flashing light sequence of instructions or parsed to the block recognition code, that plays an audio file depending on the block recognized. The working of this will be explained in more detail in the technical design chapter.
+
+\section{playsound}
+
+To implement the block recognition feature, I have used the playsound Python module. This enables my system to play mp3 audio files describing the action on the block detected by the OpenCV detection algorithm. My code performs this by detecting the marker ID, each marker ID has been assigned to an action. 
+\begin{table}[t]
+\centering
+\begin{tabular}{|cc|c|}
+\hline
+Marker ID      & Action Associated      & Audio Output      \\
+\hline
+$1     $ & $\texttt{Start program} $ & $0     $ \\
+$3     $ & $\texttt{Turn Left     }$ & $1     $ \\
+$5     $ & $\texttt{U-turn Left}   $ & $  $\\
+$7     $ & $\texttt{Move Forward}  $ & $9     $ \\
+$9     $ & $\texttt{Variable Block: 5cm}  $ & $9     $ \\
+\hline
+\end{tabular}
+\caption{Examples of markers and their corresponding actions.}
+\label{tab}
+\end{table}
+
+\section{Tkinter}
+
+To build my GUI, I have utilised the GUI Python Framework Tkinter and its functions to allow the user to interact with my system.
+
+\subsection{Frame}
+My GUI design involves a frame widget, it works on grouping and organizing other widgets by arranging their position. This widget is essential in my system since it allows me to choose the background color and the size of the displayed windows. For example, the parent window, which is the window displayed when the system starts, includes an organised layout of a label widget and different button widgets. The system displays a new frame depending on the buttons clicked. Hence, I have employed the frame widget as a foundation class to implement widgets and different windows.
+
+\subsection{Button}
+I have implemented the tkinter button widget in my system. There are two buttons that appear on the main window when the application starts. The buttons are linked to different functions in my code and perform the required actions depending on the button clicked.
+
+\subsection{Label}
+The label widget was used to display information such as descriptions or instructions at the top of the screen once the GUI has been loaded. I have also employed this widget to display any error messages that the system detects.
+
+\section{Ozopy}
+To interpret the detected markers and their associated instructions and convert them into flashing light sequence for the Ozobot, I have implemented an open-source Python-like language compiler for Ozobot [ref] called Ozopy, invented by Kaarl Ma..  This Python-like language is a subset of Python with some added builtin methods to control the Ozobot bit.
+
+\subsection{Context}
+
+The Ozobot can be programmed in two ways, either by using color codes and colored markers to indicate actions, or by using the visual programming interface OzoBlockly. With OzoBlockly, the user can create programs for the Ozobot by dragging puzzle shaped blocks onto the programming platform. The on-screen blocks clip together to form a program. The OzoBlockly editor has five skills levels from pre-reader to master.
+For my system’s purposes, I will be focusing on level 1 and level 2, which are pre-reader and beginner levels. This is due to there being very few accessible programming interfaces for younger demographics. The level 1 blocks feature simple shapes depicting movements such as arrows, while level 2 blocks feature the same blocks but with written statements instead of icons with the addition of loops. 
+To convert the created program into instructions understood by the Ozobot, OzoBlocky displays the encoded values as a light sequence composed of 8 color constants: black, white, red, green, yellow, blue, magenta and cyan. This is scanned at the base of the Ozobot where the RGB colour sensors reside. 
+
+The engineering of the colour codes for OzoBlockly is not publicly available. However, Kaarel Maidre and Ashley Feniello have successfully reverse engineerd the colour codes and created Ozopy and FlashForth, programming IDE for the Ozobot. The following section explains the working of Ozopy.  
+
+\subsection{Encoding Values}
+\section{Summary}
+% -----------------------------------------------------------------------------
+\chapter{Exploring Accessible Programming}
+\section{Study}
+
+% -----------------------------------------------------------------------------
+\chapter{System Design}
+\section{Architecture}
+\section{Physical Design}
+\section{Technical Design}
+
+
+
 
 
 % -----------------------------------------------------------------------------
+\chapter{Post Protoype User Study}
 
-\chapter{Conclusion}
+% -----------------------------------------------------------------------------
+
+\chapter{Conclusion and Further Work}
 \label{chap:conclusion}
 
 \noindent
