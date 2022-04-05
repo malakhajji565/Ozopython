@@ -470,36 +470,60 @@ which is intended to ensure it does not run into the text.
 
 % -----------------------------------------------------------------------------
 
-\chapter{Critical Evaluation}
+\chapter{Technical Background}
 \label{chap:evaluation}
 
-{\bf A topic-specific chapter} 
-\vspace{1cm} 
+\section{Introduction}
 
 \noindent
-This chapter is intended to evaluate what you did.  The content is highly 
-topic-specific, but for many projects will have flavours of the following:
+In this chapter, I will be discussing the technologies I used while building my system. It involves a combination of:
 
 \begin{enumerate}
-\item functional  testing, including analysis and explanation of failure 
-      cases,
-\item behavioural testing, often including analysis of any results that 
-      draw some form of conclusion wrt. the aims and objectives,
-      and
-\item evaluation of options and decisions within the project, and/or a
-      comparison with alternatives.
+\item Open-source fiducial marker generation and detection libraries.
+\item OpenCV libraries.
+\item Python GUI frameworks. 
+\item Alternative Ozobot programming languages.
 \end{enumerate}
 
 \noindent
-This chapter often acts to differentiate project quality: even if the work
-completed is of a high technical quality, critical yet objective evaluation 
-and comparison of the outcomes is crucial.  In essence, the reader wants to
-learn something, so the worst examples amount to simple statements of fact 
-(e.g., ``graph X shows the result is Y''); the best examples are analytical 
-and exploratory (e.g., ``graph X shows the result is Y, which means Z; this 
-contradicts [1], which may be because I use a different assumption'').  As 
-such, both positive {\em and} negative outcomes are valid {\em if} presented 
-in a suitable manner.
+These elements all interact within the system to eventually program the Ozobot to complete a set of actions. This interaction occurs as follows.
+ Firstly, the fiducial markers are placed on top of the physical programming blocks. It is important to note that each marker is unique to a block and the action depicted on that block. Secondly, the system uses OpenCV libraries to detect the markers on the block in real time video stream. The system has two different outputs depending on the action chosen. If the user chooses to translate the blocks in the image to action performed by the Ozobot, the detection algorithm returns a set of ID’s associated to each marker that my code translates to a list of actions. Finally, using an alternative Ozobot programming language called Ozopython, the system converts the list of actions to a sequence of flashing lights that the Ozobot can interpret and then perform the dictated actions. 
+Alternatively, the user can choose the ‘Recognise Block’ action. This is a separate action that does not program the Ozobot, instead the system uses the OpenCV fiducial marker detection algorithm to detect the blocks and play an audio file describing the action that the block represents. 
+Additionally, by using the Python GUI framework Tkinter, I am facilitating the user’s interaction with my system. All commands and information are accessible from the Tkinter window, and the buttons displayed on it. 
+In this chapter, I aim to provide a general understanding of the open-source libraries and repositories I have used in my system and to justify the technical choices I have made, before providing an in-depth technical system design in chapter 5.
+
+\section{Fiducial markers}
+\noindent
+The functioning of my system relies on the interpretation of the sequence of programming blocks. Hence, to ensure that the blocks are accurately detected, I have made use of fiducial markers. The camera is able to recognize the set of instructions through the AruCo marker encoding on each block. 
+I have considered alternative approaches such as incorporating a barcode scanner in the block or using a shape detector, but all these approaches often provide inaccurate results. 
+A fiducial marker system consists of a set of generated patterns that can be detected by a computer equipped with a camera and an appropriate marker detection algorithm.  Their design enables the markers to be physically small or be positioned at a large distance from the camera, while still being accurately detected in low-resolution images and at small sizes. Each marker features a unique ID number hence the marker IDs can be used to separate particular objects from others. In practice, these markers are placed in an environment to provide easily detectable visual cues and are used in applications like indoor tracking, robot navigation, augmented reality. These properties of fiducial markers make it a very suitable technology to use for block detection. 
+Therefore, in this project, I am using fiducial markers to enable my system to detect the different programming blocks and create a flashing light sequence, which translates to a set of actions completed by the Ozobot. The markers also allow my system to execute the block recognition feature, where the system plays an audio file describing the action associated with the detected fiducial marker.  Before adopting fiducial markers in my system, I have considered different marker systems and eventually decided to employ arUco markers. In the following section, I will describe why the Aruco library is the most suitable for my system instead of other fidual marker systems.
+
+\subsection{Types of Fiducial Marker Systems}
+
+
+
+\section{Image Processing} 
+\subsection{imutils}
+
+\noindent
+Imutils are a series of functions to make image processing functions such as translation, rotation, resizing, skeletonization, and displaying images easier with OpenCV and both Python 2.7 and Python 3. Therefore, I am using imutils to manipulate live streamed images before detecting the markers using OpenCV. The following imutils functions are used:
+
+\subsubsection{VideoStream}
+With VideoStream, I have defined that source camera will be “0” which here corresponds to the webcam plugged to the computer port. After that, I have started the camera and defined that after start is initialized, the camera will turn on after 3 seconds so that camera sensor can warm up and image resolution is improved. From there, the .read() function is used to obtain the current frame captured by the webcam. The system continues looping over the frames of the live stream and computes live marker detection with 
+OpenCV.
+
+\subsubsection{Resize}
+The resize function grabs the frame from the threaded video stream and resizes it to have a maximum width of 1000 pixels as the aruco detection algorithm requires.
+
+\subsection{OpenCV}
+
+To analyse the frames rendered by the imutils library, I have used the OpenCV library. OpenCV is a programming function library primarily used for Computer Vision applications. The three functions I have used to generate and detect markers obtained from my webcam are described here. 
+
+\subsubsection{Drawmarker()}
+Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. Marker images can be generated using the OpenCV drawmarker() function. The critical parameter of this function is the marker dictionary. By specifying the desired marker dictionary, the function generates a set of markers with a specific marker size. For example, choosing the dictionary 'DICT-6X6-250 means this dictionary is composed of 250 markers and a marker size of 6x6 bits (DICT-6X6-250). In this system, I have chosen the DICT-7X7-50, this is because … 
+I have generated a total of 15 markers for my system with ID’s in the range of [1,15], with one increment.
+
 
 % -----------------------------------------------------------------------------
 
