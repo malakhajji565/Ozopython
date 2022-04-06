@@ -483,9 +483,33 @@ A fiducial marker system consists of a set of generated patterns that can be det
 Therefore, in this project, I am using fiducial markers to enable my system to detect the different programming blocks and create a flashing light sequence, which translates to a set of actions completed by the Ozobot. The markers also allow my system to execute the block recognition feature, where the system plays an audio file describing the action associated with the detected fiducial marker.  Before adopting fiducial markers in my system, I have considered different marker systems and eventually decided to employ arUco markers. In the following section, I will describe why the Aruco library is the most suitable for my system instead of other fidual marker systems.
 
 \subsection{Types of Fiducial Marker Systems}
-\subsubsection{}
+\subsubsection{ARToolkit}
+ARToolkit markers consist of a square black border with a variety of different patterns in the interior. The quadrilateral black outline and the pattern is sampled to an element feature vector which is compared by correlation to a library of known markers. ARToolkit outputs a so called confidence factor. The presence of a marker is simply determined by a threshold value on this confidence value.
+ARToolkit is useful for many applications, but has a few drawbacks. The use of correlation to identify markers causes high false positive and inter-marker confusion rates. The user typically has to capture each marker as seen with the camera and lighting of their application, plus adjust the greyscale threshold in a trade off between these two rates and the false negative detection rate. This makes this marker system unsuitable for my application. This method is rather disadvantageous as it requires markers to be captured at a high enough resolution so that no detail of the characters is lost. 
 
+\subsubsection{ARTag}
+ARTag makers feature a black and white block shape pattern inside a dark black border, as seen in figure 3.4. ARTag can  effectively detect a tag if part of the border is occluded, making it more accurate than ARToolkit, however the ARTag system constantly has a lower detection rate compared to AprilTag, ArUco and Stag markers [ref]. A study comparing the detection accuracy of these markers notes that ARTag consistently has a much lower detection rate hovering around \texttt{45\%}, while the AprilTag, ArUco, and STag markers have detection rates greater than \texttt{90\%} at different angles and resolutions of the camera. Since my system makes use of webcams that may have low resolutions, the ARTag is unsuitable for my system.
 
+\subsubsection{AprilTag}
+The AprilTag system was developed as an improved ARTag system. It was designed to[1]  Minimize false positive confusion rate and to minimize the number of bits per tag.
+Based off experimental data, AprilTags was a significant improvement over prior methods such as QR codes or the ARToolKit[4]. Notably, AprilTags are significantly better at re- ducing false positives, specifically those which occur due to either part of the tag being covered, lighting issues, or errors due to color. Essentially, the algorithm will identify a tag incorrectly or may not identify it at all, which can be catastrophic in instances using robots, or break an augmented reality experience. However, the AprilTag is a computationally expensive package, and AprilTag markers are not built into the OpenCV library and require implementing their personal detection algorithm. Additionally, from an implementation perspective, ArUco marker detections tend to be more accurate, even when using the default parameters. On the other hand, ArUco markers are have online generators, that generate markers of different dictionaries and IDs. Hence, it is relatively straightforward to replace markers if they get damaged by generating them online and printing them. This cannot be done with AprilTags.
+
+\subsubsection{ChromaTag}
+ChromaTag is a fiducial marker system and detection algorithm designed to use opponent colors. Its design enables it to limit and quickly reject initial false detections and grayscale for precise localization. ChromaTag is proven to be significantly faster than current fiducial markers while achieving similar or better detection accuracy. However, it requires printing colored markers. However, using low resolution grey-scale webcams, or printing using uncalibrated colors, could lead to misdetection of markers. Since my system is utilized by children and teachers who may not have the right material for optimal detection, this marker is unsuitable for this project. 
+
+\subsubsection{ArUco}
+ArUco [17], is another package based on ARTag and ARToolkit. Unlike other fiducial marker systems, ArUco is that it allows the user to create configurable libraries, based on their specific needs. The library will only contain the specified number of markers with the greatest Hamming distance. Another notable contribution in ArUco is the reduced computing time due the smaller size of the custom libraries. It also provides a high detection rate with low rate of false positives, regardless of camera resolution or camera position. 
+Other primary benefits of using ArUco markers over other markers include:
+
+\begin{itemize}
+  
+\item ArUco markers are built into the OpenCV library via the cv2.aruco  submodule, described in section 
+\item	The OpenCV library can generate ArUco markers with the cv2.aruco.drawMarker
+ function.
+
+\item	There are online ArUco generators.
+For these reasons, I have chosen the ArUco marker system. It would also make my system more durable, since markers can be generated online without any code, and therefore easily replaced in case of damage.
+\end{itemize}
 
 \section{Image Processing} 
 \subsection{imutils}
@@ -563,11 +587,27 @@ To interpret the detected markers and their associated instructions and convert 
 
 The Ozobot can be programmed in two ways, either by using color codes and colored markers to indicate actions, or by using the visual programming interface OzoBlockly. With OzoBlockly, the user can create programs for the Ozobot by dragging puzzle shaped blocks onto the programming platform. The on-screen blocks clip together to form a program. The OzoBlockly editor has five skills levels from pre-reader to master.
 For my system’s purposes, I will be focusing on level 1 and level 2, which are pre-reader and beginner levels. This is due to there being very few accessible programming interfaces for younger demographics. The level 1 blocks feature simple shapes depicting movements such as arrows, while level 2 blocks feature the same blocks but with written statements instead of icons with the addition of loops. 
+
 To convert the created program into instructions understood by the Ozobot, OzoBlocky displays the encoded values as a light sequence composed of 8 color constants: black, white, red, green, yellow, blue, magenta and cyan. This is scanned at the base of the Ozobot where the RGB colour sensors reside. 
 
-The engineering of the colour codes for OzoBlockly is not publicly available. However, Kaarel Maidre and Ashley Feniello have successfully reverse engineerd the colour codes and created Ozopy and FlashForth, programming IDE for the Ozobot. The following section explains the working of Ozopy.  
+The engineering of the colour codes for OzoBlockly is not publicly available. However, Kaarel Maidre and Ashley Feniello have successfully reverse engineered the colour codes and created Ozopy and FlashForth, programming IDE for the Ozobot. The following section explains the working of Ozopy.  
 
 \subsection{Encoding Values}
+Ozopy functions similarly to OzoBlockly. The language compiler interprets a set of instructions written on an .ozopy file and outputs a window with flashing lights  of colour codes. These colour codes translate to bytecode instructions that the Ozobot executes. Ashley Fenielo, who made FlashForth, has successfully decoded the colour sequences and established their corresponding bytecodes. Her work represents the groundwork behind Ozopy.
+
+The color codes are encoded in a base-7 encoding and line up on byte-sized boundaries endoded as sets of three colours. Each of the eight colors has a 3-bit value. The following table shows the denary value of the colors and their 3-bit encoding.
+
+
+
+A set of three consecutives colors encode a bytecode used to program the Ozobot, except for the color White which is not being used as a value but rather signifies repeating the last color. For example, KWK is simply 000.
+
+Each of the three color codes is translated to a decimal number. The resulting number is then converted to hexadecimal to produce a bytecode that can be used to lookup instructions that are featured on the Ozobot. 
+
+\subsection{Instructions}
+After the color codes are translated to bytecodes, the resulting bytecode value is used to lookup instructions. As the Ozobot functions as a stack machine, operands are sent before operations.
+Values of less than 128 are considered literals pushed to the stack, while values of 128 or higher are instructions. The table created by Feniello shows the bytecodes and their matched instructions. 
+
+
 \section{Summary}
 % -----------------------------------------------------------------------------
 \chapter{Exploring Accessible Programming}
@@ -575,16 +615,62 @@ The engineering of the colour codes for OzoBlockly is not publicly available. Ho
 
 % -----------------------------------------------------------------------------
 \chapter{System Design}
+Considering the advantages of the existing approaches to teach computational concepts discussed in previous chapters, my research with SNEs and QTVIs, I designed BOP - a Block-based Ozobot Programming system. In this chapter, I present the design and implementation of the different components of BOP.
+
 \section{Architecture}
+My system is composed of a set of tangible progamming blocks, an Ozobot robot, a computer application, a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
+
+In the following section, I analyze the architecture in further detail, from a physical design and a technical design point of view.
+
 \section{Physical Design}
+
 \section{Technical Design}
+The technical design of my system converts the programming blocks scanned by the webcam to a flashing light sequence, used to transmit instructions to the Ozobot or alternatively performs block recognition by reading out the actions displayed on the blocks. The different components interact with each other to program the Ozobot through five main steps: live stream video of blocks, detection of markers, ordering of marker ID, translation to Ozopy, and output light sequence. On the other hand, for block recognition, the components interact differently and fewer steps are required. In this section, I will discuss in more detail each of these steps and their technical aspects. 
+ 
+\subsection{GUI design} 
+ 
+The GUI is designed in a way that when the system starts, the user is presented with two buttons, Translate to Ozopy and Recognise Block. The translate button captures the blocks on the workspace using the webcam attached to the tripod and translates it to the Ozopy language, and the ‘recognise block’ button which plays an audio file. When clicked on, both buttons display a window which showcases the current input from the webcam.  
+I have chosen to implement a GUI framework because it is a very intuitive platform and does not require the use of the terminal or command line. Since this system is primarly designed for teachers of the students, it will be very straightforward to use. It also outputs separate windows depending on the command chosen, this feature avoids any confusion due to clustering of windows when using the system.  
+GUIs can also be made accessible depending on the type of computer. For example, with Apple computers, the user can make use of the voiceover application to read the text displayed on the tkinter window. (Maybe put in technical background) 
+  
+\subsection{Detection} 
+ 
+Right before the detection stage, the program loops over the frames of the live streamed video and reads in the images using the imutils library previously mentionned. The detection stage is where the rendered frames are analysed using the OpenCV aruco module and the detectmarker() function described in chapter . 
+The detection process outputs a list of markers and their corresponding IDs. 
+After the detection process, the IDs are utilised to either identify a block or translate instructions for the Ozobot. 
+ 
+\subsection{Block Recognition}
+ 
+This process simply involves using the detected marker from the live streamed video to look up prewritten lines of code matching the marker ID to an audio file and finally playing that audio. 
+ 
+\subsection{Ordering} 
+ 
+After the blocks are detected and their marker IDs stored in a list, the system orders the markers IDs based on their distance from the start block. This is to ensure the output program is formed in the right order. The start block is fixed at the base of the tripod and is placed at the start of the workspace. Therefore, using the four detected corners from the detection algorithm, the system calculates the (x,y) coordinates of the center of the start block and repeats that calculation to every marker. After obtainging the coordinates of all the centers, the coordinates are stored in a list and sorted incrementally compared to the center of the start block. 
+The system checks that the first and last marker IDs correspond to the end and start blocks and notifies the user of the issue if not. This alert is outputted as an audio file, to make the debugging of the program accessible to all visual abilities.  
+//ordering of variables// 
+ 
+\subsection{Translation to Ozopy}
+ 
+In this stage, the list of marker IDs is translated to code used by the Ozopy language compiler. My system iterates through the ordered marker IDs and uses the ID list to look up pre-written lines of code. Each ID has been matched to describe a command. When this ID is identified in the list, its corresponding command is written to a text file called code.ozopy.  
+When the system detects a start loop block marker ID, the commands coming after the loop are indented inside the text file, and then when the end loop block is detected, the indentation is decreased. The loop is created using the while command and a variable is initialized and incremented to track the number of iterations. The number of iterations is indicated by the variable block slotted in the loop block. The program is terminated when the end marker ID is translated to the ‘terminate(OFF)’ function. This command switches the Ozobot off. 
+The lines of commands written to code.ozopy are then ready to be turned to a flashing light sequence. 
+ 
+ 
+\subsection{Output}  
+This is the last step in the ‘Translate to Ozopy’ workflow. This stage uses the Ozopy language library to turn the list of commands to a light sequence. The library is run using the command ozopython.run and the name of the file containing the commands code.ozopy. The ozopython library reads in the lines in the file and converts them to bytecodes. The bytecodes are then converted to color codes and a small window appears on the screen. The window features a white background that allows calibration of the Ozobot, and a load button which plays the sequence of flashing lights. The Ozobot is placed on the screen, with the base of the robot where the sensors reside, facing the load window. It takes in the sequence of colors and then performs a set of actions. 
+
+\section{Summary}
+
+
+
+
 
 
 
 
 
 % -----------------------------------------------------------------------------
-\chapter{Post Protoype User Study}
+\chapter{Post Prototype User Study}
 
 % -----------------------------------------------------------------------------
 
