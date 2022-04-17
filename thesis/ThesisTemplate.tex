@@ -366,9 +366,99 @@ More specifically, the concrete aims are:
 \chapter{Contextual Background}
 \label{chap:technical}
 
+\section{Introduction}
+
+Computer science and programming has become greatly beneficial in everyday life and introducing computing in education for all young children has now become essential for several reasons. Learning how to program enables young students to actively engage with computers and also teaches them strategies to break down, analyse and solve problems by being logical and creative [26]. In fact, previous studies show that it is crucial for children to engage in computing education as early as possible, since stereotypes about who can or cannot code tend to form at a young age [19, 21]. 
+Computing concepts are first introduced as computational thinking skills in primary school. By learning computational thinking at a young age, children are better prepared to assimilate programming languages later on in their education. 
+In this section, I will discuss the motivations behind computational thinking learning and give an overview of current computational tools used to teach CT in UK schools. I will then explore how computing is taught to learners with mixed visual abilities, to determine the challenges they are faced with and analyse the different inclusive computational learning tools and their limitations. By combining the background on computational thinking learning and current limitations with the inclusive environments, I aim to design a fully accessible block-based and robotic coding environment for mixed visual abilities.
+
 \section{Learning Computational Thinking}  
+
+Computational thinking is becoming a fundamental skill for everyone, not just computer scientists, and just like reading, writing and arithmetic, computational thinking should be a part of every child’s analytical ability. It is defined as “the thought process involved in formulating a problem and expressing it in a way that a computer –human or machine- can effectively carry out.” [wing]. CT draws on the concepts fundamental to computer science, such as sequences and operators as well as practices like logical reasoning, testing, debugging and abstraction. The value of CT does not just lie in computing, it can be used to support problem solving across all disciplines, including the humanities, math and science [google for education, ct course]. Therefore, acquiring CT as a skill impacts the social, emotional and cognitive development of children, while encouraging personal and career growth.
+
+
+\subsubsection{Low floor, high ceiling and wide walls}
+
+Since CT learning has become widely spread, it prompted researchers and designers to develop an abundance of new toolkits and computing environments that are enjoyable and accessible to increasingly younger learners. The idea of “low floor, high ceiling and wide walls” is one of the guiding principles for the creation of these environments for children. It essentially means that it should be easy for a beginner to cross the threshold to create working programs (low floor) and the tool should be extensive enough to satisfy the needs of advanced programmers (high ceiling).  Wide walls have been described as one of the most crucial features for computational thinking tools as they enable diverse exploration and encourage creativity [56]. Computational toolkits have been widening the walls by increasing the number and type of outputs supported and by enabling children to move beyond a specific set of “recommended activities”. 
+
+Several programming tools used to teach computational thinking fit these criteria to varying degrees. Some of the most widely used graphical programming environments in education are Scratch, Blockly; and robotics kits and tangible media such as Arduino and BeeBot. These tools are very efficient in learning computational thinking because they are relatively easy to use and allow young students to focus on designing and creating, while avoiding issues of programming syntax. Several of these introductory computational tools use the three-stage “use–modify–create” progression to help the learner go from user to modifier to creator of computational artifacts (Lee et al., 2011), which supports the criteria of 'Low floor, high ceiling and wide walls.' 
+
+Other activities such as game design and robotics have also been utilised as a means for the iterative exploration of CT. They are not only motivating and engaging school children but also introducing them to computer thinking. 
+
+To summarise, the aforementioned visual and tangible programming experiences are very useful in introducing computational thinking skills at a young age. These experiences cater for all programming levels and encourage creativity since several of the utilised tools are guided by the principle of 'low floor, high ceiling and wide walls'. The introduction to computational thinking is often followed by exposure to high-level programming languages such as Python and Java.
+
+
+\subsubsection{Computational Thinking in UK Schools}
+
+The UK curriculum provides a concrete example of the adaptation of computational thinking learning in early childhood. The introduction of computing into the national curriculum for England in 2014, brought with it the requirement for primary school children to be taught computational thinking skills from the age of five (Department for Education, 2014), 
+The introduction of computational thinking at a younger age has been very beneficial and it has proven to establish confidence in technology early on, which can assist in encouraging children to pursue Computer Science in higher education.
+
+In Key Stage 1, computational thinking skills are developed through the introduction of floor robots such as the BeeBot and the LOGO turtle. It is expected that learners will identify what each floor robot command does and use that knowledge to design an algorithm to move their robot around the mat. [https://teachcomputing.org/curriculum/key-stage-1/programming-a-moving-a-robot]. Students are thus introduced to the early stages of program design using algorithms which is considered a computational thinking concept. This is achieved by learners outlining what their task is by identifying the starting and finishing points of the robot's route. This outlining will ensure that learners clearly understand what they want their program to achieve. [ozobot 7].
+
+In Key Stage 2, students are introduced to visual languages such as Scratch to allow them to experiment with more complex programming concepts such as loops and conditional statements. (// rewrite Visual languages are primarily utilised at this age, as they allow students to code without requiring complex syntax or types to be learnt[7]. In addition to this, visual languages are best suited to their intellectual and cognitive development at this age[32][56]. The concepts taught through visual languages directly translate to text- based languages and provide a base set of skills that can be developed further.//
+
 \section{Visual Programming Languages}
-\section{Non-Visual Programming Languages}
+
+In this section, I will discuss the motivations behind the learning of computational thinking through the use of visual programming environments and languages in primary schools.
+I will then discuss the limitations in these environments, particularly for students with visual impairments, to design a suitable alternative.
+
+\subsection{Types of languages and their advantages}
+\subsubsection{Block-based languages}
+Most research scenarios consider block-based programming languages with graphical outputs, such as Scratch, a direct and defined strategy to teach young children computational concepts. These platforms often introduce many programming activities that can be personalized and modified to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts. [ in word document]
+
+\subsubsection{Icon-based languages}
+Previous research has shown that children as young as four years old can understand basic computer programming concepts and build and program robotics projects, however, it is hard for them to understand blocks with written statements such as the blocks in Scratch. Thus, icons in block programming have been widely used to introduce computing concepts to younger demographics. Icons are easily recognised by children, as they relate to everyday activities and make the interface easier to understand.
+An example of such a platform is ScratchJr [26 filipa], the redesign of the Scratch platform for the developmental and learning needs of children from kindergarten to second grade. Children can put together blocks identified with icons to form instructions and have a graphical output, thus eliminating the need to read blocks while maintaining the user engaged.
+
+\subsubsection{Text-based languages}
+
+Text-based languages are less used with younger children to teach computational thinking as it requires the children to be familiar with the syntax. Introducing text-based languages first was proven to put children off wanting to learn computing as it proves too difficult to grasp computational concepts this way.
+ 
+\subsection{Limitations}
+
+
+\section{Computing in Special Education}
+In this section, I define the scope of the project by describing how children with mixed visual abilities are taught in the UK.  I then discuss existing tools for computational learning and physical computing in special educational settings. 
+
+\subsection{Teaching Learners with Mixed Visual Abilities}
+
+In the UK, more than 2 million people are living with sight loss and approximately 25,660 of children up to the age of 16 have a vision impairement. The majority of blind and low vision children are taught in mainstream schools (RNIB, 2016). Learners are supported by qualified teachers of the visually impaired (QTVI) who help children adapt to the curriculum. There are also a very few specialist schools that work with blind and low vision students who have an additional or profound disability. This variety suggests that the mainstream national curriculum needs to work across a wide range of children abilities. 
+The mainstreaming of learners with disabilities was driven by a vision of social inclusion supported by inclusive teaching practices (UK Parliment, 1981). 
+In practice, adopting an inclusive approach in education requires the use of multisensory teaching technique, to ensure that all pupils can participate regardless of their abilities. However, the lack of resources and time on the part of teachers, paired with new non-accessible and non-inclusive technologies in schools, have made the implementation of mainstream education for disabled children full of challenges, impacting their academic and social participation (Gray, 2009). 
+
+As a result, the focus has shifted to addressing the more urgent need of making in-class materials accessible and inclusive. This has been particularly challenging for STEM (Science, Technology, Engineering and Math) subjects (Moon, Todd, Morton, & Ivey, 2012). There have been several tried approaches to tackle this issue in STEM, for example, one suggestion has been to pair disabled and non-disabled students and divide the work by abilities. The sighted learner manipulates the programming environment such as Scratch, while a visually impaired child suggests ideas for an animation that he cannot experience. This method however leads to partial or even non- participation of the visually impaired pupils. Alternatively, teaching assistants (TA) are often asked to bridge the gap and make their own adaptations to create accessible computational tools. This approach often leads to focused interactions between TA and student and creates an assistance bubble that isolates disabled children from the rest of the class (Metatla & Cullen, 2018). Thus, there is a great disparity between the envisioned social inclusion in education and the reality of teaching computing. 
+
+\subsection{Inclusive Computational Learning Tools}
+
+A range of tools have been developed to support computational learning by learners with mixed visual abilities and to bridge the gap in computing in special education. Most of these tools aim to make code structures apparent in order to make existing programming languages more accessible, e.g. (Baker, Milne, & Ladner, 2015), or interoperable with assistive technology such as screen readers or magnification software [ref], e.g. (Ludi, Ellis, & Jordan, 2014). In this section, I will consider both advantages and limitations of some accessible computational tools to influence my system’s design decisions. 
+
+
+\subsubsection{Screen Readers}
+A screen reader is a software application that allows a visually impaired user to read and navigate a computer screen. It can be used on both computers and touchscreen-based smartphones or tablets. Several devices possess built-on screen readers, for example VoiceOver for macOS and iOS, TalkBack for Android. Screen readers are also available through third-party developers such as JAWS and NVDA for Windows PCs. 
+Users can utilise the keyboard or touch to change the focus of a screen reader to different elements on the screen, and then the focused on element is either read aloud or read on a refreshable Braille display. If the item is interactive, (e.g. a button or link), the user can interact with it via keyboard commands or touch gestures.
+
+\subsubsection{Quorum}
+Quorum is an accessible evidence-based programming language. The main aim of Quorum is to simplify syntax to provide accessibility for visually impaired students. The simplified syntax helps students better understand code as it is read aloud using screen readers or displayed on a braille device. Quorum can be an effective tool for those who already know how to code, but is less suitable for novices. Like many other text-based languages, it can be challenging to teach to younger students to use Quorum because they have to be familiar with the language syntax and keywords.
+
+\subsubsection{JBrick}
+Ludi et al. [41] presented JBrick, a technology that simplified the browsing and entry of text commands and code compilation through visual and audio-feedback, which helps visually impaired teenagers program Lego robots. The system works with JAWS, the aforementioned screen reader for Windows, and ZoomText, a software for screen magnification. Thus, the JBrick environment requires students to be proficient with screen readers and is more suitable for older visually impaired students.
+
+\subsubsection{Javaspeak}
+Smith et al. [61] introduced JavaSpeak, an editor providing additional information about the structure and semantics of written Java code, to assist computer science majors with VI to learn how to program in Java. Similarly to JBrick, Javaspeak  relies on screen readers to read the code structure. This system is designed for university students and is not suitable for younger children who have limited knowledge with semantics and are not fully proficient in using a screen-reader and keyboard.
+
+\subsubsection{Blocks4All}
+
+Blocks4All is an accessible block-based programming environment[45][44].The application was developed for a touchscreen Apple iPad due to the built-in screen reader VoiceOver and zoom capabilities. It features puzzle shaped blocks that fit together by the shape of the design and by the audio feedback from the app. The system is an audio-based drag and drop system, so the user receives audio feedback describing the blocks locations to help move them. The Blocks4All environment is used to control a Dash robot as an tangible output for visually impaired children. This allows students to feel and hear the output of thee programmed commands through the movement or sounds made by the Dash robot. As Blocks4All heavily relies on audio representation using VoiceOver, the system may not be suitable for children who are deaf. In addition to this, most visually impaired students prefer spatial representation to audio representation since they use a spatial mental model to remember information. [ref https://dl.acm.org/doi/pdf/10.1145/3173574.3173643]
+
+\subsubsection{Torino}
+Torino [16] is a physical programming language to teach computational thinking to children between 7 and 11 years old with mixed visual abilities. It is one of the first systems made to teach basic programming to primary school students. The system is composed of plastic pods acting as instruction beads that can be physically connected and manipulated to generate sound as output. There are three types of beads: play, pause, and loop, and they each translate to a line of code in the program. Each bead further has buttons to control the repetition of the sound to be played, or to increase or decrease the length of pause and play executions, introducing the concept of variables. There is also a Code Jumper hub unit which allows the user to press play and pause on execution and read aloud the code. Students can connect pods to each other and to the hub by the use of jumper cords, creating programs with sound output. The Code Jumper app can connect to the hub unit to view the code visual format and it is also made accessible for screen readers and magnification software.  
+
+The exploration of the beads is  critical for VI children to understand their functionalities. Thus, to facilitate their identification, each pod is distinct in size and shape, and is colored using high contrasting colors. In the end, the creators of Code Jumper were able to infer that touch, audio feedback, and visual representation are essential in the design of inclusive tools for VI children.
+However, this system is unpractical for classroom use. It is composed of costly custom electronic components, and may not be within the budget of many schools. Broken equipment will also be hard and expensive to replace or repair. Since it relies on audio output, Code Jumper is also unsuitable for children who are deaf or hard of hearing as they may be unable to understand the output of the system. [ ref https://dl.acm.org/doi/pdf/10.1145/3064663.3064689]
+
+\subsubsection{}
+
+
 \section{Ozobot}
 
 \noindent
@@ -556,11 +646,11 @@ To implement the block recognition feature, I have used the playsound Python mod
 \hline
 Marker ID      & Action Associated      & Audio Output      \\
 \hline
-$1     $ & $\texttt{Start program} $ & $0     $ \\
-$3     $ & $\texttt{Turn Left     }$ & $1     $ \\
-$5     $ & $\texttt{U-turn Left}   $ & $  $\\
-$7     $ & $\texttt{Move Forward}  $ & $9     $ \\
-$9     $ & $\texttt{Variable Block: 5cm}  $ & $9     $ \\
+$1     $ & $\texttt{Start program} $ & $\texttt{'Start Block'}    $ \\
+$3     $ & $\texttt{Turn Left     }$ & $\texttt{'Make a Left Turn'}   $ \\
+$5     $ & $\texttt{U-turn Left}   $ & $ \texttt{'Make a U-turn to the left'} $\\
+$7     $ & $\texttt{Move Forward}  $ & $\texttt{'Move Forward Block'}   $ \\
+$9     $ & $\texttt{Variable Block: 5 steps}  $ & $\texttt{'Move for 5 steps}'  $ \\
 \hline
 \end{tabular}
 \caption{Examples of markers and their corresponding actions.}
