@@ -155,8 +155,6 @@ advice or time), and so on.
 %   the use \input{XXX} to import it, which acts like the #include
 %   directive in C.
 
-\mainmatter
-
 
 % -----------------------------------------------------------------------------
 
@@ -323,7 +321,7 @@ $x_i$               &:     & the $i$-th bit of some binary sequence $x$, st. $x_
 
 % -----------------------------------------------------------------------------
 
-
+\mainmatter
 \chapter{Introduction}
 \label{chap:context}
 
@@ -402,19 +400,33 @@ In Key Stage 2, students are introduced to visual languages such as Scratch to a
 In this section, I will discuss the motivations behind the learning of computational thinking through the use of visual programming environments and languages in primary schools.
 I will then discuss the limitations in these environments, particularly for students with visual impairments, to design a suitable alternative.
 
-\subsection{Types of languages and their advantages}
+\subsection{Types of Languages and Benefits}
 \subsubsection{Block-based languages}
-Most research scenarios consider block-based programming languages with graphical outputs, such as Scratch, a direct and defined strategy to teach young children computational concepts. These platforms often introduce many programming activities that can be personalized and modified to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts. [ in word document]
 
-\subsubsection{Icon-based languages}
+Computer programming can be a way of teaching computational thinking and
+most research scenarios consider block-based programming languages with graphical outputs, such as Scratch, a direct and defined strategy to teach young children computational concepts[8 filipa]. Block-based languages tend to lead to quicker engagement and early ‘quick steps forward’ These platforms often introduce many programming activities that can be personalized and modified to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts. [ in word document]
+
+
+[// to add if needed // Blocks programming languages [21] can allow beginners to construct programs without struggling with the syntax, making text-based programming more comfortable to learn in the future. These graphical programming languages have proven to be more engaging and understandable for new learners. There are learning barriers that block programming languages that attempt to minimize: selection, use, and coordination.
+When constructing a program with a blocks programming language, users can rely on recognition of the categories and shape of the block instead of recalling vocabulary. Block-based code reduces the cognitive load a new programmer has to learn by simplifying the syntax grouping computational patterns into blocks. Since blocks can only be assembled in a certain way or with other specific types of blocks, the code is less likely to be syntactically incorrect. These characteristics and designs simplify the discovery and exploration of building programs for new learners that can concentrate on the meaning of the code instead of the writing notation.]
+
+\subsubsection{Block and Icon based languages}
 Previous research has shown that children as young as four years old can understand basic computer programming concepts and build and program robotics projects, however, it is hard for them to understand blocks with written statements such as the blocks in Scratch. Thus, icons in block programming have been widely used to introduce computing concepts to younger demographics. Icons are easily recognised by children, as they relate to everyday activities and make the interface easier to understand.
 An example of such a platform is ScratchJr [26 filipa], the redesign of the Scratch platform for the developmental and learning needs of children from kindergarten to second grade. Children can put together blocks identified with icons to form instructions and have a graphical output, thus eliminating the need to read blocks while maintaining the user engaged.
 
 \subsubsection{Text-based languages}
 
-Text-based languages are less used with younger children to teach computational thinking as it requires the children to be familiar with the syntax. Introducing text-based languages first was proven to put children off wanting to learn computing as it proves too difficult to grasp computational concepts this way.
+Text-based languages are less utilised to teach younger children to teach computational thinking as it requires the children to be familiar with the syntax. It is important to note that the UK primary computing curriculum is not about teaching children a specific programming language, rather than understanding the principals of programming and applying these to solve specific problems. Thus, unlike KS3, where the national curriculum states that students should use a text based programming language, this is not a requirement in primary schools, and generally block-based programming environments are used.
+
+\subsubsection{Impact on Future Education }
+
+A few studies have been conducted to look at the transition from block-based and graphical languages used in primary schools to text-based languages later on in education. One study looked at students who had taken Scratch programming classes in middle school and examined if they performed better in a high school, text-based programming course. The researchers were able to find some areas where the Scratch students outperformed their peers. The Scratch students specifically had a better grasp and understanding of computational concepts such as the concept of looping. Additionally, the authors found qualitative differences between the two groups, with students who had prior Scratch experience reporting high levels of self efficacy and motivation to learn how to code. [[https://www.proquest.com/docview/1826352865/fulltextPDF/865C532C9AE24508PQ/1?accountid=9730]]
+
+Another study demonstrated that a blended approach between block-based and text-based languages enables students to better understand the high-level programming concepts rather than focus on the low-level compilation errors. Students were more confident using the text-based environment after gaining familiarity with the block-based language. [ https://hal.inria.fr/hal-01625380/document]
  
 \subsection{Limitations}
+
+Visual Programming Languages are inaccessible to and visually impaired and motorically challenged individuals [ https://dl.acm.org/doi/pdf/10.1145/2212776.2223757]]. Although they allow users to create programs by arranging graphical blocks logically, such visual languages are completely dependent on the use of a mouse and keyboard, which makes it impossible for students with a mobility impairment to use them independently. Visually impaired students may also find it hard to assemble programs due to the drag and drop nature of assembling code in most systems, specifically if they are unable to track the mouse on the screen.  Additionally, the majority of VPLs are incompatible with screen readers. Thus, visually impaired pupils have to rely on a sighted peer or teaching assistant to describe the programming blocks[46 ozobot]. This takes away a student’s independence when coding and isolates the student from their sighted peers in the case of mainstream schools.
 
 
 \section{Computing in Special Education}
@@ -450,6 +462,9 @@ Smith et al. [61] introduced JavaSpeak, an editor providing additional informati
 
 Blocks4All is an accessible block-based programming environment[45][44].The application was developed for a touchscreen Apple iPad due to the built-in screen reader VoiceOver and zoom capabilities. It features puzzle shaped blocks that fit together by the shape of the design and by the audio feedback from the app. The system is an audio-based drag and drop system, so the user receives audio feedback describing the blocks locations to help move them. The Blocks4All environment is used to control a Dash robot as an tangible output for visually impaired children. This allows students to feel and hear the output of thee programmed commands through the movement or sounds made by the Dash robot. As Blocks4All heavily relies on audio representation using VoiceOver, the system may not be suitable for children who are deaf. In addition to this, most visually impaired students prefer spatial representation to audio representation since they use a spatial mental model to remember information. [ref https://dl.acm.org/doi/pdf/10.1145/3173574.3173643]
 
+\subsubsection{StoryBlocks}
+StoryBlocks [13,15] is a tangible programming toolkit that was designed for VI users to create audio stories. The system is composed of blocks that represent story components such as characters and actions. The system captures the blocks with a camera when they are put together on the workspace and outputs a translated audio story. The blocks are all identifiable by icons with distinct shapes and colors. The shape of each block indicates how it can be connected to other blocks and is marked with a distinctive dot pattern to be recognized by the program running on the mobile device. StoryBlocks was designed as a combination of tangible programming blocks and audio output, which is a compelling way to teach basic computational concept, particularly for visually impaired individuals.
+
 \subsubsection{Torino}
 Torino [16] is a physical programming language to teach computational thinking to children between 7 and 11 years old with mixed visual abilities. It is one of the first systems made to teach basic programming to primary school students. The system is composed of plastic pods acting as instruction beads that can be physically connected and manipulated to generate sound as output. There are three types of beads: play, pause, and loop, and they each translate to a line of code in the program. Each bead further has buttons to control the repetition of the sound to be played, or to increase or decrease the length of pause and play executions, introducing the concept of variables. There is also a Code Jumper hub unit which allows the user to press play and pause on execution and read aloud the code. Students can connect pods to each other and to the hub by the use of jumper cords, creating programs with sound output. The Code Jumper app can connect to the hub unit to view the code visual format and it is also made accessible for screen readers and magnification software.  
 
@@ -471,75 +486,59 @@ Per the same advice in the handbook, note there is a subtly difference from this
 
 \chapter{Related Work}
 \label{chap:execution}
+In this chapter, I will explore tools with similar features to the system I am building, to determine their successes and limitations. The tools studied include examples of tangible programming tools and robots used to teach computing concepts to young students. I will also make a comparison of their features and other characteristics such as output types, price, and accessibility, to draw out the limitations they could pose for visually impaired students. From this discussion, I will then aim to develop an initial set of required features to design a system that is accessible to mixed visual abilities.
 
-\section{Block-based Tools for Learning}
+\section{Tangible Tools for Learning}
+
+Tangible Tools or Tangible User Interfaces (TUI) are an alternative to visual programming for younger learners. They are composed of physical pieces, that are often puzzle-like pieces, that are put together to generate code. Tactile tools often use icons to convey the meaning of the physical piece. This allows the tool to be universally understood and suitable for use with younger children as previously described. Tactile learning methods have been praised for their ability to aid students in understanding concepts. As young children have a deep and implicit spatial knowledge, it is more intuitive for them to grasp computational concepts by moving physical pieces to manipulate another body i.e a robot. Thus, tangible tools such as LOGO and BeeBot are widely used in KS1 and KS2 to teach computational thinking. [https://www.nfer.ac.uk/publications/FUTL69/FUTL69.pdf]
+In order to identify features that make tangible tools accessible, I have explored several commercially available tangible toolkits used to teach young children computational thinking through coding.
+
+\subsection{Examples of TUI}
+\subsubsection{Osmo}
+Osmo is a mobile application that utilises a mirror attached to the Apple iPad to capture tangible blocks placed on the workspace in front of the iPad. These blocks are detected by the system and used to play different games and display visual effects on the screen. Children can assemble coding blocks on the work surface to control a character on the screen on the Osmo Coding Awbie game. The blocks instruct the robot like character to traverse an environment. The output and feedback from this system is purely visual and is not compatible with screen readers. Additionally, the blocks themselves only show visual information and do not have embossing for a tactile experience, making the system unsuitable for children with a visual impairment.  
+
+\subsubsection{Cubetto}
+Cubetto is a tangible programming language designed for students in preschool[11]. The Cubetto [31] tool consists of a robot, a programming tray with slots, and four categories of blocks: forward, right, left, and function. Children produce programs by inserting the action blocks in the programming tray. The resulting programs aim to get the Cubetto robot to traverse the map mat to the desired location. The whole system is only composed of physical parts, with no need for screens and it provides both tactile input and output, which would be suitable for students with visual impairment. However, the blocks are not non-visually distinguishable, and the map itself is purely visual. Without collaborating with a sighted assistant, the system is unsuitable for use with VI individuals. In addition to this, the Cubetto may be too expensive for a classroom budget to replace if components are broken.  
+
+\subsubsection{KIBO}
+KIBO [32 filipa] is a screen-free robotic kit that involves hardware parts to assemble and tangible blocks to program the robot. The tangibles are wooden blocks with drawings and text on top of them to identify their function. After constructing the code sequence, children can scan the barcode on the block with the robot. The robot then follows the instructions coded.  
+
+\subsubsection{Algobrix}
+Algobrix is a screen-free toolkit that is composed of a robot and tangible blocks. The blocks are distinct in shape and color and have embossing which makes them tactically recognisable for visually impaired students. It is used to teach different computational concepts such as loops, algorithmic thinking and multithreading. 
+
+\subsubsection{Matatalab}
+Matatalab Coding Set is a hands-on computational toolkit that includes a robot, tangible blocks, and a mat. The children program the robot by putting together a set of blocks on the workspace. The system then scans the blocks and sends the program using Bluetooth to the robot. Matatalab is used in some classrooms in other countries and it has proven to teach fundamental coding skills and develop necessary cognitive abilities through educational coding games from a young age without the need for screen and literacy. 
+
+The following table shows a comparison of these different TUI and their features.
+
+
+\subsection{Limitations}
+When examining the examples of currently publicly available TUI on table (num), it can be concluded that most tactile tools have their limitations. None of the presented tools possess features that could make it an accessible, tangible programming tool for the visually impaired. This is partly due to the fact that most of the tools do not possess tactically distinguishable blocks. The blocks do not have embossing or characteristics that the children can recognise, except for Cubetto and Algobrix. 
+
+Additionally, most of the tools do not teach all the necessary computational concepts, as they do not support more complex programming concepts. Thus, most of the TUIs are used for introductory programming and the complexity of programming ranges in the beginner stages, not allowing more experienced children to evolve and break that barrier, which does not support the 'low floor, high ceiling' concept. 
+
+Finally, the explored tangible tools are all very expensive which potentially makes them out of budget for a lot of schools, it is therefore very unlikely for students to be able to experience coding using tangible interfaces such as the ones presented in table num.
+
 \section{Robots for Learning}
+
+After examining different TUIs, it can be concluded that the most popular output of the programming action is the behavior of a robot. In this section, I will explain the motivation behind using a robot in a TUI to teach computing and give context on the robot I will be using in my system, the Ozobot.
+
+\subsection{Benefits}
+- sense of control, spatial output, with feedback.
+
+There are research scenarios exploring children robot interaction in different areas. For example, Papert, who is famous for the development of the Logo programming environment for children, observed that young children have a deep and implicit spatial knowledge based on their own personal sensorimotor experience of moving through a three- dimensional world. He argued that by allowing children to manipulate another body such as a robot, they might gradually develop increasingly more explicit representations of control structures for achieving effects such as creating graphical representations on a screen. [https://www.nfer.ac.uk/publications/FUTL69/FUTL69.pdf] This also applies to the interaction between visually impaired people and robots. 
+// rewrite Researchers are exploring how blind people perceive robots and how these devices fit in their expectations and fears regarding the increase of dependency in them [23]. The researchers could infer from the answers that the participants preferred to feel in control. If they were to be in contact with a robot, they preferred that it responded to commands and questions. While interacting with a robot, it was helpful to the users that it made a sound, allowing them to identify what was its position and state. // 
+
+\subsection{Ozobot}
+
+
+
 \section{Discussion} 
+have a list of requirements from everything discussed.
+have a table of all discussed systems 
 
 
-\noindent
-This chapter is intended to describe what you did: the goal is to explain
-the main activity or activities, of any type, which constituted your work 
-during the project.  The content is highly topic-specific, but for many 
-projects it will make sense to split the chapter into two sections: one 
-will discuss the design of something (e.g., some hardware or software, or 
-an algorithm, or experiment), including any rationale or decisions made, 
-and the other will discuss how this design was realised via some form of 
-implementation.  
 
-This is, of course, far from ideal for {\em many} project topics.  Some
-situations which clearly require a different approach include:
-
-\begin{itemize}
-\item In a project where asymptotic analysis of some algorithm is the goal,
-      there is no real ``design and implementation'' in a traditional sense
-      even though the activity of analysis is clearly within the remit of
-      this chapter.
-\item In a project where analysis of some results is as major, or a more
-      major goal than the implementation that produced them, it might be
-      sensible to merge this chapter with the next one: the main activity 
-      is such that discussion of the results cannot be viewed separately.
-\end{itemize}
-
-\noindent
-Note that it is common to include evidence of ``best practice'' project 
-management (e.g., use of version control, choice of programming language 
-and so on).  Rather than simply a rote list, make sure any such content 
-is useful and/or informative in some way: for example, if there was a 
-decision to be made then explain the trade-offs and implications 
-involved.
-
-
-\begin{algorithm}[t]
-\For{$i=0$ {\bf upto} $n$}{
-  $t_i \leftarrow 0$\;
-}
-\caption{This is an example algorithm.}
-\label{alg}
-\end{algorithm}
-
-\begin{lstlisting}[float={t},caption={This is an example listing.},label={lst},language=C]
-for( i = 0; i < n; i++ ) {
-  t[ i ] = 0;
-}
-\end{lstlisting}
-
-This is an example sub-section;
-the following content is auto-generated dummy text.
-Notice the examples in Figure~\ref{fig}, Table~\ref{tab}, Algorithm~\ref{alg}
-and Listing~\ref{lst}.
-\lipsum
-
-\subsubsection{Example Sub-sub-section}
-
-This is an example sub-sub-section;
-the following content is auto-generated dummy text.
-\lipsum
-
-\paragraph{Example paragraph.}
-
-This is an example paragraph; note the trailing full-stop in the title,
-which is intended to ensure it does not run into the text.
 
 % -----------------------------------------------------------------------------
 
