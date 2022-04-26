@@ -366,34 +366,32 @@ More specifically, the concrete aims are:
 
 \section{Introduction}
 
-Computer science and programming has become greatly beneficial in everyday life and introducing computing in education for all young children has now become essential for several reasons. Learning how to program enables young students to actively engage with computers and also teaches them strategies to break down, analyse and solve problems by being logical and creative [26]. In fact, previous studies show that it is crucial for children to engage in computing education as early as possible, since stereotypes about who can or cannot code tend to form at a young age [19, 21]. 
-Computing concepts are first introduced as computational thinking skills in primary school. By learning computational thinking at a young age, children are better prepared to assimilate programming languages later on in their education. 
-In this section, I will discuss the motivations behind computational thinking learning and give an overview of current computational tools used to teach CT in UK schools. I will then explore how computing is taught to learners with mixed visual abilities, to determine the challenges they are faced with and analyse the different inclusive computational learning tools and their limitations. By combining the background on computational thinking learning and current limitations with the inclusive environments, I aim to design a fully accessible block-based and robotic coding environment for mixed visual abilities.
+Computer science and programming have become extremely useful in everyday life, and incorporating computing into the education of all young children has become critical for a variety of reasons. Learning to program allows young students to actively engage with computers while also teaching them how to deconstruct, analyse, and solve problems in a logical and creative manner \cite{CB-intro1}.
+Additionally, previous research has found that it is critical for children to begin computing education as early as possible, because stereotypes about who can and cannot code are formed at a young age \cite{CB-intro2, CB-intro3}.
+Computing concepts are first introduced in primary school as computational thinking skills. By learning computational thinking at a young age, children are better prepared to assimilate programming languages later on in their education. 
+In this section, I will discuss the motivations behind computational thinking learning and give an overview of current computational tools used to teach CT in UK schools. I will then explore how computing is taught to learners with mixed visual abilities, as well as the challenges they face and analyse the different inclusive computational tools and their limitations. By combining the background on computational thinking learning and current limitations with  inclusive environments, I aim to design a fully accessible tangible  and robotic coding environment for mixed visual abilities.
 
 \section{Learning Computational Thinking}  
-
-Computational thinking is becoming a fundamental skill for everyone, not just computer scientists, and just like reading, writing and arithmetic, computational thinking should be a part of every child’s analytical ability. It is defined as “the thought process involved in formulating a problem and expressing it in a way that a computer –human or machine- can effectively carry out.” [wing]. CT draws on the concepts fundamental to computer science, such as sequences and operators as well as practices like logical reasoning, testing, debugging and abstraction. The value of CT does not just lie in computing, it can be used to support problem solving across all disciplines, including the humanities, math and science [google for education, ct course]. Therefore, acquiring CT as a skill impacts the social, emotional and cognitive development of children, while encouraging personal and career growth.
+\subsection{Motivations for Computational Thinking}
+Computational thinking is becoming a fundamental skill for everyone, not just computer scientists, and just like reading, writing and arithmetic, computational thinking should be a part of every child’s analytical ability. It is defined as “the thought process involved in formulating a problem and expressing it in a way that a computer –human or machine- can effectively carry out.” \cite{CB-CT1}. CT draws on the concepts fundamental to computer science, such as sequences and operators as well as practices like logical reasoning, testing, debugging and abstraction. The value of CT does not just lie in computing, it can be used to support problem solving across all disciplines, including the humanities, math and science. Therefore, acquiring CT as a skill impacts the social, emotional and cognitive development of children, while encouraging personal and career growth.
 
 
 \subsubsection{Low floor, high ceiling and wide walls}
 
-Since CT learning has become widely spread, it prompted researchers and designers to develop an abundance of new toolkits and computing environments that are enjoyable and accessible to increasingly younger learners. The idea of “low floor, high ceiling and wide walls” is one of the guiding principles for the creation of these environments for children. It essentially means that it should be easy for a beginner to cross the threshold to create working programs (low floor) and the tool should be extensive enough to satisfy the needs of advanced programmers (high ceiling).  Wide walls have been described as one of the most crucial features for computational thinking tools as they enable diverse exploration and encourage creativity [56]. Computational toolkits have been widening the walls by increasing the number and type of outputs supported and by enabling children to move beyond a specific set of “recommended activities”. 
+Brennan and Resnick \cite{resnick11} developed a framework for computing education that includes seven computational concepts (sequence, loops, events, parallelism, conditionals, operators, and data) and four computational practises (experimenting and iteration, testing and debugging, reusing and remixing, abstracting and modularizing). Since CT learning has become widely spread, it prompted researchers and designers to develop an abundance of new toolkits and computing environments to teach some of these concepts in a way that is enjoyable and accessible to increasingly younger learners. The idea of “low floor, high ceiling and wide walls” is one of the guiding principles for the creation of these environments for children \cite{CB-lowfloor}. It essentially means that it should be easy for a beginner to cross the threshold to create working programs (low floor) and the tool should be extensive enough to satisfy the needs of advanced programmers (high ceiling). Wide walls have been described as one of the most crucial features for computational thinking tools as they enable diverse exploration and encourage creativity \cite{CB-lowfloor}. Computational toolkits have been widening the walls by increasing the number and type of outputs supported and by enabling children to move beyond a specific set of “recommended activities”. 
 
-Several programming tools used to teach computational thinking fit these criteria to varying degrees. Some of the most widely used graphical programming environments in education are Scratch, Blockly; and robotics kits and tangible media such as Arduino and BeeBot. These tools are very efficient in learning computational thinking because they are relatively easy to use and allow young students to focus on designing and creating, while avoiding issues of programming syntax. Several of these introductory computational tools use the three-stage “use–modify–create” progression to help the learner go from user to modifier to creator of computational artifacts (Lee et al., 2011), which supports the criteria of 'Low floor, high ceiling and wide walls.' 
+Several programming tools used to teach computational thinking fit these criteria to varying degrees. Some of the most widely used graphical programming environments in education are Scratch\cite{scratch}, Blockly \cite{blockly}; and robotics kits and tangible media such as Arduino and BeeBot. These tools are very efficient in learning computational thinking because they are relatively easy to use and allow young students to focus on designing and creating, while avoiding issues of programming syntax, fitting the 'low floor' principle. Tangible user interfaces (TUIs) are another common strategy for assisting children in learning basic computational concepts by providing children with physical objects to think with and allowing them to use their bodies. Other graphical user interfaces (GUI) have also been widening the walls by expanding the  types of outputs supported, to include visual outputs such as moving animations, blinking LEDs, or sound outputs \cite{lee}, to create multisensory effects\cite{multisensory,scratch}. Finally, many computational toolkits place a strong emphasis on haptic outputs, particularly through the use of robots that can move around in space in response to specific commands such as The Lego Mindstorms Kit \cite{lego-mindstorm}.
 
-Other activities such as game design and robotics have also been utilised as a means for the iterative exploration of CT. They are not only motivating and engaging school children but also introducing them to computer thinking. 
+To summarise, several of the tools used to teach young children are guided by the principle of 'low floor, high ceiling, and wide walls,' and they have proven to be extremely effective in introducing computational thinking skills. As my project is aimed at the same age group, I will design my system around the aforementioned principle, with the goal of creating a tangible programming interface with a low programming threshold that also allows for improvement and encourages diverse exploration and creativity for people of mixed visual abilities.
 
-To summarise, the aforementioned visual and tangible programming experiences are very useful in introducing computational thinking skills at a young age. These experiences cater for all programming levels and encourage creativity since several of the utilised tools are guided by the principle of 'low floor, high ceiling and wide walls'. The introduction to computational thinking is often followed by exposure to high-level programming languages such as Python and Java.
+\subsection{Computational Thinking in UK Schools}
+As I aim to create a system to support young children in learning computational thinking, it is important to gain an insight about the current computing curricula.
+The UK curriculum provides a concrete example of the adaptation of computational thinking learning in early childhood. When computing was added to the national curriculum in England in 2014, it became mandatory for primary school children to learn computational thinking skills starting at the age of five \cite{education-department}.
+The introduction of computational thinking to children at a young age has proven to be very beneficial, as it has established early confidence in technology, which can help encourage children to pursue Computer Science in higher education\cite{confidence}.
 
+In Key Stage 1, computational thinking skills are developed through the use of floor robots such as the BeeBot and the LOGO turtle. Learners are expected to figure out what each floor robot command does and then use that information to create an algorithm to move their robot around the mat. \cite{robot-KS1,education-department,curricula}. As a result, students are exposed to the early stages of program design using algorithms, which is a form of computational thinking. This is accomplished by learners outlining their task by identifying the robot's route's beginning and ending points. This outlining will ensure that learners have a clear understanding of what they want to accomplish with their program\cite{curricula}.
 
-\subsubsection{Computational Thinking in UK Schools}
-
-The UK curriculum provides a concrete example of the adaptation of computational thinking learning in early childhood. The introduction of computing into the national curriculum for England in 2014, brought with it the requirement for primary school children to be taught computational thinking skills from the age of five (Department for Education, 2014), 
-The introduction of computational thinking at a younger age has been very beneficial and it has proven to establish confidence in technology early on, which can assist in encouraging children to pursue Computer Science in higher education.
-
-In Key Stage 1, computational thinking skills are developed through the introduction of floor robots such as the BeeBot and the LOGO turtle. It is expected that learners will identify what each floor robot command does and use that knowledge to design an algorithm to move their robot around the mat. [https://teachcomputing.org/curriculum/key-stage-1/programming-a-moving-a-robot]. Students are thus introduced to the early stages of program design using algorithms which is considered a computational thinking concept. This is achieved by learners outlining what their task is by identifying the starting and finishing points of the robot's route. This outlining will ensure that learners clearly understand what they want their program to achieve. [ozobot 7].
-
-In Key Stage 2, students are introduced to visual languages such as Scratch to allow them to experiment with more complex programming concepts such as loops and conditional statements. (// rewrite Visual languages are primarily utilised at this age, as they allow students to code without requiring complex syntax or types to be learnt[7]. In addition to this, visual languages are best suited to their intellectual and cognitive development at this age[32][56]. The concepts taught through visual languages directly translate to text- based languages and provide a base set of skills that can be developed further.//
+Students in Key Stage 2 are introduced to visual programming languages like Scratch\cite{scratch}, which allow them to experiment with more complicated programming concepts like loops and conditional expressions. Visual languages are commonly used at this age because they allow pupils to code without having to learn complex syntax \cite{curricula}. Furthermore, visual languages are most adapted to their cognitive development at this age\cite{cognitive}. The concepts taught in visual languages are easily transferable to text-based languages, and they provide a foundation of skills that may be built upon.
 
 \section{Visual Programming Languages}
 
@@ -402,47 +400,47 @@ I will then discuss the limitations in these environments, particularly for stud
 
 \subsection{Types of Languages and Benefits}
 \subsubsection{Block-based languages}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/scratch.eps}
+    \caption{Block-based Programming Language Scratch ~\cite{scratch}}
+    \label{fig:Fig 1}
+\end{figure}
+Computer programming can be a way of teaching computational thinking and most research scenarios consider block-based programming languages with graphical outputs, such as Scratch\cite{scratch}, a direct and defined strategy to teach young children computational concepts\cite{blocks}. These platforms often introduce many programming activities that can be personalized and to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts.\cite{confidence}
 
-Computer programming can be a way of teaching computational thinking and
-most research scenarios consider block-based programming languages with graphical outputs, such as Scratch, a direct and defined strategy to teach young children computational concepts[8 filipa]. Block-based languages tend to lead to quicker engagement and early ‘quick steps forward’ These platforms often introduce many programming activities that can be personalized and modified to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts. [ in word document]
-
-
-[// to add if needed // Blocks programming languages [21] can allow beginners to construct programs without struggling with the syntax, making text-based programming more comfortable to learn in the future. These graphical programming languages have proven to be more engaging and understandable for new learners. There are learning barriers that block programming languages that attempt to minimize: selection, use, and coordination.
-When constructing a program with a blocks programming language, users can rely on recognition of the categories and shape of the block instead of recalling vocabulary. Block-based code reduces the cognitive load a new programmer has to learn by simplifying the syntax grouping computational patterns into blocks. Since blocks can only be assembled in a certain way or with other specific types of blocks, the code is less likely to be syntactically incorrect. These characteristics and designs simplify the discovery and exploration of building programs for new learners that can concentrate on the meaning of the code instead of the writing notation.]
 
 \subsubsection{Block and Icon based languages}
-Previous research has shown that children as young as four years old can understand basic computer programming concepts and build and program robotics projects, however, it is hard for them to understand blocks with written statements such as the blocks in Scratch. Thus, icons in block programming have been widely used to introduce computing concepts to younger demographics. Icons are easily recognised by children, as they relate to everyday activities and make the interface easier to understand.
-An example of such a platform is ScratchJr [26 filipa], the redesign of the Scratch platform for the developmental and learning needs of children from kindergarten to second grade. Children can put together blocks identified with icons to form instructions and have a graphical output, thus eliminating the need to read blocks while maintaining the user engaged.
+Previous research has shown that students as young as four years old can understand basic computer programming concepts and build and program robotics projects\cite{bers}. However, it is hard for illiterate children to understand blocks with written statements such as the blocks in Scratch. Thus, icons in block programming have been widely used to introduce computing concepts to younger demographics. Children can easily recognise icons because they relate to everyday activities and make the interface more understandable. 
+An example of such a platform is ScratchJr\cite{scratchjr}, the redesign of the Scratch platform for the developmental and learning needs of children from kindergarten to second grade. Children can put together blocks identified with icons to form instructions and have a graphical output, thus eliminating the need to read blocks while maintaining the user engaged.
 
 \subsubsection{Text-based languages}
 
-Text-based languages are less utilised to teach younger children to teach computational thinking as it requires the children to be familiar with the syntax. It is important to note that the UK primary computing curriculum is not about teaching children a specific programming language, rather than understanding the principals of programming and applying these to solve specific problems. Thus, unlike KS3, where the national curriculum states that students should use a text based programming language, this is not a requirement in primary schools, and generally block-based programming environments are used.
+Text-based languages are less utilised to teach younger children computational thinking as it requires the children to be familiar with the syntax. It is important to note that the UK primary computing curriculum is not about teaching children a specific programming language, rather than understanding the principals of programming and applying these to solve specific problems.\cite{curricula} Thus, unlike KS3, where the national curriculum states that students should use a text based programming language, this is not a requirement in primary schools, and generally block-based programming environments are used.
 
 \subsubsection{Impact on Future Education }
+Several studies have been carried out to investigate the transition from block-based and graphical languages used in primary schools to text-based languages later in education. Students who took Scratch programming classes in middle school were tested to see if they performed better in a high school text-based programming course\cite{phd}. Scratch students outperformed their peers in some areas, according to the researchers. For example, they had a much better grasp and understanding of computational concepts like looping. The authors also discovered qualitative differences between the two groups, with students who had previously used Scratch reporting higher levels of self efficacy and motivation to learn to code.
 
-A few studies have been conducted to look at the transition from block-based and graphical languages used in primary schools to text-based languages later on in education. One study looked at students who had taken Scratch programming classes in middle school and examined if they performed better in a high school, text-based programming course. The researchers were able to find some areas where the Scratch students outperformed their peers. The Scratch students specifically had a better grasp and understanding of computational concepts such as the concept of looping. Additionally, the authors found qualitative differences between the two groups, with students who had prior Scratch experience reporting high levels of self efficacy and motivation to learn how to code. [[https://www.proquest.com/docview/1826352865/fulltextPDF/865C532C9AE24508PQ/1?accountid=9730]]
-
-Another study demonstrated that a blended approach between block-based and text-based languages enables students to better understand the high-level programming concepts rather than focus on the low-level compilation errors. Students were more confident using the text-based environment after gaining familiarity with the block-based language. [ https://hal.inria.fr/hal-01625380/document]
+Another study\cite{study2-impact} demonstrated that a blended approach between block-based and text-based languages enables students to better understand the high-level programming concepts rather than focus on the low-level compilation errors. Students were more confident using the text-based environment after gaining familiarity with the block-based language. 
  
 \subsection{Limitations}
 
-Visual Programming Languages are inaccessible to and visually impaired and motorically challenged individuals [ https://dl.acm.org/doi/pdf/10.1145/2212776.2223757]]. Although they allow users to create programs by arranging graphical blocks logically, such visual languages are completely dependent on the use of a mouse and keyboard, which makes it impossible for students with a mobility impairment to use them independently. Visually impaired students may also find it hard to assemble programs due to the drag and drop nature of assembling code in most systems, specifically if they are unable to track the mouse on the screen.  Additionally, the majority of VPLs are incompatible with screen readers. Thus, visually impaired pupils have to rely on a sighted peer or teaching assistant to describe the programming blocks[46 ozobot]. This takes away a student’s independence when coding and isolates the student from their sighted peers in the case of mainstream schools.
+Visual Programming Languages (VPL) used in primary schools are inaccessible to visually impaired and motorically challenged individuals\cite{motorical}. Although they  allow users to easily create programs by arranging graphical blocks logically, visual languages are completely dependent on the use of a mouse and keyboard, which makes it impossible for students with a mobility impairment to use them independently. Due to the drag-and-drop nature of assembling code in most systems, visually impaired students may find it difficult to assemble program, especially if they are unable to track the mouse on the screen. Furthermore, the vast majority of VPLs are inaccessible to screen readers. As a result, visually impaired students must rely on a sighted peer or teaching assistant to explain programming blocks\cite{limitations}. In mainstream schools, this takes away a student's independence when coding and isolates them from their sighted peers.
 
 
 \section{Computing in Special Education}
-In this section, I define the scope of the project by describing how children with mixed visual abilities are taught in the UK.  I then discuss existing tools for computational learning and physical computing in special educational settings. 
+In this section, I define the scope of the project by describing how children with mixed visual abilities are taught in the UK. I then discuss existing tools for computational learning and physical computing in special educational settings, to comprehend the significance of inaccessible programming teaching methods.
 
 \subsection{Teaching Learners with Mixed Visual Abilities}
 
-In the UK, more than 2 million people are living with sight loss and approximately 25,660 of children up to the age of 16 have a vision impairement. The majority of blind and low vision children are taught in mainstream schools (RNIB, 2016). Learners are supported by qualified teachers of the visually impaired (QTVI) who help children adapt to the curriculum. There are also a very few specialist schools that work with blind and low vision students who have an additional or profound disability. This variety suggests that the mainstream national curriculum needs to work across a wide range of children abilities. 
-The mainstreaming of learners with disabilities was driven by a vision of social inclusion supported by inclusive teaching practices (UK Parliment, 1981). 
-In practice, adopting an inclusive approach in education requires the use of multisensory teaching technique, to ensure that all pupils can participate regardless of their abilities. However, the lack of resources and time on the part of teachers, paired with new non-accessible and non-inclusive technologies in schools, have made the implementation of mainstream education for disabled children full of challenges, impacting their academic and social participation (Gray, 2009). 
+In the UK, more than two million people are living with sight loss and approximately 25,660 of children up to the age of 16 have a vision impairment\cite{nhs,rnib}. The majority of blind and low vision children are taught in mainstream schools\cite{rnib}. The mainstreaming of learners with disabilities was driven by a vision of social inclusion supported by inclusive teaching practices\cite{parliment}. Learners are supported by qualified teachers of the visually impaired (QTVI) who help children adapt to the mainstream curriculum. There are also a very few specialist schools that work with blind and low vision students who have an additional or profound disability. This variety suggests that the mainstream national curriculum needs to work across a wide range of children abilities. 
 
-As a result, the focus has shifted to addressing the more urgent need of making in-class materials accessible and inclusive. This has been particularly challenging for STEM (Science, Technology, Engineering and Math) subjects (Moon, Todd, Morton, & Ivey, 2012). There have been several tried approaches to tackle this issue in STEM, for example, one suggestion has been to pair disabled and non-disabled students and divide the work by abilities. The sighted learner manipulates the programming environment such as Scratch, while a visually impaired child suggests ideas for an animation that he cannot experience. This method however leads to partial or even non- participation of the visually impaired pupils. Alternatively, teaching assistants (TA) are often asked to bridge the gap and make their own adaptations to create accessible computational tools. This approach often leads to focused interactions between TA and student and creates an assistance bubble that isolates disabled children from the rest of the class (Metatla & Cullen, 2018). Thus, there is a great disparity between the envisioned social inclusion in education and the reality of teaching computing. 
+In practise, an inclusive approach to education necessitates the use of multisensory teaching techniques to ensure that all students, regardless of their abilities, can participate. However, due to a lack of resources and time on the part of teachers, as well as new non-accessible and non-inclusive technologies in schools, implementing mainstream education for disabled children has proven to be difficult, limiting their academic and social participation.\cite{gray}. 
+
+As a result, the emphasis has shifted to making in-class materials accessible and inclusive for all students. This has been especially difficult in STEM subjects\cite{moon}, and there have been a number of tried solutions. One suggestion, for example, was to pair disabled and non-disabled students and divide the work according to abilities. A sighted learner manipulates a programming environment like Scratch, whereas a visually impaired child suggests ideas for an animation he will never see. However, this method only allows the visually impaired pupils to partially participate, if at all. Teaching assistants (TA) are also frequently asked to fill in the gaps and make their own modifications in order to create accessible computational tools. This method frequently results in focused interactions between the TA and the student, as well as the formation of an assistance bubble that isolates disabled students from the rest of the class\cite{metatla}. As a result, there is a significant gap between the idealised social inclusion in education and the reality of computing education.
 
 \subsection{Inclusive Computational Learning Tools}
 
-A range of tools have been developed to support computational learning by learners with mixed visual abilities and to bridge the gap in computing in special education. Most of these tools aim to make code structures apparent in order to make existing programming languages more accessible, e.g. (Baker, Milne, & Ladner, 2015), or interoperable with assistive technology such as screen readers or magnification software [ref], e.g. (Ludi, Ellis, & Jordan, 2014). In this section, I will consider both advantages and limitations of some accessible computational tools to influence my system’s design decisions. 
+A range of tools have been developed to support computational learning for learners with mixed visual abilities and to bridge the gap in computing in special education. Most of these tools aim to make code structures apparent in order to make existing programming languages more accessible or compatible with assistive technology such as screen readers or magnification software. In this section, I will consider both advantages and limitations of some accessible computational tools to influence my system’s design decisions. 
 
 
 \subsubsection{Screen Readers}
@@ -453,33 +451,23 @@ Users can utilise the keyboard or touch to change the focus of a screen reader t
 Quorum is an accessible evidence-based programming language. The main aim of Quorum is to simplify syntax to provide accessibility for visually impaired students. The simplified syntax helps students better understand code as it is read aloud using screen readers or displayed on a braille device. Quorum can be an effective tool for those who already know how to code, but is less suitable for novices. Like many other text-based languages, it can be challenging to teach to younger students to use Quorum because they have to be familiar with the language syntax and keywords.
 
 \subsubsection{JBrick}
-Ludi et al. [41] presented JBrick, a technology that simplified the browsing and entry of text commands and code compilation through visual and audio-feedback, which helps visually impaired teenagers program Lego robots. The system works with JAWS, the aforementioned screen reader for Windows, and ZoomText, a software for screen magnification. Thus, the JBrick environment requires students to be proficient with screen readers and is more suitable for older visually impaired students.
+JBrick[41] is a technology that simplified the browsing and entry of text commands and code compilation through visual and audio-feedback, which helps visually impaired teenagers program Lego robots. The system works with JAWS, the aforementioned screen reader for Windows, and ZoomText, a software for screen magnification. Thus, the JBrick environment requires students to be proficient with screen readers and is more suitable for older visually impaired students.
 
 \subsubsection{Javaspeak}
-Smith et al. [61] introduced JavaSpeak, an editor providing additional information about the structure and semantics of written Java code, to assist computer science majors with VI to learn how to program in Java. Similarly to JBrick, Javaspeak  relies on screen readers to read the code structure. This system is designed for university students and is not suitable for younger children who have limited knowledge with semantics and are not fully proficient in using a screen-reader and keyboard.
+JavaSpeak[61] is an editor providing additional information about the structure and semantics of written Java code, to assist computer science majors with VI to learn how to program in Java. Similarly to JBrick, Javaspeak  relies on screen readers to read the code structure. This system is designed for university students and is not suitable for younger children who have limited knowledge with semantics and are not fully proficient in using a screen-reader and keyboard.
 
 \subsubsection{Blocks4All}
-
-Blocks4All is an accessible block-based programming environment[45][44].The application was developed for a touchscreen Apple iPad due to the built-in screen reader VoiceOver and zoom capabilities. It features puzzle shaped blocks that fit together by the shape of the design and by the audio feedback from the app. The system is an audio-based drag and drop system, so the user receives audio feedback describing the blocks locations to help move them. The Blocks4All environment is used to control a Dash robot as an tangible output for visually impaired children. This allows students to feel and hear the output of thee programmed commands through the movement or sounds made by the Dash robot. As Blocks4All heavily relies on audio representation using VoiceOver, the system may not be suitable for children who are deaf. In addition to this, most visually impaired students prefer spatial representation to audio representation since they use a spatial mental model to remember information. [ref https://dl.acm.org/doi/pdf/10.1145/3173574.3173643]
+Blocks4All is an accessible block-based programming environment\cite{blocksforall}.The application was developed for a touchscreen Apple iPad due to the built-in screen reader VoiceOver and zoom capabilities. It features puzzle shaped blocks that fit together by the shape of the design and by the audio feedback from the app. The system is an audio-based drag and drop system, so the user receives audio feedback describing the blocks locations to help move them. The Blocks4All environment is used to control a Dash robot as an tangible output for visually impaired children. This allows students to feel and hear the output of thee programmed commands through the movement or sounds made by the Dash robot. As Blocks4All heavily relies on audio representation using VoiceOver, the system may not be suitable for children who are deaf. In addition to this, most visually impaired students prefer spatial representation to audio representation since they use a spatial mental model to remember information.
 
 \subsubsection{StoryBlocks}
-StoryBlocks [13,15] is a tangible programming toolkit that was designed for VI users to create audio stories. The system is composed of blocks that represent story components such as characters and actions. The system captures the blocks with a camera when they are put together on the workspace and outputs a translated audio story. The blocks are all identifiable by icons with distinct shapes and colors. The shape of each block indicates how it can be connected to other blocks and is marked with a distinctive dot pattern to be recognized by the program running on the mobile device. StoryBlocks was designed as a combination of tangible programming blocks and audio output, which is a compelling way to teach basic computational concept, particularly for visually impaired individuals.
+StoryBlocks is a tangible programming toolkit that was designed for VI users to create audio stories. The system is composed of blocks that represent story components such as characters and actions. The system captures the blocks with a camera when they are put together on the workspace and outputs a translated audio story. The blocks are all identifiable by icons with distinct shapes and colors. The shape of each block indicates how it can be connected to other blocks and is marked with a distinctive dot pattern to be recognized by the program running on the mobile device. StoryBlocks was designed as a combination of tangible programming blocks and audio output, which is a compelling way to teach basic computational concept, particularly for visually impaired individuals.
 
 \subsubsection{Torino}
-Torino [16] is a physical programming language to teach computational thinking to children between 7 and 11 years old with mixed visual abilities. It is one of the first systems made to teach basic programming to primary school students. The system is composed of plastic pods acting as instruction beads that can be physically connected and manipulated to generate sound as output. There are three types of beads: play, pause, and loop, and they each translate to a line of code in the program. Each bead further has buttons to control the repetition of the sound to be played, or to increase or decrease the length of pause and play executions, introducing the concept of variables. There is also a Code Jumper hub unit which allows the user to press play and pause on execution and read aloud the code. Students can connect pods to each other and to the hub by the use of jumper cords, creating programs with sound output. The Code Jumper app can connect to the hub unit to view the code visual format and it is also made accessible for screen readers and magnification software.  
+Torino is a physical programming language to teach computational thinking to children between 7 and 11 years old with mixed visual abilities. It is one of the first systems made to teach basic programming to primary school students. The system is composed of plastic pods acting as instruction beads that can be physically connected and manipulated to generate sound as output. There are three types of beads: play, pause, and loop, and they each translate to a line of code in the program. Each bead further has buttons to control the repetition of the sound to be played, or to increase or decrease the length of pause and play executions, introducing the concept of variables. There is also a Code Jumper hub unit which allows the user to press play and pause on execution and read aloud the code. Students can connect pods to each other and to the hub by the use of jumper cords, creating programs with sound output. The Code Jumper app can connect to the hub unit to view the code visual format and it is also made accessible for screen readers and magnification software.  
 
 The exploration of the beads is  critical for VI children to understand their functionalities. Thus, to facilitate their identification, each pod is distinct in size and shape, and is colored using high contrasting colors. In the end, the creators of Code Jumper were able to infer that touch, audio feedback, and visual representation are essential in the design of inclusive tools for VI children.
 However, this system is unpractical for classroom use. It is composed of costly custom electronic components, and may not be within the budget of many schools. Broken equipment will also be hard and expensive to replace or repair. Since it relies on audio output, Code Jumper is also unsuitable for children who are deaf or hard of hearing as they may be unable to understand the output of the system. [ ref https://dl.acm.org/doi/pdf/10.1145/3064663.3064689]
 
-\subsubsection{}
-
-
-\section{Ozobot}
-
-\noindent
-This chapter is intended to describe the background on which execution of the project depends. This may be a technical or a contextual background, or both. The goal is to provide a detailed explanation of the specific problem at hand, and existing work that is relevant (e.g., an existing algorithm that you use, alternative solutions proposed, supporting technologies).  
-
-Per the same advice in the handbook, note there is a subtly difference from this and a full-blown literature review (or survey).  The latter might try to capture and organise (e.g., categorise somehow) \emph{all} related work, potentially offering meta-analysis, whereas here the goal is simple to ensure the dissertation is self-contained.  Put another way, after reading this chapter a non-expert reader should have obtained enough background to understand what \emph{you} have done (by reading subsequent sections), then accurately assess your work against existing relevant related work.  You might view an additional goal as giving the reader confidence that you are able to absorb, understand and clearly communicate highly technical material and to situate your work within existing literature.
 
 
 % -----------------------------------------------------------------------------
@@ -501,19 +489,39 @@ Osmo is a mobile application that utilises a mirror attached to the Apple iPad t
 Cubetto is a tangible programming language designed for students in preschool[11]. The Cubetto [31] tool consists of a robot, a programming tray with slots, and four categories of blocks: forward, right, left, and function. Children produce programs by inserting the action blocks in the programming tray. The resulting programs aim to get the Cubetto robot to traverse the map mat to the desired location. The whole system is only composed of physical parts, with no need for screens and it provides both tactile input and output, which would be suitable for students with visual impairment. However, the blocks are not non-visually distinguishable, and the map itself is purely visual. Without collaborating with a sighted assistant, the system is unsuitable for use with VI individuals. In addition to this, the Cubetto may be too expensive for a classroom budget to replace if components are broken.  
 
 \subsubsection{KIBO}
-KIBO [32 filipa] is a screen-free robotic kit that involves hardware parts to assemble and tangible blocks to program the robot. The tangibles are wooden blocks with drawings and text on top of them to identify their function. After constructing the code sequence, children can scan the barcode on the block with the robot. The robot then follows the instructions coded.  
+KIBO [32 f] is a screen-free robotic kit that involves hardware parts to assemble and tangible blocks to program the robot. The tangibles are wooden blocks with drawings and text on top of them to identify their function. After constructing the code sequence, children can scan the barcode on the block with the robot. The robot then follows the instructions coded.  
 
 \subsubsection{Algobrix}
-Algobrix is a screen-free toolkit that is composed of a robot and tangible blocks. The blocks are distinct in shape and color and have embossing which makes them tactically recognisable for visually impaired students. It is used to teach different computational concepts such as loops, algorithmic thinking and multithreading. 
+Algobrix is a screen-free toolkit that is composed of a robot and tangible blocks. The blocks are distinct in shape and color and have embossing which makes them haptically recognisable for visually impaired students. It is used to teach different computational concepts such as loops, algorithmic thinking and multithreading. 
 
 \subsubsection{Matatalab}
 Matatalab Coding Set is a hands-on computational toolkit that includes a robot, tangible blocks, and a mat. The children program the robot by putting together a set of blocks on the workspace. The system then scans the blocks and sends the program using Bluetooth to the robot. Matatalab is used in some classrooms in other countries and it has proven to teach fundamental coding skills and develop necessary cognitive abilities through educational coding games from a young age without the need for screen and literacy. 
 
-The following table shows a comparison of these different TUI and their features.
+
+Table \ref{tab-tui} shows a comparison of these different TUI and their features.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Tools       & Embossing     &Concept                                &Output &Price(£)     \\ \hline
+\textbf{Osmo}       & \text{NO}   & \text{sequence, loops,debugging }  & Character in game & +99 \\ \hline
+\textbf{Cubetto}    & \text{YES}  & \text{debugging, recursions and functions} &Robot on Map &+150 \\ \hline
+\textbf{Matatalab}  & \text{NO}   & \text{sequence, loops, functions} &Robot, Audio, Drawing &+113.99 \\ \hline
+\textbf{KIBO}       & \text{NO}   & \text{algorithms, loops, conditional}    &Robot &+178.21 \\ \hline
+\textbf{Algobrix}   & \text{YES}  & \text{functions,loops, conditional, algorithms}  &Robot &+129.99 \\ \hline
+
+\hline
+\end{tabular}
+\caption{Examples of TUI and their features.}
+\label{tab-tui}
+\end{table}
+
+
 
 
 \subsection{Limitations}
-When examining the examples of currently publicly available TUI on table (num), it can be concluded that most tactile tools have their limitations. None of the presented tools possess features that could make it an accessible, tangible programming tool for the visually impaired. This is partly due to the fact that most of the tools do not possess tactically distinguishable blocks. The blocks do not have embossing or characteristics that the children can recognise, except for Cubetto and Algobrix. 
+When examining the examples of currently publicly available TUI on table (num), it can be concluded that most tactile tools have their limitations. None of the presented tools possess features that could make it an accessible, tangible programming tool for the visually impaired. This is partly due to the fact that most of the tools do not possess tactually distinguishable blocks. The blocks do not have embossing or characteristics that the children can recognise, except for Cubetto and Algobrix. 
 
 Additionally, most of the tools do not teach all the necessary computational concepts, as they do not support more complex programming concepts. Thus, most of the TUIs are used for introductory programming and the complexity of programming ranges in the beginner stages, not allowing more experienced children to evolve and break that barrier, which does not support the 'low floor, high ceiling' concept. 
 
@@ -524,21 +532,225 @@ Finally, the explored tangible tools are all very expensive which potentially ma
 After examining different TUIs, it can be concluded that the most popular output of the programming action is the behavior of a robot. In this section, I will explain the motivation behind using a robot in a TUI to teach computing and give context on the robot I will be using in my system, the Ozobot.
 
 \subsection{Benefits}
-- sense of control, spatial output, with feedback.
 
-There are research scenarios exploring children robot interaction in different areas. For example, Papert, who is famous for the development of the Logo programming environment for children, observed that young children have a deep and implicit spatial knowledge based on their own personal sensorimotor experience of moving through a three- dimensional world. He argued that by allowing children to manipulate another body such as a robot, they might gradually develop increasingly more explicit representations of control structures for achieving effects such as creating graphical representations on a screen. [https://www.nfer.ac.uk/publications/FUTL69/FUTL69.pdf] This also applies to the interaction between visually impaired people and robots. 
-// rewrite Researchers are exploring how blind people perceive robots and how these devices fit in their expectations and fears regarding the increase of dependency in them [23]. The researchers could infer from the answers that the participants preferred to feel in control. If they were to be in contact with a robot, they preferred that it responded to commands and questions. While interacting with a robot, it was helpful to the users that it made a sound, allowing them to identify what was its position and state. // 
+\subsubsection{Sense of control}
+There are several research scenarios exploring children robot interaction in different areas. For example, Papert, who is famous for the development of the Logo programming environment for children, observed that young children have a deep spatial knowledge based on their own personal sensorimotor experience of moving through a three-dimensional world. He argued that by allowing children to manipulate another body such as a robot, they might gradually develop increasingly more explicit representations of control structures such as creating graphical representations on a screen. [https://www.nfer.ac.uk/publications/FUTL69/FUTL69.pdf] 
+\subsubsection{Spatial and audio feedback}
+Researchers have explored how blind people perceive robots and examined how these devices fit in their expectations and fears regarding the increase of dependency in them [23]. The research concluded that the VI participants preferred to feel in control. Being in contact with a robot, that responds to their commands, gave them that sense of control. It was also helpful to the users to have a spatial output of their commands i.e moving robot, and while interacting with a robot, it was helpful to the users to receive audio feedback from the robot, allowing them to identify what was its position and state. 
 
+\subsubsection{Collaborative Learning}
+Robots actively promote working together collaboratively[8] and have been shown to engage students with a visual impairment[37]. Collaborative learning is more engaging for VI students than assisted learning, which often isolates them from the rest of the class[46][43][42]. Additionally, tools used to teach students with VI are not designed to be used by their sighted peers, therefore they do not support a collaborative learning environment, resulting in the student with VI having to work alone within the classroom environment[42].
+\newline
+To sum up, using robots as output for a computational toolkit is a popular way of keeping children engaged and motivated in learning how to code. The sense of control coupled with the spatial and audio feedback that robots provide, makes them a great accessible programming tool for VI users as well. For this reason, I have chosen to utilise a robot as the output for my TUI to cater to mixed visual abilities, and in this case, I will be using the Ozobot.
+
+.
 \subsection{Ozobot}
-
+In this section, I will justify my choice of robot for this project. The Ozobot is a robot commonly used in classrooms to teach computational thinking to young students over 5 years old. The Ozobot features flashing lights and sounds and can be programmed in two different ways, using markers or the OzoBlockly. 
+With markers, users can trace out a route for the robot to follow using a black pen. Different coloured markers are then used to create colour codes that the robot interprets as a sign to perform particular actions such as turn left, speed up, slow down and spin. This method is inaccessible to students with a visual impairment as they may not be able to utilise the colour codes to program the Ozobot. The second method is using the block-based visual language known as OzoBlocky. The user fits blocks of code together in a particular order and the programming environment creates a flashing light sequence which is then shown to the RGB sensors on the base of the robot to program it. This method is also partially inaccessible to visually impaired users due to OzoBlockly being incompatible with a screen reader. I have chosen to utilise this method in my system and make it accessible, as it explicitly teaches basic computational concepts and programming skills and can easily be made accessible by creating physical versions of the blocks. It is also tool that can be used by students with mixed visual abilities which will provide a collaborative learning experience.
 
 
 \section{Discussion} 
-have a list of requirements from everything discussed.
-have a table of all discussed systems 
+In this section, I will conclude the useful features and strategies gathered from the described works regarding programming languages and toolkits for children. 
+
+Block-based languages such as Scratch are very popular in teaching children how to code as they are proven to capture their interest and keep them engaged. Using BBL, children can learn computational concepts with ease, as they avoid syntax errors, and interact with a simple interface that creates clean and easy to understand code. Furthermore, the use of icons instead of text on BBLs makes them accessible to illiterate children as well. 
+TUIs, on the other hand, are appealing to young children because they allow them to experiment with different outcomes and discover new solutions by tinkering with blocks. 
+Hands-on experience is also necessary for visually impaired learners to understand what they are coding and to develop abstract thinking, which is why a tangible system is ideal to aid their learning. Thus, for these reasons and as evidenced by the discussed works and systems, I have chosen to build a tangible system with blocks and a robot executing spatial tasks. I believe it will be a compelling way to teach VI children with mixed visual abilities computational thinking.
+
+The following table (3.1) displays a summary of the presented works in this chapter and chapter 1, from visual languages to TUIs.
+I have highlighted the relevant features of programming environments for them to be accessible to young children with mixed visual abilities. 
+Examining the table (3.1), there are two works with the characteristics I plan to implement in my system , however, in the case of Cubetto [31] and KIBO [32], the tangible blocks are not non-visually distinguishable, creating an accessibility barrier. StoryBlocks is also a very close representation of my target system, with a different output. My system will build on these systems and create a computational toolkit that is accessible for mixed visual abilities. 
+
+(table)
+
+
+% -----------------------------------------------------------------------------
+\chapter{System Design}
+\section{Initial Design Concept}
+I created my system with the aim to be an accessible platform to program the Ozobot, that children with mixed visual abilities could use with their teachers in classrooms or with friends, to learn basic concepts of programming. This aim meant that I followed an iterative design process and set some initial design decisions before I engaged in the co-design process with experts. My initial design was based off the advantages I identified in publicly available TUI and other works that I discussed in previous sections.
+My first decision was to utilize passive blocks to reduce the cost and simplify the manufacturing process, while enabling more flexibility in shapes and sizes, inspired by prior work [13](some system).  Active programming blocks such as Torino pods may be advantageous for interactivity, but they are difficult to manufacture, bulkier, more expensive and less robust than passive blocks. [41, 52].  Each block represents one component, including actions, loops, and variables. Each block features a tactile symbol which is a 3D icon on top of the blocks for the students to recognise the action that each block depicts. The 3D icons  ensure that my system is accessible to mixed visual abilities, similarly to StoryBlocks.[https://dl.acm.org/doi/fullHtml/10.1145/3290605.3300722#bib9]
+My second design decision was to use a camera and a series of fiducial markers for block recognition, due to the fact that camera-based systems for marker recognition are inexpensive, robust and easy to implement on mobile, online and desktop applications [14, 27].
+To manufacture my initial prototype, I have experimented with different materials. I had considered utilizing acrylic, as it comes in different colors and that would be helpful for children with low vision to distinguish between different blocks. However, acrylic material proved to be heavier and less robust than other alternatives. Additionally, I experimented with laser cutting and making blocks out of MDF and plywood. Plywood was the better option, it is less heavy than MDF and less susceptible to damage. 
+
+Thus, I created an initial prototype with blocks made from 6mm thick plywood and are 10cm wide and 5cm high. I chose the material and size with the aim of having light but robust blocks, with a size that would be easy for children to move around and explore with.
+
+
+\section{System Design with a QTVI}
+To inform the design of my system, I interviewed a qualified teacher of the visually impaired who had extensive experience in teaching and mentoring visually impaired children. The participant was involved in the design process for their knowledge of the difficulties that VI children face with programming, especially in light of their outreach and mentoring experiences. The interview was semi-structured, and the participant gave feedback on my initial design prototype and explored other mechanisms for interaction, in order to identify the ideal design features for the tangible blocks. The interviewee also defined design requirements for the workspace of the system and suitable activities for trial sessions with children. 
+The interview were audio recorded and fully transcribed using Thematic analysis[ref] to extract design recommendations for the system. Here, I will summarize the main themes and insights I have gained from this initial session.
+
+\subsection{Tactile Features}
+The QTVI examined my initial prototype and identified features to improve on.
+\subsubsection{Block Shape and Size}
+Firstly, the participant agreed that the blocks should be small and confirmed that the prototype was a good size. The fact that the blocks are small and light makes it easy for  children with mixed visual abilities to use them and may help them develop their fine motor skills. They mentioned that the  matching concave and convex shapes in my prototype to make the blocks fit together might be confusing for children who are visually impaired, and that it would be best to utilise a rectangular shape, as they are more accustomed to basic shapes and could recognise it immediately by tact. Additionally, the participant was attracted to the idea of incorporating magnets in blocks for them to click together, they explained how VI children tend to move objects around a lot to explore it haptically, hence a mechanism to keep blocks together would be very useful.
+
+\subsubsection{Symbols}
+The participant concurred that the best way to convey the meaning of the blocks to the children is by using icons. They should be easily-recognizable and need to be embossed or in 3D and with minimalist design. The symbols should also put on top of the blocks as this would make the blocks more intuitive and easier for VI children to touch and recognise symbols.
+I presented different icons to associate with different actions, such as arrows for directions and circles for a start block. The QTVI agreed that simple icons such as shapes are easily recognisable for VI students, and that too much information is distracting. The use of arrows and circles is ideal, as long as the arrows are acute enough to show that direction they are pointing and the lines on the icon are 6mm apart to allow VI students to distinguish them tactually. Additionally, they mentioned that visually impaired children can recognise patterns tactually, so it would be useful to use similar shapes if they mean similar types of actions. For example, using different types of arrows for directions, or using a circle for the start block to start the program and a circle with a line going through it for the end block to end the program. It would not only make the system easier to use but would also teach the children the computational concept of pattern recognition.
+\subsubsection{Function Blocks with variables}
+Another important design decision was to identify a suitable way to enable children to combine instruction blocks for the robot, such as Go forward, Go backwards and loops, with variable blocks indicating different numbers of steps or loop iterations. I presented my interviewee with various ways to combine these blocks using magnets, matching concave and convex shapes or shapes that could slot into each others. They preferred variable blocks slotting inside the instruction block, for several reasons. Firstly, this method suggests a better conceptual representation of the relationship where the variable modifies the execution of the Move forward/backward or repeat functions. Secondly, it provides immediate tactile distinction between the smaller variable blocks and larger hollow function blocks. Finally, having blocks slot into each other would prevent them from accidentally separating, making it easier to manipulate the code sequence.
+\subsubsection{Loop Blocks}
+Next, I had to decide how to present functionality, such as loops, that could be expanded to contain other blocks.  Block-based languages such as Scratch usually represent loops by a larger block that stretches to contain instructions nested inside
+[24].
+The QTVI suggested that loops have a start and an end loop block. Similarly to the circle icons for start and end program blocks, it was suggested for the end-loop blocks to be similar to the start-loop blocks to facilitate the conceptual link between the two blocks without causing confusion.
+\subsubsection{Variable Blocks}
+To represent the value of variables, I explored different tactile features including dots, lines or using Braille.
+The participant preferred dots over other alternatives to invite counting as many VI young children are not proficient in braille. Additionally, it would be hard for the VI user to count lines if they are not placed 6mm apart. For my design to be as small as possible, dots are the best approach, although the participant recommended they be placed 6mm apart to allow for tactile recognition and to avoid configurations that resembled braille cells, which could be confusing for some children. The interviewee expressed that embossed features were also generally found easier to read compared to engraved ones, especially when counting the number of dots in a variable.
+\subsubsection{Block Color}
+As my system is aimed at children with mixed visual abilities, the participant suggested that I incorporate design features to support both tactile and visual learners. Specifically, it was decided that blocks should have a good color contrast with the symbols, by having the icons painted black and the rest of the block in its neutral color. Having tactile features on the blocks painted with high contrast makes them easy to recognize visually for children who have partial or full sight.
+
+\subsection{Designing the Workspace}
+Once the features of the blocks had been defined, it was important to discuss characteristics of the workspace. It was essential to have a defined workspace in my system to indicate to students where they should construct sequences of code. This is particularly useful for visually impaired users who would tactually identify an outlined workspace to create a mental map of the environment, as it supports them when placing the blocks and performing debugging operations. As the system utilises a webcam to scan the blocks, the webcam would also be a part of the workspace and would be placed above it to have a full view. The participant suggested utilising rectangular trays, which are often used in tactile exploration sessions with VI children in schools. They also suggested outlining the workspace with Legos giving the children tactile cues to help identify where they should construct the sequence of blocks.
+Finally, to prevent the blocks from moving around on the workspace, the participant suggested to use Dycem, which is a non slip grip Material, that prevents objects placed on top of it from shifting. This would ensure that the code sequence on the workspace is intact and ready to be scanned by the webcam.
+
+\subsection{Collaborative Learning}
+My system aims to be a TUI inclusive of children with different visual abilities, rather than being specifically designed for fully blind children. To promote collaborative learning between mixed visual abilities, I aimed to make my system accessible to all in a number of different ways. My expert participant recommended using high contrast to highlight the presence of dots and icons, to make the system more accessible to partially sighted children. They also agreed that including Braille could create confusion for sighted children, or the many VI children who were not braille literate and could isolate them from others rather than promote inclusion. Thus, no braille description was added to my blocks.
+The symbols I initially chose for my system are symbols commonly found on devices or encountered in every day life, my participant confirmed that it would be easy for students to recognize the symbols, once they were explained their meaning. Furthermore, the idea of using symbols commonly associated with the indicated actions, such as arrows for directions, was received positively as it would build on the affordances of the teachers, and sighted or partially sighted children, facilitating inclusion and shared play.
+
+\subsection{Activities and Goals}
+The final part of the interview was spent discussing activities for the testing session and future improvements for my system. For the initial design iteration, the aim of my system is to introduce three basic computational concepts: sequences, loops and data, and support the computational practices of being iterative and incremental; and testing and debugging. I left out more complex computational concepts such as conditionals and operators from my design as they could increase the complexity of the system. 
+Once the participant was familiar with the working of my system, they suggested activities to test the TUI with mixed visual abilities. They explained that VI children learn about routes in schools and have a good understanding of spatial navigation. Thus activities that involves paths or routes for the robot to follow are ideal. Sound output is also important for the children to monitor their success. Hence, I proposed including external elements, such as towers of wooden blocks that are knocked down as the robot completed different segments of the path, allowing visually impaired children to monitor the robot's location.
+
+\section{Final Design Requirements}
+In this section, I will summarise the final design requirements for my system. The final design incorporates the insights provided by the co-design process with the QTVI and the findings gathered from relevant literature. These  requirements provide the basis for my final system implementation, that will be detailed in chapter 6.
+
+The final design requirements can be summarised in Table \ref{tab-blocks} for the blocks and Table \ref{tab-workspace} for the workspace.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\bf Design Components       &\bf Design Requirements        \\ \hline
+\text{Geometry}       & \text{Rectangular shaped blocks, small size}  \\  \hline
+\text{Material}    & \text{Light and Robust material, e.g. plywood}  \\ \hline
+\text{Icons}  & \text{Simple 3D icons  embossed on top of blocks with 6mm gaps between outlines}    \\ \hline
+\text{Instruction blocks} & \text{Blocks with embossed icons and fiducial marker on top} \\ \hline
+\text{Function blocks} & \text{Loops, move forward/backwards blocks. Include slotting for variable input} \\ \hline
+\text{Variable blocks} & \text{Smaller sized blocks that are slotted into function blocks, with embossed dots for counting.} \\ \hline
+Combining Blocks &Clip blocks together using magnets to prevent them from seperating \\ \hline
+
+\text{Color}       & \text{High color contrast between symbols and blocks.}   \\ \hline
+
+
+\hline
+\end{tabular}
+\caption{Final Design Requirements for Blocks.}
+\label{tab-blocks}
+\end{table}
+   
+
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Design Components}       & \textbf{Design Requirements}    \\ \hline
+Bounds     & Workspace bounded with a rectangular tray or Legos  \\ \hline
+Surface    &Include a non-slip material on the surface to prevent blocks from slipping \\ \hline
+Webcam   & Webcam propped with a tripod high enough to view the workspace \\ \hline
+Size    & Big enough to fit a maximum of 10 blocks, approx. 50x50 cm \\ \hline
+Map  & Map with a route for Ozobot to follow, includes audio feedback.    \\ \hline
+
+\hline
+\end{tabular}
+\caption{Final Design Requirements for Workspace.}
+\label{tab-workspace}
+\end{table}
 
 
 
+\section{System Design User Study}
+After setting final design requirements, I set out to create more prototypes of my blocks, to test the different design requirements with users, as the next step step in my iterative design process, before a final implementation. 
+The user study aims to answer questions that were left unanswered after the interview with the QTVI, due to multiple viable design decisions.
+To ensure I am implementing the best design, the different designs are presented to participants and tested, to gather feedback.  I performed interviews with seven adults with the main questions answered described below. Each study was either audio recorded and transcripts were generated for use when conducting thematic analysis.
+
+\begin{enumerate}
+    \item What action do you associate with the presented symbols?
+    \item How would you combine instruction blocks with variable blocks?
+    \item How would you put blocks together?
+    \item How would you define the bounds of a workspace using tactile methods?
+    \item How would you prefer to position blocks on the workspace?
+    
+\end{enumerate}
+\subsection{Participants}
+
+Seven participants partook in my study, I performed the user study in person in a group setting. I chose to conduct the study in a group scenario to create a dynamic conversation and allow other members to express their opinions on the design and counter or approve each other opinions. The study also aimed to choose the best features for the system, thus a group discussion would yield a final design decision defined by the majority's opinion.  All participants fit the participation criteria, which required the person to be over 18, have limited experience coding robots and be or are a student. No participants had any disability or impairment.
+All participants were recruited by online communications. Each participant was given a Participant Information Sheet before the study that detailed the interview process and what was required if they chose to take part. If the participant consented to proceed with the study, a consent form was communicated via email and signed digitally by the participant. 
+
+4.2.2 During the Interview
+
+The first few minutes of the interview were dedicated to ensuring the participant understood the study and had enough time to ask questions. The participant was described the system that is being developed, the context in which the system will be used and the demographic of the end-user. The use of the outcome of this study was then explained to the participant. The participant was made aware that they could withdraw from the study at any time and verbal consent to proceed was obtained. 
+The first section of the interview involved gaining information about the participant’s age, experience coding and experience with robotics.
+The second section of the interview involved answering questions 1-7 as displayed above in section
+4. The user verbally described and gestured the concept or, if they had access to writing or modelling materials, they would use these to produce a concept drawing or model. For participants in a group, the discussion between members is encouraged. In the group environment, participants created their shapes and then worked together to decide on the preferred symbol to portray the action specified.
+In the third section of the interview, how to represent the orientation of the blocks was discussed. This section began with a discussion about how important obtaining the correct orientation of the blocks is for the user and why this needs to be conveyed within the design.
+In the fourth section of the interview, how to depict numerical values was discussed. As some com- mands can be performed for a specified distance or number of repetitions, this value needs to be conveyed in a tactile way within the design of the block.
+In the fifth section of the interview, the importance of bounding the workspace was discussed. When the webcam option is selected, the user is only able to capture a particular region of the table. The border of the captured region needs to be accurately conveyed using tangible methods to the user. A discussion of how this can be displayed occurred during this segment of the interview.
+In the final section of the interview, I debrief the participant and ask if they have any further questions
+
+\subsection{Study Results}
+In this section, I will discuss the different 
+
+
+\subsubsection{Question: What action do you associate with the presented symbols?}
+The participants were presented with different symbols that I have laser cut into wood, these symbols were designed to convey the meaning to each of the blocks. This question aims to see if the participants can guess the associated action. If they cannot, the answer was given to them and feedback about potential improvements on the design were gathered. 
+
+picture of all symbols 
+
+so arrows for forward/backward.
+repetition for loop
+arrows to turn left/right
+u turn arrows
+start/ end blocks
+variable blocks.
+
+Figure shows a;; the symbols presented to the participants. 
+
+\subsubsection{Go Forward and Go backwards}
+All participants associated the symbols in figure 1 and 2 with the go forward and go backwards actions, respectively. //One participant in particular discussed the inclusion of alternative information using printed words to offer aid for teaching assistants but decided upon the importance of universal actions instead. The responses to this question suggests that the orientation of the icon relative to the participant presents the user with important information.//
+
+\subsubsection{Turn Left and Turn Right}
+The participants successfully guessed the action depicted by the symbols. They discussed that the 90 degrees angle and the arrow pointing in different directions after a straight line, conveys a clear turning action. 
+
+\subsubsection{U-Turn Left and Right}
+The seven participants guessed the action correctly, commenting that the curved arrow was similar to that of the u-turn traffic sign and thus easy to recognise. One participant discussed the possibility of combining two left turns or two right turns arrows to depict a u-turn, as shown in his drawing on figure(). However the group protested that it might be confusing for visually impaired children, to have two arrows that close to each other.
+
+\subsubsection{Start Blocks}
+In this case, participants took longer to answer than with other blocks. One participant deduced that the circle resembles the shape of the go sign used in traffic and concluded that it could be a go or start sign. Four of other participants agreed but two participants remained unsure.  I confirmed that the symbol does in fact relate to the start action. One participant felt that other alternatives should be explored, such as using a triangle, like the play button to convey the 'start' meaning. However, it was decided that this required too much explanation and the use of a triangle may be confused with the arrows.
+
+\subsubsection{End Block}
+After examining the start symbol, it was much easier for participants to guess the meaning behind the stop symbol. All participants understood the meaning of the symbol correctly. One participant mentioned using a cross symbol instead due to the fact that the children may be unable to understand the icon if they are unaware of road signs. However, four participants mentioned that a cross may be confused with other meanings, such as cancel, or may be mistaken for the arrows used for both go forward or go backwards. One participant expressed that the teacher could explain the concept of road signs to the child before beginning the task, allowing them to understand this symbol and previous ones. All participants agreed to use the presented symbol, a circle with a line through the centre, as it was the most ”universally understood” symbol. 
+
+All participants mentioned that they related the start symbol to the stop symbol. With the line going through the circle, it was easy to match the pattern to the start symbol and deduce the stop action. From the responses to this question, I concluded that the symbols relate like I planned to and it was easier to recognise them after recognising the pattern i.e. the circle. 
+
+\subsubsection{Loop Block}
+
+
+\subsubsection{Variable Block}
+
+
+
+\subsubsection{Question: How would you combine function blocks with variable blocks?}
+For this part of the study, participants were presented with two different prototypes that satisfy the design requirements for function blocks. The design process with the QTVI specified that the function blocks (i.e. Go Forward/Backwards, loops) should have slots for variable blocks to be fit in, to specify the number of steps or repetitions. The following prototypes were made to satisfy that design decision.
+
+
+Prototype (a) represents a function block with a hollow shape to fit the variable blocks. Prototype (B) represents a function block that has been engraved in the area where variable blocks will be placed. 
+The participants experimented with utilising both blocks and picked up variable blocks to fit in them. 
+The general feedback was that prototype (B) was preferred to prototype (A) for the following reason. Firstly, participants mentioned that with block (A), it was hard to fit the blocks in, and once they were in it was tricky to lift the blocks out, with some participants having to push the variable block from the bottom to pop it out of its position. However, with block (b), it was engraved deep enough to put the variable block on top of it without it moving around and it was easy to take the smaller block out, as it was not fully inserted in the function block. Secondly, one participant commented that the hollowness in the first block might be confusing to visually impaired people as there is nothing to explore tactually in that area. Whereas, block (B) has a surface with a different texture, that visually impaired students can recognise by tact. In fact, the participant's comment matches the QTVI's saying that VI individuals are often taught to distinguish between objects by putting different textures on seperate objects. The difference in texture would inform the VI child that that section of the block is different than the rest, and they can identify it as the variable block location.
+For those two reasons, I have decided to use prototype (B) in my final implementation.
+
+\subsubsection{Question: How would you put blocks together?}
+magnets or no
+
+
+
+
+\subsubsection{Question: How would you define the bounds of a workspace using tactile methods?}
+
+\subsubsection{5. How would you prefer to position blocks on the workspace?}
+
+
+
+struggled to understand some, block recognition to allow for system use without prior knowledge about certain signs
 
 % -----------------------------------------------------------------------------
 
@@ -699,21 +911,73 @@ Values of less than 128 are considered literals pushed to the stack, while value
 
 \section{Summary}
 % -----------------------------------------------------------------------------
-\chapter{Exploring Accessible Programming}
-\section{Study}
+
 
 % -----------------------------------------------------------------------------
-\chapter{System Design}
-Considering the advantages of the existing approaches to teach computational concepts discussed in previous chapters, my research with SNEs and QTVIs, I designed BOP - a Block-based Ozobot Programming system. In this chapter, I present the design and implementation of the different components of BOP.
+\chapter{System Implementation}
+Considering the advantages of the existing systems to teach computational concepts discussed in previous chapters and my iterative design process with experts and the students, I designed a tangible Ozobot programming system. In this chapter, I present the implementation of the different components of my system.
 
 \section{Architecture}
-My system is composed of a set of tangible progamming blocks, an Ozobot robot, a computer application, a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
+My system is composed of a set of tangible progamming blocks, an Ozobot robot, a computer application, a webcam with a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
 
-In the following section, I analyze the architecture in further detail, from a physical design and a technical design point of view.
+In the following section, I analyze the architecture in further detail, for the two main aspects to my system, physical and technical.
+\section{Physical Implementation}
+In this section, I will present the final physical implementation of my system, after my iterative design process discussed in chapter 4. It consists of wooden blocks that can be put together, a webcam and a workspace set up to detect the wooden blocks.
+\subsection{Blocks}
+The wooden blocks are the main component of my system. They introduce a tangible alternative to the Ozoblockly platform, and are accessible to all visual abilities.
+\subsubsection{Material}
+The blocks are constructed from 6mm thick pieces of plywood. Plywood was chosen over acrylic and other plastic materials as it is more robust than acrylic and can be easily recycled. Furthermore, as plywood is easier to paint, I have chosen it over other alternatives to create a high colour contrast on the blocks to make them accessible to children with low vision.
+\subsubsection{Shape}
+The shape of the blocks is based on the design requirements established in chapter 4. The blocks are a rectangular shape with rounded edges, for safety reasons. A sharp 90 degrees edge was deemed sharp when laser cut in wood, and could potentially injure the user when handling the blocks, especially young children. The shape was designed to be as simple as possible to avoid confusion for visually impaired students when they explore the blocks by tact, as they are already familiar with rectangular shapes. The blocks are a medium size, to facilitate easy interaction with the blocks, however, I also ensured that the pieces are not too large, to develop fine motor skills in younger students. The wooden pieces also feature a distinctive tactile feature on one of the block’s corners, using adhesive Bump-Dots. The round bubble is positioned on the top corner of the blocks to indicate the correct orientation and the user is informed that the bubble indicates the top edge of the block. Additionally, the blocks include magnets situated at the top and bottom edge to help the children clip the blocks together.
 
-\section{Physical Design}
+\subsubsection{Design}
+The wooden blocks feature a tactile symbol and an ArUco Tag, to provide information about the action blocks. The tactile icon is utilised by the user to determine the meaning of the block tactually or by sight, and the ArUCo marker is used for block detection purposes. 
+\subsubsection{Tactile Symbol}
+Each block features a different tactile symbol that conveys the action meaning and they are placed on the left hand side of the blocks. The tactile icons have been developed using the information acquired during my interview with the QTVI with minor improvements after the design user study. The symbols include direction symbols, which are indicated by different arrows, loop symbols, start and end symbols, and variable symbols. The variable symbols differ from the rest, as they feature dots instead of icons, to invite the user to count.  All blocks are accessible to mixed visual abilities as they do not feature braille and only rely on recognition by touch or sight.
 
-\section{Technical Design}
+\subsubsection{AruCo Marker}
+Each block features a unique Aruco marker with varying IDs to enable the detection of the action blocks by the webcam and the system. The markers are placed on top of the blocks on the left hand side. The tags are 3x3 cm to ensure they are big enough to properly be detected by the camera, but also allow enough space for the tactile icon to be placed on the blocks.
+\subsubsection{Block Types}
+In this section, I will define the different types of action blocks that I have designed for my system. These blocks represent actions that will be executed by the Ozobot.
+\subsubsection{Start Block}
+The start block features a design that was influenced by my discussions with the QTVI and favoured by the participants in the design study, as the circle relates to the road sign Go and to the end block block described below. Figure 5.1 represents the embossed circle with a 6mm thickness to allow for easy recognition for visually impaired. 
+
+\subsubsection{End Block}
+The end block was designed to relate to the start block, as both the QTVI and participants paired the shape of the start icon to the end icon. For this reason, the end block features a protruding circle with a line through the centre to indicate the "not" sign.
+
+\subsubsection{Go Forward Block}
+The Go Forward block is a function block. Unlike other blocks, it is 5cm wider to allow for a space to slot the variable blocks. The extra space is engraved around 5mm deep to enable the user to place the smaller variable blocks as seen in figure (), that indicate the number of steps the robot should move forward. Similarly to other blocks, it features an arrow pointing ahead to depict the action of the robot moving forward and a marker. The arrow design was unanimously favoured by participants and approved by the QTVI as a suitable symbol for visually impaired students. 
+\subsubsection{Go Backwards Block}
+The Go Backwards block is designed similarly to the go forward symbol, with an engraved area for variable blocks. It features an arrow pointing downwards and the corresponding aruco tag, as seen on figure 
+\subsubsection{Turn Left Block}
+The turn left block represents the action of the Ozobot turning 90 degrees to the left, by an arrow that starts with a straight line and then takes a sharp 90 degrees left turn. This design was clear to all participants and deemed simple enough to be understood by students with mixed visual abilities by the expert interviewee.
+\subsubsection{Turn Right Block}
+The Turn Right Block is similar to the previous block, and includes an arrow that begins with a straight line that take a sharp 90 degree turn to the right.
+\subsubsection{Turn 180 degrees Right}
+The turn 180 degrees to the right block is another direction block that represents a u-turn. It features an arrow that begins by a straight line and then curves to the right in a semi-circle with a straight arrow pointing ahead at the end. This design was favoured by the study  participants as the curve before the arrow conveys the meaning of 'fully turning'. 
+\subsubsection{Turn 180 degrees Left}
+This block is identical to the turn 180 degrees to the right block, but the arrow is pointing in the parallel direction, to the left.
+\subsubsection{Start Loop Block}
+The start loop block is also a function block with an engraved slot to fit the variable blocks. Similarly to the start and end blocks, participants related the meaning of the start loop to the end loop, thus the designs are matched. This also ensures that the children don't have to memorise too many icons. The symbol features two curved arrows pointing to each other in a circular shape. The design was agreed on with the study group as it was the easiest to interpret, since the double arrows convey the meaning of a 'repeat' action. It's also unambiguous and won't be confused with other arrow signs used for directions. The number of loop repetitions is determined by the variable blocks inserted into the slot. Unlike the go forward/backwards blocks, the maximum number of repetitions for the loop block has been set to three. Thus, if the user inserts any variable bigger than three, the system will return an error.
+\subsubsection{End Loop Block}
+The end-loop block relates to the start-loop block, it features the same two curved arrows from the previous blocks, with the addition of the 'No' symbol in a smaller size placed to the right of it. The stop icon was made smaller to avoid confusion between the end loop and end program blocks. The design was chosen during the design study over other alternatives, as one participant suggested that the end loop block should feature the icon from the end program block to match the same pattern and transfer the same meaning. 
+\subsubsection{Variable Blocks}
+The variable blocks are smaller sized blocks (dimensions) that are inserted into the function blocks. They determine the input of the go forward/backwards block as the number of steps and the input of loops as set the number of repetitions. The blocks' design includes a set of dots that are all spaced with a minimum of 6mm to allow for optimal haptic detection, which helps the user count. To maintain consistency with other icons, the dots are circular shapes laser cut from 6mm thick plywood. There are four types of variable blocks, as shown in the figures. The decision to have a maximum of five dots was to ensure that my blocks are not too large due to the 6mm gap rule, and due to the fact that visually impaired young children may struggle to count to higher numbers, according to the QTVI. The presence of variable blocks that are fitted into function blocks introduces the computational concept of functions and their input to students. 
+
+\subsection{Workspace}
+The workspace is the area where children construct their code sequences. It also has a webcam mounted on a tripod that transfers the code sequence to the system, which then converts it into actions for the Ozobot to perform. I'll describe the different aspects of my workspace in this section.
+\subsubsection{Outline}
+I elected to outline my system with LEGO bricks rather than trays due to the fact that trays can be too small to fit all the blocks or too high on the edges obstructing the webcam's vision. Furthermore, by using LEGO as outline, the workspace size can be customised, for example if a larger workspace is required to accommodate more blocks, the user can simply add more bricks to expand the work area. Additionally, using LEGO bricks to define the workplace is a fun and colourful method to do so. Low vision kids may be able to identify
+the LEGO's bright colours, and visually challenged students would be able to recognise the outline due to the indents on the LEGO's. Furthermore, they are inexpensive and widely available in most primary schools.
+
+\subsubsection{Surface}
+For surface of the workplace, I opted to use non-slip Dycem material [ref] as it stops objects placed on top of it from shifting. Furthermore, it is frequently sold in rolls of two metres or more, allowing it to be cut to fit the surface as needed, and it is available in a range of vibrant colours that low vision pupils can recognise. It is widely used with visually impaired students, as discussed with the teacher in previous sections, so it should be readily available in some schools. It's also less expensive and lasts longer than the alternative, magnetic paper, which is easily damaged.
+\subsubsection{Map}
+The workspace also features a map, that is outside of the outlined programming area. It is essentially the output area of the code constructed in the workspace. 
+The map is drawn on A3 paper and is customised for each task. It shows the robot's expected path; the teacher or teaching assistant can set the path by drawing it with a marker and placing a set of blocks at the destination, which the robot will knock down. After the children have been given a description of the route and the task at hand, they clip together the blocks that they believe will allow the robot to reach its destination from its starting position. When the children are done programming, the system scans the blocks and the action is transferred to the Ozobot as a flashing light sequence. The robot then executes the dictated set of actions and if successful at reaching the destination, the set of blocks is toppled by the robot, outputting a sound effect for visually impaired students to recognise that they succeeded. 
+picture of route and robot and blocks 
+picture of
+\section{Technical Implementation}
 The technical design of my system converts the programming blocks scanned by the webcam to a flashing light sequence, used to transmit instructions to the Ozobot or alternatively performs block recognition by reading out the actions displayed on the blocks. The different components interact with each other to program the Ozobot through five main steps: live stream video of blocks, detection of markers, ordering of marker ID, translation to Ozopy, and output light sequence. On the other hand, for block recognition, the components interact differently and fewer steps are required. In this section, I will discuss in more detail each of these steps and their technical aspects. 
  
 \subsection{GUI design} 
