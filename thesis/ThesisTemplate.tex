@@ -27,7 +27,10 @@
                     title={Designing An Accessible Computational Toolkit For Students},
                 % the dissertation subtitle (which can    be blank)
                   subtitle={With Mixed Visual Abilities}]{dissertation}
+\usepackage{float}
 
+\usepackage{multirow}
+\usepackage{placeins}
 \begin{document}
 
 % =============================================================================
@@ -404,7 +407,7 @@ I will then discuss the limitations in these environments, particularly for stud
     \centering
     \includegraphics[width=0.3\textwidth]{thesis/scratch.eps}
     \caption{Block-based Programming Language Scratch ~\cite{scratch}}
-    \label{fig:Fig 1}
+    \label{fig-scratch}
 \end{figure}
 Computer programming can be a way of teaching computational thinking and most research scenarios consider block-based programming languages with graphical outputs, such as Scratch\cite{scratch}, a direct and defined strategy to teach young children computational concepts\cite{blocks}. These platforms often introduce many programming activities that can be personalized and to the user's interests, which can keep children engaged and motivated to build their own projects. Children can also tinker with the different digital blocks and put together sequences of instructions, as opposed of having to learn how to read the syntax from traditional visual programming languages. This allows young students to build their own ideas and gain confidence in their novice programming skills while growing an interest in learning new more complex computational concepts.\cite{confidence}
 
@@ -463,6 +466,12 @@ Blocks4All is an accessible block-based programming environment\cite{blocksforal
 StoryBlocks is a tangible programming toolkit that was designed for VI users to create audio stories. The system is composed of blocks that represent story components such as characters and actions. The system captures the blocks with a camera when they are put together on the workspace and outputs a translated audio story. The blocks are all identifiable by icons with distinct shapes and colors. The shape of each block indicates how it can be connected to other blocks and is marked with a distinctive dot pattern to be recognized by the program running on the mobile device. StoryBlocks was designed as a combination of tangible programming blocks and audio output, which is a compelling way to teach basic computational concept, particularly for visually impaired individuals.
 
 \subsubsection{Torino}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{thesis/torino.eps}
+    \caption{Torino/Code Jumper}
+    \label{fig-torino}
+\end{figure}
 Torino is a physical programming language to teach computational thinking to children between 7 and 11 years old with mixed visual abilities. It is one of the first systems made to teach basic programming to primary school students. The system is composed of plastic pods acting as instruction beads that can be physically connected and manipulated to generate sound as output. There are three types of beads: play, pause, and loop, and they each translate to a line of code in the program. Each bead further has buttons to control the repetition of the sound to be played, or to increase or decrease the length of pause and play executions, introducing the concept of variables. There is also a Code Jumper hub unit which allows the user to press play and pause on execution and read aloud the code. Students can connect pods to each other and to the hub by the use of jumper cords, creating programs with sound output. The Code Jumper app can connect to the hub unit to view the code visual format and it is also made accessible for screen readers and magnification software.  
 
 The exploration of the beads is  critical for VI children to understand their functionalities. Thus, to facilitate their identification, each pod is distinct in size and shape, and is colored using high contrasting colors. In the end, the creators of Code Jumper were able to infer that touch, audio feedback, and visual representation are essential in the design of inclusive tools for VI children.
@@ -554,70 +563,391 @@ In this section, I will conclude the useful features and strategies gathered fro
 
 Block-based languages such as Scratch are very popular in teaching children how to code as they are proven to capture their interest and keep them engaged. Using BBL, children can learn computational concepts with ease, as they avoid syntax errors, and interact with a simple interface that creates clean and easy to understand code. Furthermore, the use of icons instead of text on BBLs makes them accessible to illiterate children as well. 
 TUIs, on the other hand, are appealing to young children because they allow them to experiment with different outcomes and discover new solutions by tinkering with blocks. 
-Hands-on experience is also necessary for visually impaired learners to understand what they are coding and to develop abstract thinking, which is why a tangible system is ideal to aid their learning. Thus, for these reasons and as evidenced by the discussed works and systems, I have chosen to build a tangible system with blocks and a robot executing spatial tasks. I believe it will be a compelling way to teach VI children with mixed visual abilities computational thinking.
+Hands-on experience is also necessary for visually impaired learners to understand what they are coding and to develop abstract thinking, which is why a tangible system is ideal to aid their learning. Thus, for these reasons and as evidenced by the discussed works and systems, I have chosen to build a tangible system with physical blocks and a robot executing spatial tasks. I believe it will be a compelling way to teach VI children with mixed visual abilities computational thinking.
 
-The following table (3.1) displays a summary of the presented works in this chapter and chapter 1, from visual languages to TUIs.
+Table \ref{tab-final} displays a summary of the presented works in this chapter and chapter 1, from visual languages to TUIs.
 I have highlighted the relevant features of programming environments for them to be accessible to young children with mixed visual abilities. 
-Examining the table (3.1), there are two works with the characteristics I plan to implement in my system , however, in the case of Cubetto [31] and KIBO [32], the tangible blocks are not non-visually distinguishable, creating an accessibility barrier. StoryBlocks is also a very close representation of my target system, with a different output. My system will build on these systems and create a computational toolkit that is accessible for mixed visual abilities. 
+Examining the table, there are four works with the characteristics I plan to implement in my system , however, in the case of Cubetto [31], KIBO [32], Algobrix and Matatalab, the tangible blocks are not non-visually distinguishable, creating an accessibility barrier. StoryBlocks is also a very close representation of my target system, with a different output. My system will build on these systems and create a computational toolkit that is accessible for mixed visual abilities. 
 
-(table)
+\definecolor{mypink}{RGB}{219, 48, 122}
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Tools       & Environment   &Language             &Blocks     &Input      &Output     &Spatial Activities     \\ \hline
+Scratch       &Virtual           & \textcolor{mypink}{Blocks}    &Written          &Peripheral         &Virtual          &NO \\ \hline
+ScratchJR    &Virtual            & \textcolor{mypink}{Blocks}    &Icons         &Peripheral         &Virtual          &NO \\ \hline
+JBrick &Mixed            &Written    &N/A         &Peripheral        &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES} \\ \hline
+Blocks4All &Virtual            & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons}         &Peripheral         &\textcolor{mypink}{Robot},Sound          &\textcolor{mypink}{YES} \\ \hline
+Torino &Physical            &Other    &N/A          &Tangible          &Sound          &NO \\ \hline
+StoryBlocks &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons}        &\textcolor{mypink}{Tangible}          &Sound          &NO \\ \hline
+Cubetto &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons}        &\textcolor{mypink}{Tangible}          &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES}\\ \hline
+Matatalab   &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons}, Written     &\textcolor{mypink}{Tangible}          &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES} \\ \hline
+KIBO &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons},Written      &\textcolor{mypink}{Tangible}          &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES}\\ \hline
+Algobrix   &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons},Written      &\textcolor{mypink}{Tangible}          &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES}\\ \hline
+My Approach &\textcolor{mypink}{Physical}           & \textcolor{mypink}{Blocks}    &\textcolor{mypink}{Icons}    &\textcolor{mypink}{Tangible}          &\textcolor{mypink}{Robot}         &\textcolor{mypink}{YES}\\ \hline
+\hline
+\end{tabular}
+\caption{Summary of presented works and their features. In pink, the relevant accessibility features to young and children with mixed abilities.}
+\label{tab-final}
+\end{table}
+\FloatBarrier
+
+% -----------------------------------------------------------------------------
+
+\chapter{Technical Background}
+\label{chap:evaluation}
+
+
+
+\noindent
+In this chapter, I will be discussing the technologies I used while building my system. It involves a combination of:
+
+\begin{enumerate}
+\item Open-source fiducial marker generation and detection libraries.
+\item Image processing libraries.
+\item Python GUI frameworks. 
+\item Alternative Ozobot programming languages.
+\end{enumerate}
+
+\noindent
+These elements all interact within the system to eventually program the Ozobot to complete a set of actions. This interaction occurs as follows.
+Firstly, the system uses image processing libraries to detect the fiducial markers on the blocks in real time video stream using a webcam. Secondly, the marker detection algorithm returns a set of ID’s associated to each marker that my code translates to a list of commands. Finally, using an alternative Ozobot programming language called Ozopy, the system converts the list of commands to a sequence of flashing lights that the Ozobot can interpret and execute the dictated actions. 
+Alternatively, the user can choose the ‘Recognise Block’ option. This is a separate action that does not program the Ozobot, instead the system uses the fiducial marker detection algorithm to detect the blocks and play an audio file describing the action that the block represents. 
+Additionally, I am facilitating the user’s interaction by using the Python GUI framework Tkinter in my system. The Tkinter window and the buttons on it provide access to all commands and information. 
+
+In this chapter, I aim to provide a general understanding of the open-source libraries and repositories I have used in my system and to justify the technical choices I have made, before providing an in-depth technical system design in chapter 5.
+
+\section{Fiducial markers}
+\noindent
+My system's functionality is dependent on the interpretation of a series of programming blocks. As a result, I've used fiducial markers to ensure that the blocks are accurately detected. The AruCo marker encoding on each block allows the webcam to recognise the set of instructions. 
+Alternative approaches, such as incorporating an RFID reader or using a shape detector, have been considered, but all of these methods frequently produce inaccurate results.
+
+A fiducial marker system consists of a set of generated patterns that can be detected by a computer equipped with a camera and an appropriate marker detection algorithm.  Their design enables the markers to be physically small or positioned at a large distance from the camera, while still being accurately detected in low-resolution images and at small sizes. Because each marker has a unique ID number, the marker IDs can be used to distinguish between different objects. These characteristics make fiducial markers an excellent technology for block detection. 
+Therefore, in this project, I have utilised fiducial markers to enable my system to detect the different programming blocks and create a flashing light sequence for the Ozobot. The markers also allow my system to execute the block recognition feature.  Before adopting fiducial markers in my system, I have considered different marker systems and eventually decided to employ arUco markers. In the following section, I will describe why the Aruco library is the most suitable for my system instead of other marker systems.
+
+\subsection{Types of Fiducial Marker Systems}
+\subsubsection{ARToolkit}
+ARToolkit markers consist of a square black border with a variety of different patterns in the interior. The  black outline and the pattern is sampled to an element feature vector which is compared by correlation to a library of known markers. ARToolkit outputs a so called confidence factor. The presence of a marker is simply determined by a threshold value on this confidence value.
+ARToolkit is useful for many applications, but has a few drawbacks. The use of correlation to identify markers causes high false positive and inter-marker confusion rates. The user typically has to capture each marker as seen with the camera and lighting of their application, plus adjust the greyscale threshold in a trade off between these two rates and the false negative detection rate. Thus, this system is unsuitable for my project as it requires markers to be captured at a high enough resolution so that no detail of the characters is lost, which won't always be possible depending on the webcam used.
+\subsubsection{ARTag}
+ARTag markers feature a black and white block shape pattern inside a dark black border, as seen in figure 3.4. ARTag can  effectively detect a tag if part of the border is occluded, making it more accurate than ARToolkit, however the ARTag system constantly has a lower detection rate compared to AprilTag, ArUco and Stag markers [ref]. A study comparing the detection accuracy of these markers notes that ARTag consistently has a much lower detection rate hovering around \text{45\%}, while the AprilTag and ArUco markers have detection rates greater than \text{90\%} at different angles and resolutions of the camera. Since my system makes use of webcams that may have low resolutions, the ARTag is unsuitable for my system.
+
+\subsubsection{AprilTag}
+The AprilTag system was developed as an improved ARTag system. It was designed to minimize false positive confusion rate and to minimize the number of bits per tag.
+Based off experimental data, AprilTags was a significant improvement over prior methods such as QR codes or the ARToolKit[4]. Notably, AprilTags are significantly better at reducing false positives, specifically those which occur due to part of the tag being covered, lighting issues, or errors due to color. However, the AprilTag is a computationally expensive package, and AprilTag markers are not built into the OpenCV library and require implementing their personal detection algorithm. Additionally, from an implementation perspective, ArUco marker detections tend to be more accurate, even when using the default parameters and ArUco markers have online generators, that generate markers of different dictionaries and IDs. Hence, it is relatively straightforward to replace markers if they get damaged by generating them online and printing them. This cannot be done with AprilTags.
+
+\subsubsection{ChromaTag}
+ChromaTag is a fiducial marker system and detection algorithm designed to use opponent colors. Its design enables it to limit and quickly reject initial false detections and grayscale for precise localization. ChromaTag is proven to be significantly faster than current fiducial markers while achieving similar or better detection accuracy. However, it requires printing colored markers. Thus, using low resolution grey-scale webcams, or printing using uncalibrated colors, could lead to the misdetection of markers. Since my system is utilized by children and teachers who may not have the right material for optimal detection, this marker is unsuitable for this project. 
+
+\subsubsection{ArUco}
+ArUco [17], is another package based on ARTag and ARToolkit. Unlike other fiducial marker systems, ArUco allows the user to create configurable libraries, based on their specific needs. The library will only contain the specified number of markers with the greatest Hamming distance. Another notable contribution in ArUco is the reduced computing time due the smaller size of the custom libraries. It also provides a high detection rate with low rate of false positives, regardless of camera resolution or camera position. 
+Other primary benefits of using ArUco markers over other markers include:
+
+\begin{itemize}
+  
+\item ArUco markers are built into the OpenCV library via the cv2.aruco  submodule, described in the next section. 
+\item	The OpenCV library can generate ArUco markers with the cv2.aruco.drawMarker
+ function.
+\item	There are online ArUco generators.
+
+\end{itemize}
+For these reasons, I have chosen the ArUco marker system. It would also make my system more durable, since markers can be generated online without any code, and therefore easily replaced in case of damage.
+
+\section{Image Processing}
+In this section, I will describe the image processing libraries used to detect the markers, OpenCV and imutils.
+
+\subsection{imutils}
+
+\noindent
+Imutils are a series of functions to make image processing functions such as translation, rotation, resizing, skeletonization, and displaying images easier with OpenCV and both Python 2.7 and Python 3. Therefore, I am using imutils to manipulate live streamed videos before detecting the markers using OpenCV. The following imutils functions are used:
+
+\subsubsection{VideoStream}
+With VideoStream, I have defined that source camera to be “0” which here corresponds to the webcam plugged to the computer port. After that, I have started the camera and defined that after start is initialized, the camera will turn on after 3 seconds so that camera sensor can warm up and image resolution is improved. From there, the .read() function is used to obtain the current frame captured by the webcam. The system continues looping over the frames of the live stream and computes live marker detection with OpenCV.
+
+\subsubsection{Resize}
+The resize function grabs the frame from the threaded video stream and resizes it to have a maximum width of 1000 pixels as the aruco detection algorithm requires.
+
+\subsection{OpenCV}
+To analyse the frames rendered by the imutils library, I have used the OpenCV library. OpenCV is a programming function library primarily used for Computer Vision applications. The three functions I have used to generate and detect markers obtained from my webcam are described here. 
+
+\subsubsection{Drawmarker()}
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\textwidth]{thesis/marker.eps}
+    \caption{Example of generated marker from  \texttt{DICT\_7X7\_50}, ID = 1}
+    \label{fig-marker}
+\end{figure}
+\FloatBarrier
+Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. The OpenCV library has a built-in ArUco marker generator through its 
+cv2.aruco.drawMarker function. The main parameters of this function is the marker dictionary and the ID of the marker which has to be a valid ID in the ArUco dictionary. By specifying the marker dictionary and the marker ID, the drawMarker function then returns the output image with the required ArUco marker drawn on it. 
+
+There are 21 different ArUco dictionaries built into OpenCV. The majority of these dictionaries follow a specific naming convention, \texttt{cv2.aruco.DICT\_NxN\_M}, with an NxN size followed by an integer value, M. For example \texttt{DICT\_6X6\_250} means this dictionary is composed of 250 markers and a marker size of 6x6 bits. There are some settings to consider in order to choose the ideal dictionary, and these differ from system to system. It is generally more ideal to pick a dictionary with a larger NxN grid size, balanced with a low number of unique ArUco IDs such that the inter-marker distance can be used to correct misread markers. [ref]
+Therefore, for my system, I have chosen the \texttt{DICT\_7X7\_50} (\ref{fig-marker}), because my system requires 15 unique IDs for 15 different actions, and this dictionary has the smallest number of unique IDs (50 IDs). The marker size of 7x7 bits also provides more accurate detection results than other marker sizes due to the larger grid size and inter-marker distance. 
+I have generated a total of 15 markers for my system with ID’s in the range of [1,15], with one increment. 
+
+\subsubsection{Detectmarker()}
+
+The OpenCV library is used to detect the markers in the frames rendered by the imutils video library. I have made use of OpenCV’s cv2.aruco module specifically made to detect aruco markers. The marker detection process is comprised of two main steps:
+\begin{enumerate}
+    \item Detection of marker candidates. In this step, the frame read by the VideoStream.read() function  is analyzed in order to find square shapes that are candidates to be markers. It starts with an adaptive thresholding to segment the markers, then outlines are extracted from the thresholded image and those that do not approximate to a square shape are discarded. Some extra filtering is also applied to removing contours that are too small, too big, or too close to each other.
+    \item After the candidate detection, it is necessary to determine if they are actually markers by analyzing their inner codification. This step starts by extracting the marker bits of each marker. The image is divided into different cells according to the marker size and the border size. Then the number of black or white pixels in each cell is counted to determine if it is a white or a black bit. Finally, the bits are analyzed to determine if the marker belongs to the specific dictionary. Error correction techniques are employed when necessary.
+\end{enumerate}
+I have designed my system to specifically detect markers from the dictionary \texttt{DICT\_7X7\_50} as specified in the previous paragraph. Since my system makes use of a live stream video from the webcam, I have included code to draw the outlines, the center and the ID of the detected tag on the screen to show real time detection. 
+Finally, the IDs of the detected markers are stored in a list and used to translate to a flashing light sequence of instructions or parsed to the block recognition code, that plays an audio file depending on the block recognized.
+
+\section{playsound}
+
+To implement the block recognition feature, I have used the playsound Python module. This enables my system to play mp3 audio files describing the action on the block detected by the OpenCV detection algorithm. My code performs this by detecting the marker ID, each marker ID has been assigned to an action. Table \ref{tab-sound} shows examples of markers and their corresponding audio output.
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Marker ID      & Action Associated      & Audio Output      \\
+\hline
+$1     $ & Start program  & $\texttt{'Start Block'}   $ \\
+$3     $ & Turn Left      & $\texttt{'Make a Left Turn'}   $ \\
+$5     $ &U-turn Left& $ \texttt{'Make a U-turn to the left'} $\\
+$7     $ & Move Forward & $\texttt{'Move Forward Block'}   $ \\
+$9     $ & Variable Block: 5 steps   & $\texttt{'Move for 5 steps'} $ \\
+\hline
+\end{tabular}
+\caption{Examples of markers and their corresponding actions.}
+\label{tab-sound}
+\end{table}
+\FloatBarrier
+\section{Tkinter}
+
+To build my GUI, I have utilised the GUI Python Framework Tkinter and its functions to allow the user to interact with my system.
+
+\subsection{Frame}
+My GUI design involves a frame widget, it works on grouping and organizing other widgets by arranging their position. This widget is essential in my system since it allows me to choose the background color and the size of the displayed windows. For example, the parent window, which is the window displayed when the system starts, includes an organised layout of a label widget and different button widgets. The system displays a new frame depending on the buttons clicked. Hence, I have employed the frame widget as a foundation class to implement widgets and different windows.
+
+\subsection{Button}
+I have implemented the tkinter button widget in my system. There are two buttons that appear on the main window when the application starts. The buttons are linked to different functions in my code and perform the required actions depending on the button clicked.
+
+\subsection{Label}
+The label widget was used to display information such as descriptions or instructions at the top of the screen once the GUI has been loaded. I have also employed this widget to display any error messages that the system detects.
+
+\section{Programming the Ozobot}
+To interpret the detected markers and their associated instructions and convert them into flashing light sequence for the Ozobot, I have implemented an open-source Python-like language compiler for Ozobot [ref] called Ozopy, invented by Kaarel Maidre. This Python-like language is a subset of Python with some added builtin methods to control the Ozobot Bit.
+
+\subsection{Context}
+
+The Ozobot can be programmed in two ways, either by using color codes and colored markers to indicate actions, or by using the visual programming interface OzoBlockly. With OzoBlockly, the user can create programs for the Ozobot by dragging puzzle shaped blocks onto the programming platform. The on-screen blocks clip together to form a program. The OzoBlockly editor has five skills levels from pre-reader to master.
+For my system’s purposes, I will be focusing on level 1 and level 2, which are pre-reader and beginner levels. This is due to there being very few accessible programming interfaces for younger demographics. The level 1 blocks feature simple shapes depicting movements such as arrows, while level 2 blocks feature the same blocks with written statements instead of icons and with the addition of loops. 
+
+To convert the created program into instructions understood by the Ozobot, OzoBlocky displays the encoded values as a light sequence composed of 8 color constants: black, white, red, green, yellow, blue, magenta and cyan. This is scanned at the base of the Ozobot where the RGB colour sensors reside. 
+
+The engineering of the colour codes for OzoBlockly is not publicly available. However, Kaarel Maidre and Ashley Feniello have successfully reverse engineered the colour codes and created Ozopy and FlashForth, a programming IDE for the Ozobot. The following section explains the working of Ozopy.  
+
+\subsection{Encoding Values}
+Ozopy functions similarly to OzoBlockly. The language compiler interprets a set of instructions written on an .ozopy file and outputs a window with flashing lights  of colour codes. These colour codes translate to bytecode instructions that the Ozobot executes. Ashley Fenielo, who made FlashForth, has successfully decoded the colour sequences and established their corresponding bytecodes. Her work represents the groundwork behind Ozopy.
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Denary Value}  &\textbf{Color}  & \textbf{3-bit encoding} &  \textbf{Letter}  \\ \hline
+0     &Black &000 &K   \\ \hline
+1    &Red   &001 &R            \\ \hline
+2   &Green &010 &G               \\ \hline
+3    &Yellow  & 011 &Y              \\ \hline
+4   &Blue &100 &B                \\ \hline
+5   &Magenta &101&M             \\ \hline
+6   &Cyan & 110 & C                \\ \hline
+7   &White & 111 &W               \\ \hline
+
+\hline
+\end{tabular}
+\caption{Ozobot color codes and their values.}
+\label{tab-colors}
+\end{table}
+\FloatBarrier
+The color codes are encoded in a base-7 encoding and line up on byte-sized boundaries encoded as sets of three colours. Each of the eight colors has a 3-bit value. Table \ref{tab-colors} shows the denary value of the colors and their 3-bit encoding. A set of three consecutives colors encode a bytecode used to program the Ozobot, except for the color White which is not being used as a value but rather signifies repeating the last color. For example, KWK is simply 000. Each of the three color codes is then translated to a decimal number. The resulting number is converted to hexadecimal to produce a bytecode that can be used to lookup instructions that are featured on the Ozobot. 
+
+\subsection{Instructions}
+After the color codes are translated to bytecodes, the resulting bytecode value is used to lookup instructions. As the Ozobot functions as a stack machine, operands are sent before operations.
+Values of less than 128 are considered literals pushed to the stack, while values of 128 or higher are instructions. The table created by Feniello shows the bytecodes and their matched instructions. \ref{tab-bytecode}
+
+\subsection{Ozopy language}
+The Ozopy language is a python-like language built by Kaarel Maidre. It builds on the work of Ashley Feniello and acts as a compiler that decodes instructions into bytecodes and then translates them into a flashing light sequence. It features several instructions similar to Python synatx such as if, else and while. It also includes Ozobot specific functions such as move, rotate. The functions provided by the language are shown in table \ref{tab-ozopy}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Bytecode}  &\textbf{Instruction}  & \textbf{Explanation}  \\ \hline
+0x80 &if & \\ \hline 
+0x85 &+  &\multirow{5}{*}{Arithmetic operations}\\ 
+0x86 &- & \\ 
+0x87 &*  &    \\ 
+0x88 &/   &   \\
+0x89 &mod  &  \\ \hline 
+0x8a &not   &Boolean \\ \hline 
+0x8b &neg &Reverse sign\\ \hline 
+0x8c &rand &Random integer from X to Y \\ \hline 
+0x90 &call &\\ \hline 
+0x91 &; &Return\\ \hline 
+0x92 &get/sensor &Get variable/sensor\\ \hline 
+0x93 &set &Set the value of a variable\\ \hline 
+0x94 &dump &\\ \hline 
+0x96 &drop &Pop only one value\\ \hline 
+0x98 &turn &Rotate Ozobot by X degrees at Y mm/s. e.g. 180 50 turn\\ \hline 
+0x9b &wait &Wait for X centiseconds. e.g. 64 9B waits for one second (64 hex = 100decimal)\\ \hline 
+0x9c &\textgreater = &\multirow{2}{*}{Comparisons}\\ 
+0x9d &\textgreater &\\ \hline 
+0x9e &move &Move Ozobot by X mm at Ymm/s. Example: 100 50 turn\\ \hline  
+0x9f &wheels &Set wheel speeds individually\\ \hline 
+0xa2 &and &\\ \hline 
+0xa3 &or &\\ \hline 
+0xa4 &= &\\ \hline 
+0xa5 &pick &Get value from stack at specified depth, values are not consumed.
+\\ \hline 
+0xa6 &put &\\ \hline 
+0xa7 &pop &Pops values off the stack\\ \hline 
+0xa8 &abs &Absolute value\\ \hline 
+0xae &end  &end of execution\\ \hline 
+0xb8 &led  &Sets color of LED\\ \hline 
+0xba &jump  &Branching \\ \hline 
+0xc7 &kill &Causes starter pack Ozobots to die \\ \hline 
+
+\hline
+\end{tabular}
+\caption{Ozobot color codes and their values.}
+\label{tab-bytecode}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Instruction}    & \textbf{Explanation}  \\ \hline
+
+=                       & \multirow{6}{*}{Arithmetic operations}\\
++                       &                           \\ 
+-                       &                           \\ 
+*                       &                           \\ 
+/                       &                           \\ 
+\%                      &                          \\ \hline
+random(low, high)       & Generate a random value wihtin the given range                         \\ \hline
+abs(value)              & absolute value of the given parameter                     \\ \hline
+move(distance, speed)   &Move forward Xmm at Ymm/s \\ \hline
+rotate(angle, speed)    &Rotate X degrees at Ymm/s \\ \hline
+wheels(left, right)     &Set each wheel speed individually. Wheels(0, 0) stops the robot                                         \\ \hline
+follow\_line\_to\_intersect\_or\_end()  &Follows a line drawn on the surface \\ \hline
+move\_straight\_until\_line(speed) & Moves forward at a given speed until it reaches a line  \\ \hline
+there\_is\_way(direction) &\vtop{\hbox{\strut Checks for a line in a given direction. Direction can be STRAIGHT, LEFT, }\hbox{\strut RIGHT or BACK.}} \\ \hline
+pick\_direction(direction) &Chooses a particular direction when the Ozobot reaches an intersection \\ \hline
+set\_line\_ speed(speed)   &Sets the line following speed \\ \hline
+get\_line\_speed()    &Gets the current set line following speed \\ \hline
+get\_intersect\_or\_ line\_end\_color()   &Read the colour of the line the robot is following \\ \hline
+get\_surface\_color() &\vtop{\hbox{\strut Get colour of surface below Ozobot,Color can be BLACK, WHITE, GREEN,}\hbox{\strut RED, BLUE, YELLOW, CYAN and MAGENTA}} \\ \hline
+color(red, green, blue)     &Set the value of the LED on top of the robot. Color(0, 0, 0) turns the LED off.\\ \hline
+
+wait(seconds, centiseconds) &Waits for specified time\\ \hline
+terminate(mode)     &\vtop{\hbox{\strut Ends program. Mode can be one of three specified constants, OFF, FOLLOW,}\hbox{\strut or IDLE.}}\\ \hline
+if else &\\ \hline
+while               &Only while is supported for loops\\ \hline
+def                 &Create functions. Cannot have return values or parameters\\ \hline
+          
+
+
+                     
+
+\hline
+\end{tabular}
+\caption{Ozopy Language}
+\label{tab-ozopy}
+\end{table}
+
 
 
 % -----------------------------------------------------------------------------
 \chapter{System Design}
+In this section, I will describe the iterative design process I have used to create my final system. The system design was completed in the following steps:
+
+\begin{enumerate}
+    \item Design an initial prototype based off the studied works.
+    \item Present the prototype to experts in the field and co-design with them to improve the prototype.
+    \item Test the revised prototype with end users and make the required changes.
+    \item Implement a final improved design.
+\end{enumerate}
+
+
 \section{Initial Design Concept}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/initial-block.eps}
+    \caption{Initial Prototype, with Go symbols, go forward, and end symbol}
+    \label{fig-initial}
+\end{figure}
 I created my system with the aim to be an accessible platform to program the Ozobot, that children with mixed visual abilities could use with their teachers in classrooms or with friends, to learn basic concepts of programming. This aim meant that I followed an iterative design process and set some initial design decisions before I engaged in the co-design process with experts. My initial design was based off the advantages I identified in publicly available TUI and other works that I discussed in previous sections.
-My first decision was to utilize passive blocks to reduce the cost and simplify the manufacturing process, while enabling more flexibility in shapes and sizes, inspired by prior work [13](some system).  Active programming blocks such as Torino pods may be advantageous for interactivity, but they are difficult to manufacture, bulkier, more expensive and less robust than passive blocks. [41, 52].  Each block represents one component, including actions, loops, and variables. Each block features a tactile symbol which is a 3D icon on top of the blocks for the students to recognise the action that each block depicts. The 3D icons  ensure that my system is accessible to mixed visual abilities, similarly to StoryBlocks.[https://dl.acm.org/doi/fullHtml/10.1145/3290605.3300722#bib9]
-My second design decision was to use a camera and a series of fiducial markers for block recognition, due to the fact that camera-based systems for marker recognition are inexpensive, robust and easy to implement on mobile, online and desktop applications [14, 27].
+
+My first decision was to utilize passive blocks to reduce the cost and simplify the manufacturing process, while enabling more flexibility in shapes and sizes, inspired by StoryBlocks[ref].  Active programming blocks such as Torino pods may be advantageous for interactivity, but they are difficult to manufacture, bulkier, more expensive and less robust than passive blocks. [41, 52].  Each block represents one component, including actions, loops, and variables. Each block features a 3D icon on top of it for the students to recognise the action that each block depicts. The tactile icons ensure that my system is accessible to mixed visual abilities.
+
+My second design decision was to use a camera and a series of fiducial markers for block recognition, due to the fact that camera-based systems for marker recognition are inexpensive, robust and easy to implement on mobile, online and desktop applications.
+
 To manufacture my initial prototype, I have experimented with different materials. I had considered utilizing acrylic, as it comes in different colors and that would be helpful for children with low vision to distinguish between different blocks. However, acrylic material proved to be heavier and less robust than other alternatives. Additionally, I experimented with laser cutting and making blocks out of MDF and plywood. Plywood was the better option, it is less heavy than MDF and less susceptible to damage. 
 
-Thus, I created an initial prototype with blocks made from 6mm thick plywood and are 10cm wide and 5cm high. I chose the material and size with the aim of having light but robust blocks, with a size that would be easy for children to move around and explore with.
+Thus, I created an initial prototype \ref{fig-initial} with blocks made from 6mm thick plywood and are 10cm wide and 5cm high. I chose the material and size with the aim of having light but robust blocks, with a size that would be easy for children to pick up and move around.
 
 
-\section{System Design with a QTVI}
-To inform the design of my system, I interviewed a qualified teacher of the visually impaired who had extensive experience in teaching and mentoring visually impaired children. The participant was involved in the design process for their knowledge of the difficulties that VI children face with programming, especially in light of their outreach and mentoring experiences. The interview was semi-structured, and the participant gave feedback on my initial design prototype and explored other mechanisms for interaction, in order to identify the ideal design features for the tangible blocks. The interviewee also defined design requirements for the workspace of the system and suitable activities for trial sessions with children. 
-The interview were audio recorded and fully transcribed using Thematic analysis[ref] to extract design recommendations for the system. Here, I will summarize the main themes and insights I have gained from this initial session.
+\section{System Design with Experts}
+To inform the design of my system, I interviewed a Special Educational Needs teacher (SEN) and a qualified teacher of the visually impaired, both had extensive experience in teaching and mentoring visually impaired children. The participants were involved in the design process for their knowledge of the difficulties that VI children face with programming, especially in light of their outreach and mentoring experiences. Both interviews were semi-structured and conducted on different occasions. 
+
+The participants gave feedback on my initial design prototype and explored other mechanisms for interaction, in order to identify the ideal design features for the tangible blocks. The interviewees also defined design requirements for the workspace of the system and suitable activities for trial sessions with children. 
+The interviews were audio recorded and fully transcribed using Thematic analysis[ref] to extract design recommendations for the system. Here, I will summarize the main themes and insights I have gained from these sessions.
 
 \subsection{Tactile Features}
-The QTVI examined my initial prototype and identified features to improve on.
+The participants first examined my initial prototype and identified features to improve on.
 \subsubsection{Block Shape and Size}
-Firstly, the participant agreed that the blocks should be small and confirmed that the prototype was a good size. The fact that the blocks are small and light makes it easy for  children with mixed visual abilities to use them and may help them develop their fine motor skills. They mentioned that the  matching concave and convex shapes in my prototype to make the blocks fit together might be confusing for children who are visually impaired, and that it would be best to utilise a rectangular shape, as they are more accustomed to basic shapes and could recognise it immediately by tact. Additionally, the participant was attracted to the idea of incorporating magnets in blocks for them to click together, they explained how VI children tend to move objects around a lot to explore it haptically, hence a mechanism to keep blocks together would be very useful.
+Firstly, the participants both agreed that the blocks should be small and confirmed that the prototype was a good size. The fact that the blocks are small and light makes it easy for  children with mixed visual abilities to use them and may help them develop their fine motor skills. The QTVI also mentioned that the  matching concave and convex shapes in my prototype to make the blocks fit together might be confusing for children who are visually impaired, and that it would be best to utilise a rectangular shape, as they are more accustomed to basic shapes and could recognise it immediately by tact. Additionally, both participants were attracted to my suggested idea of incorporating magnets in the blocks to clip them together. They explained how VI children tend to move objects around a lot to explore haptically, hence a mechanism to keep blocks together would be very useful.
 
 \subsubsection{Symbols}
-The participant concurred that the best way to convey the meaning of the blocks to the children is by using icons. They should be easily-recognizable and need to be embossed or in 3D and with minimalist design. The symbols should also put on top of the blocks as this would make the blocks more intuitive and easier for VI children to touch and recognise symbols.
-I presented different icons to associate with different actions, such as arrows for directions and circles for a start block. The QTVI agreed that simple icons such as shapes are easily recognisable for VI students, and that too much information is distracting. The use of arrows and circles is ideal, as long as the arrows are acute enough to show that direction they are pointing and the lines on the icon are 6mm apart to allow VI students to distinguish them tactually. Additionally, they mentioned that visually impaired children can recognise patterns tactually, so it would be useful to use similar shapes if they mean similar types of actions. For example, using different types of arrows for directions, or using a circle for the start block to start the program and a circle with a line going through it for the end block to end the program. It would not only make the system easier to use but would also teach the children the computational concept of pattern recognition.
+The participants concurred that the best way to convey the meaning of the blocks to the children is by using icons. They should be easily-recognizable and need to be embossed or in 3D and with minimalist design. The symbols should also be put on top of the blocks as this would make the blocks more intuitive and easier for VI children to touch and recognise symbols.
+I presented different icons to associate with different actions, such as arrows for directions and circles for a start block. The QTVI agreed that simple icons such as shapes are easily recognisable for VI students, and that too much information is distracting. The use of arrows and circles is ideal, as long as the arrows are acute enough to show that direction they are pointing and the lines on the icon are 6mm apart to allow VI students to distinguish them tactually. Additionally, the SEN mentioned that visually impaired children can recognise patterns tactually, so it would be useful to use similar shapes if they mean similar types of actions. For example, using different types of arrows for directions, or using a circle for the start block to start the program and a circle with a line going through it for the end block to end the program. It would not only make the system easier to use but would also teach the children the computational concept of pattern recognition.
+
+\subsubsection{Orientation of the blocks}
+Correctly orientating the block is very important for my system's functionality. Thus, it was a theme that was also explored during interviews. The SEN teacher suggested using bumpons, self adhesive dots that are great for marking objects. They confirmed that if a bumpon is placed on the top left hand corner of the block, then visually impaired children would identify the correct orientation of the block. It is a commonly used orientation technique in schools.
 \subsubsection{Function Blocks with variables}
-Another important design decision was to identify a suitable way to enable children to combine instruction blocks for the robot, such as Go forward, Go backwards and loops, with variable blocks indicating different numbers of steps or loop iterations. I presented my interviewee with various ways to combine these blocks using magnets, matching concave and convex shapes or shapes that could slot into each others. They preferred variable blocks slotting inside the instruction block, for several reasons. Firstly, this method suggests a better conceptual representation of the relationship where the variable modifies the execution of the Move forward/backward or repeat functions. Secondly, it provides immediate tactile distinction between the smaller variable blocks and larger hollow function blocks. Finally, having blocks slot into each other would prevent them from accidentally separating, making it easier to manipulate the code sequence.
+Another important design decision was to identify a suitable way to enable children to combine instruction blocks for the robot, such as Go forward/backwards and loops, with variable blocks indicating different numbers of steps or loop iterations. I discussed various ways with my interviewees to combine these blocks using magnets, matching concave and convex shapes or shapes that could slot into each others. They preferred variable blocks slotting inside the instruction block, for several reasons. Firstly, this method suggests a better conceptual representation of the relationship where the variable modifies the execution of the Move forward/backward or repeat functions. Secondly, it provides immediate tactile distinction between the smaller variable blocks and larger hollow function blocks. Finally, having blocks slot into each other would prevent them from accidentally separating, making it easier to manipulate the code sequence.
 \subsubsection{Loop Blocks}
-Next, I had to decide how to present functionality, such as loops, that could be expanded to contain other blocks.  Block-based languages such as Scratch usually represent loops by a larger block that stretches to contain instructions nested inside
-[24].
+Next, I had to decide how to present functionality, such as loops, that could be expanded to contain other blocks.  Block-based languages such as Scratch usually represent loops by a larger block that stretches to contain instructions nested inside \cite{scratch}.
 The QTVI suggested that loops have a start and an end loop block. Similarly to the circle icons for start and end program blocks, it was suggested for the end-loop blocks to be similar to the start-loop blocks to facilitate the conceptual link between the two blocks without causing confusion.
 \subsubsection{Variable Blocks}
 To represent the value of variables, I explored different tactile features including dots, lines or using Braille.
-The participant preferred dots over other alternatives to invite counting as many VI young children are not proficient in braille. Additionally, it would be hard for the VI user to count lines if they are not placed 6mm apart. For my design to be as small as possible, dots are the best approach, although the participant recommended they be placed 6mm apart to allow for tactile recognition and to avoid configurations that resembled braille cells, which could be confusing for some children. The interviewee expressed that embossed features were also generally found easier to read compared to engraved ones, especially when counting the number of dots in a variable.
+The participants preferred dots over other alternatives to invite counting as many VI young children are not proficient in braille. Additionally, it would be hard for the VI user to count lines if they are not sufficiently spaced. For my design to be as small as possible, dots are the best approach, although the participants recommended they be placed 6mm apart to allow for tactile recognition and to avoid configurations that resembled braille cells, which could be confusing for some children. The QTVI expressed that embossed features were also generally found easier to read compared to engraved ones, especially when counting the number of dots in a variable. The SEN teacher also suggested sticking bumpons on the block for counting. Because bumpons come in a variety of shapes, a shape other than the one used for block orientation can be used for variable counting.
 \subsubsection{Block Color}
-As my system is aimed at children with mixed visual abilities, the participant suggested that I incorporate design features to support both tactile and visual learners. Specifically, it was decided that blocks should have a good color contrast with the symbols, by having the icons painted black and the rest of the block in its neutral color. Having tactile features on the blocks painted with high contrast makes them easy to recognize visually for children who have partial or full sight.
+As my system is aimed at children with mixed visual abilities, the participant suggested that I incorporate design features to support both tactile and visual learners. Specifically, it was decided that blocks should have a good color contrast with the symbols, by having the icons painted black and the rest of the block in its neutral color. Tactile features painted in high contrast on the blocks make it easier for children with partial or complete vision to recognise them visually.
 
 \subsection{Designing the Workspace}
-Once the features of the blocks had been defined, it was important to discuss characteristics of the workspace. It was essential to have a defined workspace in my system to indicate to students where they should construct sequences of code. This is particularly useful for visually impaired users who would tactually identify an outlined workspace to create a mental map of the environment, as it supports them when placing the blocks and performing debugging operations. As the system utilises a webcam to scan the blocks, the webcam would also be a part of the workspace and would be placed above it to have a full view. The participant suggested utilising rectangular trays, which are often used in tactile exploration sessions with VI children in schools. They also suggested outlining the workspace with Legos giving the children tactile cues to help identify where they should construct the sequence of blocks.
-Finally, to prevent the blocks from moving around on the workspace, the participant suggested to use Dycem, which is a non slip grip Material, that prevents objects placed on top of it from shifting. This would ensure that the code sequence on the workspace is intact and ready to be scanned by the webcam.
+Once the features of the blocks had been defined, it was important to discuss characteristics of the workspace. It was essential to have a defined workspace in my system to indicate to students where they should construct sequences of code. This is particularly useful for visually impaired users who would tactually identify an outlined workspace to create a mental map of the environment, as it aids them in placing the blocks and performing debugging operations. As the system utilises a webcam to scan the blocks, the webcam would also be a part of the workspace and would be placed above it to have a full view. Both participants suggested utilising rectangular trays, which are often used in tactile exploration sessions with VI children in schools. I suggested outlining the workspace with Lego to provide the children with tactile cues to identify the programming space, as well as have a expandable workspace frame. The participants agreed that this would be a good strategy, and that making the workspace size adaptable would allow for more blocks.
+Finally, to prevent the blocks from moving around on the workspace, the participants suggested to use Dycem, which is a non slip grip material, that prevents objects placed on top of it from shifting. This would ensure that the code sequence on the workspace is intact and ready to be scanned by the webcam.
 
 \subsection{Collaborative Learning}
-My system aims to be a TUI inclusive of children with different visual abilities, rather than being specifically designed for fully blind children. To promote collaborative learning between mixed visual abilities, I aimed to make my system accessible to all in a number of different ways. My expert participant recommended using high contrast to highlight the presence of dots and icons, to make the system more accessible to partially sighted children. They also agreed that including Braille could create confusion for sighted children, or the many VI children who were not braille literate and could isolate them from others rather than promote inclusion. Thus, no braille description was added to my blocks.
-The symbols I initially chose for my system are symbols commonly found on devices or encountered in every day life, my participant confirmed that it would be easy for students to recognize the symbols, once they were explained their meaning. Furthermore, the idea of using symbols commonly associated with the indicated actions, such as arrows for directions, was received positively as it would build on the affordances of the teachers, and sighted or partially sighted children, facilitating inclusion and shared play.
+My system aims to be a TUI inclusive of children with different visual abilities, rather than being specifically designed for fully blind children. To promote collaborative learning between mixed visual abilities, I aimed to make my system accessible to all in a number of different ways. My expert participants recommended using high contrast to highlight the presence of dots and icons, to make the system more accessible to partially sighted children. They also agreed that including Braille could create confusion for sighted children, or the many VI children who were not braille literate and could isolate them from others rather than promote inclusion. Thus, no braille description will be added to my blocks.
+
+The symbols I initially chose for my system are symbols commonly found on devices or encountered in every day life, my participants confirmed that it would be easy for students to recognize the symbols, once they were explained their meaning. Furthermore, the idea of using symbols commonly associated with the indicated actions, such as arrows for directions, was received positively as it would build on the affordances of the teachers, and sighted or partially sighted children, facilitating inclusion and shared play.
 
 \subsection{Activities and Goals}
 The final part of the interview was spent discussing activities for the testing session and future improvements for my system. For the initial design iteration, the aim of my system is to introduce three basic computational concepts: sequences, loops and data, and support the computational practices of being iterative and incremental; and testing and debugging. I left out more complex computational concepts such as conditionals and operators from my design as they could increase the complexity of the system. 
-Once the participant was familiar with the working of my system, they suggested activities to test the TUI with mixed visual abilities. They explained that VI children learn about routes in schools and have a good understanding of spatial navigation. Thus activities that involves paths or routes for the robot to follow are ideal. Sound output is also important for the children to monitor their success. Hence, I proposed including external elements, such as towers of wooden blocks that are knocked down as the robot completed different segments of the path, allowing visually impaired children to monitor the robot's location.
+
+Once the participants were familiar with the working of my system, they suggested activities to test the TUI with mixed visual abilities. The SEN teacher suggested turning symbol recognition into a game before introducing the programming aspect of the system. They explained that by getting the students to physically move in space, and pretend to be the Ozobot going in different directions they can turn the abstract idea of coding the robot to something concrete, and in turn understand the meaning of the symbols on the blocks better. When it comes to programming tasks, the participants explained that VI children learn about routes in schools and have a good understanding of spatial navigation. Thus activities that involves paths or routes for the robot to follow are ideal. Sound output is also important for the children to monitor their success. Hence, I proposed including external elements, such as towers of wooden blocks that are knocked down as the robot completed different segments of the path, allowing visually impaired children to monitor the robot's location.
 
 \section{Final Design Requirements}
-In this section, I will summarise the final design requirements for my system. The final design incorporates the insights provided by the co-design process with the QTVI and the findings gathered from relevant literature. These  requirements provide the basis for my final system implementation, that will be detailed in chapter 6.
+In this section, I will summarise the final design requirements for my system. The final design incorporates the insights provided by the co-design process with the QTVI and the SEN teacher and the findings gathered from relevant literature. These  requirements provide the basis for my final system implementation, that will be detailed in chapter 6.
 
 The final design requirements can be summarised in Table \ref{tab-blocks} for the blocks and Table \ref{tab-workspace} for the workspace.
 
-\begin{table}[t]
+\FloatBarrier
+\begin{table}[h]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|l|}
 \hline
 \bf Design Components       &\bf Design Requirements        \\ \hline
 \text{Geometry}       & \text{Rectangular shaped blocks, small size}  \\  \hline
@@ -636,18 +966,16 @@ Combining Blocks &Clip blocks together using magnets to prevent them from sepera
 \caption{Final Design Requirements for Blocks.}
 \label{tab-blocks}
 \end{table}
-   
 
-
-\begin{table}[t]
+\begin{table}[h]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|l|}
 \hline
 \textbf{Design Components}       & \textbf{Design Requirements}    \\ \hline
-Bounds     & Workspace bounded with a rectangular tray or Legos  \\ \hline
-Surface    &Include a non-slip material on the surface to prevent blocks from slipping \\ \hline
-Webcam   & Webcam propped with a tripod high enough to view the workspace \\ \hline
-Size    & Big enough to fit a maximum of 10 blocks, approx. 50x50 cm \\ \hline
+Bounds     & Workspace bounded with a rectangular tray or Lego.  \\ \hline
+Surface    &Include a non-slip material on the surface to prevent blocks from slipping. \\ \hline
+Webcam   & Webcam propped with a tripod high enough to view the workspace. \\ \hline
+Size    &Adaptable size to fit a maximum of blocks. \\ \hline
 Map  & Map with a route for Ozobot to follow, includes audio feedback.    \\ \hline
 
 \hline
@@ -655,11 +983,12 @@ Map  & Map with a route for Ozobot to follow, includes audio feedback.    \\ \hl
 \caption{Final Design Requirements for Workspace.}
 \label{tab-workspace}
 \end{table}
+\FloatBarrier
 
 
 
 \section{System Design User Study}
-After setting final design requirements, I set out to create more prototypes of my blocks, to test the different design requirements with users, as the next step step in my iterative design process, before a final implementation. 
+After setting final design requirements, I set out to create more prototypes of my blocks, to test different designs with users, as the next step step in my iterative design process, before a final implementation. 
 The user study aims to answer questions that were left unanswered after the interview with the QTVI, due to multiple viable design decisions.
 To ensure I am implementing the best design, the different designs are presented to participants and tested, to gather feedback.  I performed interviews with seven adults with the main questions answered described below. Each study was either audio recorded and transcripts were generated for use when conducting thematic analysis.
 
@@ -667,250 +996,82 @@ To ensure I am implementing the best design, the different designs are presented
     \item What action do you associate with the presented symbols?
     \item How would you combine instruction blocks with variable blocks?
     \item How would you put blocks together?
-    \item How would you define the bounds of a workspace using tactile methods?
-    \item How would you prefer to position blocks on the workspace?
+   
     
 \end{enumerate}
 \subsection{Participants}
 
-Seven participants partook in my study, I performed the user study in person in a group setting. I chose to conduct the study in a group scenario to create a dynamic conversation and allow other members to express their opinions on the design and counter or approve each other opinions. The study also aimed to choose the best features for the system, thus a group discussion would yield a final design decision defined by the majority's opinion.  All participants fit the participation criteria, which required the person to be over 18, have limited experience coding robots and be or are a student. No participants had any disability or impairment.
+Seven participants partook in my study, I performed the user study in person in a group setting. I chose to conduct the study in a group scenario to create a dynamic conversation and allow other members to express their opinions on the design and counter or approve each other's opinions. The study also aimed to determine the system's best features, so a group discussion would result in a final design decision based on the majority's opinion.  All participants fit the participation criteria, which required the person to be over 18, have limited experience coding robots and are a student. No participants had any disability or impairment.
 All participants were recruited by online communications. Each participant was given a Participant Information Sheet before the study that detailed the interview process and what was required if they chose to take part. If the participant consented to proceed with the study, a consent form was communicated via email and signed digitally by the participant. 
 
-4.2.2 During the Interview
-
-The first few minutes of the interview were dedicated to ensuring the participant understood the study and had enough time to ask questions. The participant was described the system that is being developed, the context in which the system will be used and the demographic of the end-user. The use of the outcome of this study was then explained to the participant. The participant was made aware that they could withdraw from the study at any time and verbal consent to proceed was obtained. 
-The first section of the interview involved gaining information about the participant’s age, experience coding and experience with robotics.
-The second section of the interview involved answering questions 1-7 as displayed above in section
-4. The user verbally described and gestured the concept or, if they had access to writing or modelling materials, they would use these to produce a concept drawing or model. For participants in a group, the discussion between members is encouraged. In the group environment, participants created their shapes and then worked together to decide on the preferred symbol to portray the action specified.
-In the third section of the interview, how to represent the orientation of the blocks was discussed. This section began with a discussion about how important obtaining the correct orientation of the blocks is for the user and why this needs to be conveyed within the design.
-In the fourth section of the interview, how to depict numerical values was discussed. As some com- mands can be performed for a specified distance or number of repetitions, this value needs to be conveyed in a tactile way within the design of the block.
-In the fifth section of the interview, the importance of bounding the workspace was discussed. When the webcam option is selected, the user is only able to capture a particular region of the table. The border of the captured region needs to be accurately conveyed using tangible methods to the user. A discussion of how this can be displayed occurred during this segment of the interview.
-In the final section of the interview, I debrief the participant and ask if they have any further questions
-
 \subsection{Study Results}
-In this section, I will discuss the different 
-
+In this section, I will discuss the different outcomes of each question.
 
 \subsubsection{Question: What action do you associate with the presented symbols?}
-The participants were presented with different symbols that I have laser cut into wood, these symbols were designed to convey the meaning to each of the blocks. This question aims to see if the participants can guess the associated action. If they cannot, the answer was given to them and feedback about potential improvements on the design were gathered. 
-
-picture of all symbols 
-
-so arrows for forward/backward.
-repetition for loop
-arrows to turn left/right
-u turn arrows
-start/ end blocks
-variable blocks.
-
-Figure shows a;; the symbols presented to the participants. 
-
+The participants were presented with different symbols that I have laser cut into wood. These icons were designed to convey the meaning of each of the blocks. This question aims to see if the participants can guess the associated action. If they cannot, the answer was given to them and feedback about potential improvements on the design were gathered. This step is important to determine if sighted users can use the system independently.
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{thesis/design.eps}
+    \caption{Initial Designs of Symbols (to be replaced with actual pictures)}
+    \label{fig-design-initial}
+\end{figure}
+\FloatBarrier
 \subsubsection{Go Forward and Go backwards}
-All participants associated the symbols in figure 1 and 2 with the go forward and go backwards actions, respectively. //One participant in particular discussed the inclusion of alternative information using printed words to offer aid for teaching assistants but decided upon the importance of universal actions instead. The responses to this question suggests that the orientation of the icon relative to the participant presents the user with important information.//
+All participants associated the symbols in figure 1 and 2 with the go forward and go backwards actions, respectively. The general comments were that the orientation of the icon relative to the participant helped the user understand the action. 
 
-\subsubsection{Turn Left and Turn Right}
-The participants successfully guessed the action depicted by the symbols. They discussed that the 90 degrees angle and the arrow pointing in different directions after a straight line, conveys a clear turning action. 
+\subsubsection{Turn 90 degrees Left and Turn 90 degrees Right}
+The participants successfully guessed the action depicted by the symbols. They discussed that the 90 degrees angle and the arrow pointing in different directions after a straight line depicts a clear turning action. 
 
 \subsubsection{U-Turn Left and Right}
-The seven participants guessed the action correctly, commenting that the curved arrow was similar to that of the u-turn traffic sign and thus easy to recognise. One participant discussed the possibility of combining two left turns or two right turns arrows to depict a u-turn, as shown in his drawing on figure(). However the group protested that it might be confusing for visually impaired children, to have two arrows that close to each other.
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/uturn.eps}
+    \caption{Suggested U-turn design}
+    \label{fig-turn}
+\end{figure}
+\FloatBarrier
+The seven participants guessed the action correctly, commenting that the curved arrow was similar to that of the u-turn traffic sign and thus easy to recognise. One participant discussed the possibility of combining two left turns or two right turns arrows to depict a u-turn, as shown in his drawing on figure \ref{fig-turn}. However, the majority of participants protested that it might be confusing for visually impaired children to have two arrows that close to each other and that it resembled the Turn 90 degrees symbols. Another participant commented that it would also take up a lot of space on the blocks.
 
 \subsubsection{Start Blocks}
-In this case, participants took longer to answer than with other blocks. One participant deduced that the circle resembles the shape of the go sign used in traffic and concluded that it could be a go or start sign. Four of other participants agreed but two participants remained unsure.  I confirmed that the symbol does in fact relate to the start action. One participant felt that other alternatives should be explored, such as using a triangle, like the play button to convey the 'start' meaning. However, it was decided that this required too much explanation and the use of a triangle may be confused with the arrows.
+In this case, participants took longer to answer than with other blocks. One participant deduced that the circle resembles the shape of the Go sign used in traffic and concluded that it could be a go or start sign. Four of other participants agreed but two participants remained unsure.  I confirmed that the symbol does in fact relate to the start action. One participant felt that other alternatives should be explored, such as using a triangle, like the play button to convey the 'start' meaning. However, it was decided that this required too much explanation and the use of a triangle may be confused with the arrows.
 
 \subsubsection{End Block}
-After examining the start symbol, it was much easier for participants to guess the meaning behind the stop symbol. All participants understood the meaning of the symbol correctly. One participant mentioned using a cross symbol instead due to the fact that the children may be unable to understand the icon if they are unaware of road signs. However, four participants mentioned that a cross may be confused with other meanings, such as cancel, or may be mistaken for the arrows used for both go forward or go backwards. One participant expressed that the teacher could explain the concept of road signs to the child before beginning the task, allowing them to understand this symbol and previous ones. All participants agreed to use the presented symbol, a circle with a line through the centre, as it was the most ”universally understood” symbol. 
+After examining the start symbol, it was much easier for participants to guess the meaning behind the stop symbol. All participants understood the meaning of the symbol correctly. One participant mentioned using a cross symbol instead due to the fact that the children may be unable to understand the icon if they are unaware of road signs. However, four participants mentioned that a cross may be confused with other meanings, such as cancel, or may be mistaken for arrows by visually impaired students. One participant expressed that the teacher could explain the concept of road signs to the child before beginning the task, allowing them to understand this symbol and previous ones. All participants agreed to use the presented symbol, a circle with a line through the centre, as it was the most ”universally understood” symbol. 
 
 All participants mentioned that they related the start symbol to the stop symbol. With the line going through the circle, it was easy to match the pattern to the start symbol and deduce the stop action. From the responses to this question, I concluded that the symbols relate like I planned to and it was easier to recognise them after recognising the pattern i.e. the circle. 
 
-\subsubsection{Loop Block}
+\subsubsection{Start-Loop Block}
+In this case, six out of the seven participants guessed the wrong  action associated with the symbol, interpreting it as a 'rotation' action. One participant voiced that they thought it resembled a 'redo' or 'undo' symbol. I explained that real meaning behind the symbol is a loop or repetition. As this icon was majorly misinterpreted, I gathered feedback about other potential designs. All participants drew suggestions using pen and paper individually, and then the designs were compared and discussed in a group. The common theme was a circular icon and arrows, one participant drew a spiral with an arrow at the end, others drew two arrows pointing at each other. We had a group discussion to determine the best icon. Other participants commented that the spiral design as seen on , could be confusing and hard to recognise tactually. Additionally, laser cutting a spiral would take up too much space on the block. As for design , other participants felt that it could be mistaken for the u-turn symbol like the initial design. Most of the participants agreed that design and design accurately portray the meaning of 'repeat' the best. The final design decision was to use design, as participants felt two semi-circles and arrows would save space and also goes in theme with 'loop'. 
 
+\subsubsection{End-Loop Block}
+The end-loop block as quickly recognised by the participants as it features the previous symbol with an 'X' next to it. One participant suggested using the end symbol used in the end block, to stick to one symbol meaning 'stop' or 'end'. The other users agreed that relating the symbols together would be beneficial as students would have to remember less icons and their meanings.
 
 \subsubsection{Variable Block}
-
-
+The participants understood the meaning behind the variable blocks. Some users compared it to a 'domino', or dice. The general feedback was that the dots were a clear indication of numbers and invite the user to count them.
 
 \subsubsection{Question: How would you combine function blocks with variable blocks?}
-For this part of the study, participants were presented with two different prototypes that satisfy the design requirements for function blocks. The design process with the QTVI specified that the function blocks (i.e. Go Forward/Backwards, loops) should have slots for variable blocks to be fit in, to specify the number of steps or repetitions. The following prototypes were made to satisfy that design decision.
+For this part of the study, participants were presented with two different prototypes that satisfy the design requirements for function blocks. The design process with experts specified that the function blocks (i.e. Go Forward/Backwards, loops) should have slots for variable blocks to be fit in, to specify the number of steps or repetitions. The following prototypes were made to satisfy that design decision.
 
 
 Prototype (a) represents a function block with a hollow shape to fit the variable blocks. Prototype (B) represents a function block that has been engraved in the area where variable blocks will be placed. 
 The participants experimented with utilising both blocks and picked up variable blocks to fit in them. 
-The general feedback was that prototype (B) was preferred to prototype (A) for the following reason. Firstly, participants mentioned that with block (A), it was hard to fit the blocks in, and once they were in it was tricky to lift the blocks out, with some participants having to push the variable block from the bottom to pop it out of its position. However, with block (b), it was engraved deep enough to put the variable block on top of it without it moving around and it was easy to take the smaller block out, as it was not fully inserted in the function block. Secondly, one participant commented that the hollowness in the first block might be confusing to visually impaired people as there is nothing to explore tactually in that area. Whereas, block (B) has a surface with a different texture, that visually impaired students can recognise by tact. In fact, the participant's comment matches the QTVI's saying that VI individuals are often taught to distinguish between objects by putting different textures on seperate objects. The difference in texture would inform the VI child that that section of the block is different than the rest, and they can identify it as the variable block location.
-For those two reasons, I have decided to use prototype (B) in my final implementation.
+The general consensus was that prototype (B) was preferred to prototype (A) for the following reasons. Firstly, participants stated that it was difficult to fit the variable blocks in and even harder to remove them from block (A), with some participants having to push the variable block from the bottom to pop it out of its position. However, with block (b), it was engraved deep enough to put the variable block on top without it moving around and it was easy to take the block out, as it was not fully inserted in the function block. Secondly, one participant commented that the hollowness in the first block might be confusing to visually impaired people because there is nothing to tactually explore in that area. However, Block (B) has a different texture on its surface, which visually impaired students can recognise by touch. In fact, the participant's comment corresponds to the QTVI's assertion that VI people are frequently taught to distinguish between objects by applying different textures to disparate objects. The difference in texture would alert the VI child to the fact that that section of the block is distinct from the rest, allowing them to recognise it as the variable block location.
+For those reasons, I have decided to use prototype (B) in my final implementation.
 
 \subsubsection{Question: How would you put blocks together?}
-magnets or no
-
-
-
-
-\subsubsection{Question: How would you define the bounds of a workspace using tactile methods?}
-
-\subsubsection{5. How would you prefer to position blocks on the workspace?}
-
-
-
-struggled to understand some, block recognition to allow for system use without prior knowledge about certain signs
-
-% -----------------------------------------------------------------------------
-
-\chapter{Technical Background}
-\label{chap:evaluation}
-
-
-
-\noindent
-In this chapter, I will be discussing the technologies I used while building my system. It involves a combination of:
-
-\begin{enumerate}
-\item Open-source fiducial marker generation and detection libraries.
-\item OpenCV libraries.
-\item Python GUI frameworks. 
-\item Alternative Ozobot programming languages.
-\end{enumerate}
-
-\noindent
-These elements all interact within the system to eventually program the Ozobot to complete a set of actions. This interaction occurs as follows.
- Firstly, the fiducial markers are placed on top of the physical programming blocks. It is important to note that each marker is unique to a block and the action depicted on that block. Secondly, the system uses OpenCV libraries to detect the markers on the block in real time video stream. The system has two different outputs depending on the action chosen. If the user chooses to translate the blocks in the image to action performed by the Ozobot, the detection algorithm returns a set of ID’s associated to each marker that my code translates to a list of actions. Finally, using an alternative Ozobot programming language called Ozopython, the system converts the list of actions to a sequence of flashing lights that the Ozobot can interpret and then perform the dictated actions. 
-Alternatively, the user can choose the ‘Recognise Block’ action. This is a separate action that does not program the Ozobot, instead the system uses the OpenCV fiducial marker detection algorithm to detect the blocks and play an audio file describing the action that the block represents. 
-Additionally, by using the Python GUI framework Tkinter, I am facilitating the user’s interaction with my system. All commands and information are accessible from the Tkinter window, and the buttons displayed on it. 
-In this chapter, I aim to provide a general understanding of the open-source libraries and repositories I have used in my system and to justify the technical choices I have made, before providing an in-depth technical system design in chapter 5.
-
-\section{Fiducial markers}
-\noindent
-The functioning of my system relies on the interpretation of the sequence of programming blocks. Hence, to ensure that the blocks are accurately detected, I have made use of fiducial markers. The camera is able to recognize the set of instructions through the AruCo marker encoding on each block. 
-I have considered alternative approaches such as incorporating a barcode scanner in the block or using a shape detector, but all these approaches often provide inaccurate results. 
-A fiducial marker system consists of a set of generated patterns that can be detected by a computer equipped with a camera and an appropriate marker detection algorithm.  Their design enables the markers to be physically small or be positioned at a large distance from the camera, while still being accurately detected in low-resolution images and at small sizes. Each marker features a unique ID number hence the marker IDs can be used to separate particular objects from others. In practice, these markers are placed in an environment to provide easily detectable visual cues and are used in applications like indoor tracking, robot navigation, augmented reality. These properties of fiducial markers make it a very suitable technology to use for block detection. 
-Therefore, in this project, I am using fiducial markers to enable my system to detect the different programming blocks and create a flashing light sequence, which translates to a set of actions completed by the Ozobot. The markers also allow my system to execute the block recognition feature, where the system plays an audio file describing the action associated with the detected fiducial marker.  Before adopting fiducial markers in my system, I have considered different marker systems and eventually decided to employ arUco markers. In the following section, I will describe why the Aruco library is the most suitable for my system instead of other fidual marker systems.
-
-\subsection{Types of Fiducial Marker Systems}
-\subsubsection{ARToolkit}
-ARToolkit markers consist of a square black border with a variety of different patterns in the interior. The quadrilateral black outline and the pattern is sampled to an element feature vector which is compared by correlation to a library of known markers. ARToolkit outputs a so called confidence factor. The presence of a marker is simply determined by a threshold value on this confidence value.
-ARToolkit is useful for many applications, but has a few drawbacks. The use of correlation to identify markers causes high false positive and inter-marker confusion rates. The user typically has to capture each marker as seen with the camera and lighting of their application, plus adjust the greyscale threshold in a trade off between these two rates and the false negative detection rate. This makes this marker system unsuitable for my application. This method is rather disadvantageous as it requires markers to be captured at a high enough resolution so that no detail of the characters is lost. 
-
-\subsubsection{ARTag}
-ARTag makers feature a black and white block shape pattern inside a dark black border, as seen in figure 3.4. ARTag can  effectively detect a tag if part of the border is occluded, making it more accurate than ARToolkit, however the ARTag system constantly has a lower detection rate compared to AprilTag, ArUco and Stag markers [ref]. A study comparing the detection accuracy of these markers notes that ARTag consistently has a much lower detection rate hovering around \texttt{45\%}, while the AprilTag, ArUco, and STag markers have detection rates greater than \texttt{90\%} at different angles and resolutions of the camera. Since my system makes use of webcams that may have low resolutions, the ARTag is unsuitable for my system.
-
-\subsubsection{AprilTag}
-The AprilTag system was developed as an improved ARTag system. It was designed to[1]  Minimize false positive confusion rate and to minimize the number of bits per tag.
-Based off experimental data, AprilTags was a significant improvement over prior methods such as QR codes or the ARToolKit[4]. Notably, AprilTags are significantly better at re- ducing false positives, specifically those which occur due to either part of the tag being covered, lighting issues, or errors due to color. Essentially, the algorithm will identify a tag incorrectly or may not identify it at all, which can be catastrophic in instances using robots, or break an augmented reality experience. However, the AprilTag is a computationally expensive package, and AprilTag markers are not built into the OpenCV library and require implementing their personal detection algorithm. Additionally, from an implementation perspective, ArUco marker detections tend to be more accurate, even when using the default parameters. On the other hand, ArUco markers are have online generators, that generate markers of different dictionaries and IDs. Hence, it is relatively straightforward to replace markers if they get damaged by generating them online and printing them. This cannot be done with AprilTags.
-
-\subsubsection{ChromaTag}
-ChromaTag is a fiducial marker system and detection algorithm designed to use opponent colors. Its design enables it to limit and quickly reject initial false detections and grayscale for precise localization. ChromaTag is proven to be significantly faster than current fiducial markers while achieving similar or better detection accuracy. However, it requires printing colored markers. However, using low resolution grey-scale webcams, or printing using uncalibrated colors, could lead to misdetection of markers. Since my system is utilized by children and teachers who may not have the right material for optimal detection, this marker is unsuitable for this project. 
-
-\subsubsection{ArUco}
-ArUco [17], is another package based on ARTag and ARToolkit. Unlike other fiducial marker systems, ArUco is that it allows the user to create configurable libraries, based on their specific needs. The library will only contain the specified number of markers with the greatest Hamming distance. Another notable contribution in ArUco is the reduced computing time due the smaller size of the custom libraries. It also provides a high detection rate with low rate of false positives, regardless of camera resolution or camera position. 
-Other primary benefits of using ArUco markers over other markers include:
-
-\begin{itemize}
-  
-\item ArUco markers are built into the OpenCV library via the cv2.aruco  submodule, described in section 
-\item	The OpenCV library can generate ArUco markers with the cv2.aruco.drawMarker
- function.
-
-\item	There are online ArUco generators.
-For these reasons, I have chosen the ArUco marker system. It would also make my system more durable, since markers can be generated online without any code, and therefore easily replaced in case of damage.
-\end{itemize}
-
-\section{Image Processing} 
-\subsection{imutils}
-
-\noindent
-Imutils are a series of functions to make image processing functions such as translation, rotation, resizing, skeletonization, and displaying images easier with OpenCV and both Python 2.7 and Python 3. Therefore, I am using imutils to manipulate live streamed images before detecting the markers using OpenCV. The following imutils functions are used:
-
-\subsubsection{VideoStream}
-With VideoStream, I have defined that source camera will be “0” which here corresponds to the webcam plugged to the computer port. After that, I have started the camera and defined that after start is initialized, the camera will turn on after 3 seconds so that camera sensor can warm up and image resolution is improved. From there, the .read() function is used to obtain the current frame captured by the webcam. The system continues looping over the frames of the live stream and computes live marker detection with 
-OpenCV.
-
-\subsubsection{Resize}
-The resize function grabs the frame from the threaded video stream and resizes it to have a maximum width of 1000 pixels as the aruco detection algorithm requires.
-
-\subsection{OpenCV}
-
-To analyse the frames rendered by the imutils library, I have used the OpenCV library. OpenCV is a programming function library primarily used for Computer Vision applications. The three functions I have used to generate and detect markers obtained from my webcam are described here. 
-
-\subsubsection{Drawmarker()}
-
-Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. The OpenCV library has a built-in ArUco marker generator through its 
-cv2.aruco.drawMarker function.The main parameters of this function is the marker dictionary  and the ID of the marker which has to be a valid ID In the ArUco dictionary. By specifying the marker dictionary and the marker ID, the drawMarker function then returns the output image with the ArUco marker drawn on it. 
-
-There are 21 different ArUco dictionaries built into OpenCV. The majority of these dictionaries follow a specific naming convention, \texttt{cv2.aruco.DICT\_NxN\_M}, with an NxN size followed by an integer value, M. For example \texttt{DICT\_6X6\_250} means this dictionary is composed of 250 markers and a marker size of 6x6 bits. There are some settings to consider in order to choose the ideal dictionary, and these differ from system to system. It is generally more ideal to pick a dictionary with a larger NxN grid size, balanced with a low number of unique ArUco IDs such that the inter-marker distance can be used to correct misread markers. 
-Therefore, for my system, I have chosen the \texttt{DICT\_7X7\_50}, this is because my system requires 15 unique IDs for 15 different actions, and this dictionary has the smallest number of unique IDs (50 IDs). The marker size of 7x7 bits also provides more accurate detection results than other marker sizes due to the larger grid size and inter-marker distance. 
-I have generated a total of 15 markers for my system with ID’s in the range of [1,15], with one increment. 
-
-\subsubsection{Detectmarker()}
-
-The OpenCV library is used to detect the markers in the frames rendered by the imutils video library. I have made use of OpenCV’s cv2.aruco module specifically made to detect aruco markers. The marker detection process is comprised of two main steps:
-\begin{enumerate}
-    \item Detection of marker candidates. In this step, the frame read by the VideoStream.read() function described in 4.3.1. is analyzed in order to find square shapes that are candidates to be markers. It starts with an adaptive thresholding to segment the markers, then outlines are extracted from the thresholded image and those that do not approximate to a square shape are discarded. Some extra filtering is also applied to removing contours that are too small, too big, or too close to each other.
-    \item After the candidate detection, it is necessary to determine if they are actually markers by analyzing their inner codification. This step starts by extracting the marker bits of each marker. The image is divided into different cells according to the marker size and the border size. Then the number of black or white pixels in each cell is counted to determine if it is a white or a black bit. Finally, the bits are analyzed to determine if the marker belongs to the specific dictionary. Error correction techniques are employed when necessary.
-\end{enumerate}
-I have designed my system to specifically detect markers from the dictionary \texttt{DICT\_7X7\_50} as specified in the previous paragraph. Since my system makes use of a live stream video from the webcam, I have included code to draw the outlines, the center and the ID of the detected tag on the screen to show real time detection. 
-Finally, the IDs of the detected markers are stored in a list and used to translate to a flashing light sequence of instructions or parsed to the block recognition code, that plays an audio file depending on the block recognized. The working of this will be explained in more detail in the technical design chapter.
-
-\section{playsound}
-
-To implement the block recognition feature, I have used the playsound Python module. This enables my system to play mp3 audio files describing the action on the block detected by the OpenCV detection algorithm. My code performs this by detecting the marker ID, each marker ID has been assigned to an action. 
-\begin{table}[t]
-\centering
-\begin{tabular}{|cc|c|}
-\hline
-Marker ID      & Action Associated      & Audio Output      \\
-\hline
-$1     $ & $\texttt{Start program} $ & $\texttt{'Start Block'}    $ \\
-$3     $ & $\texttt{Turn Left     }$ & $\texttt{'Make a Left Turn'}   $ \\
-$5     $ & $\texttt{U-turn Left}   $ & $ \texttt{'Make a U-turn to the left'} $\\
-$7     $ & $\texttt{Move Forward}  $ & $\texttt{'Move Forward Block'}   $ \\
-$9     $ & $\texttt{Variable Block: 5 steps}  $ & $\texttt{'Move for 5 steps}'  $ \\
-\hline
-\end{tabular}
-\caption{Examples of markers and their corresponding actions.}
-\label{tab}
-\end{table}
-
-\section{Tkinter}
-
-To build my GUI, I have utilised the GUI Python Framework Tkinter and its functions to allow the user to interact with my system.
-
-\subsection{Frame}
-My GUI design involves a frame widget, it works on grouping and organizing other widgets by arranging their position. This widget is essential in my system since it allows me to choose the background color and the size of the displayed windows. For example, the parent window, which is the window displayed when the system starts, includes an organised layout of a label widget and different button widgets. The system displays a new frame depending on the buttons clicked. Hence, I have employed the frame widget as a foundation class to implement widgets and different windows.
-
-\subsection{Button}
-I have implemented the tkinter button widget in my system. There are two buttons that appear on the main window when the application starts. The buttons are linked to different functions in my code and perform the required actions depending on the button clicked.
-
-\subsection{Label}
-The label widget was used to display information such as descriptions or instructions at the top of the screen once the GUI has been loaded. I have also employed this widget to display any error messages that the system detects.
-
-\section{Ozopy}
-To interpret the detected markers and their associated instructions and convert them into flashing light sequence for the Ozobot, I have implemented an open-source Python-like language compiler for Ozobot [ref] called Ozopy, invented by Kaarl Ma..  This Python-like language is a subset of Python with some added builtin methods to control the Ozobot bit.
-
-\subsection{Context}
-
-The Ozobot can be programmed in two ways, either by using color codes and colored markers to indicate actions, or by using the visual programming interface OzoBlockly. With OzoBlockly, the user can create programs for the Ozobot by dragging puzzle shaped blocks onto the programming platform. The on-screen blocks clip together to form a program. The OzoBlockly editor has five skills levels from pre-reader to master.
-For my system’s purposes, I will be focusing on level 1 and level 2, which are pre-reader and beginner levels. This is due to there being very few accessible programming interfaces for younger demographics. The level 1 blocks feature simple shapes depicting movements such as arrows, while level 2 blocks feature the same blocks but with written statements instead of icons with the addition of loops. 
-
-To convert the created program into instructions understood by the Ozobot, OzoBlocky displays the encoded values as a light sequence composed of 8 color constants: black, white, red, green, yellow, blue, magenta and cyan. This is scanned at the base of the Ozobot where the RGB colour sensors reside. 
-
-The engineering of the colour codes for OzoBlockly is not publicly available. However, Kaarel Maidre and Ashley Feniello have successfully reverse engineered the colour codes and created Ozopy and FlashForth, programming IDE for the Ozobot. The following section explains the working of Ozopy.  
-
-\subsection{Encoding Values}
-Ozopy functions similarly to OzoBlockly. The language compiler interprets a set of instructions written on an .ozopy file and outputs a window with flashing lights  of colour codes. These colour codes translate to bytecode instructions that the Ozobot executes. Ashley Fenielo, who made FlashForth, has successfully decoded the colour sequences and established their corresponding bytecodes. Her work represents the groundwork behind Ozopy.
-
-The color codes are encoded in a base-7 encoding and line up on byte-sized boundaries endoded as sets of three colours. Each of the eight colors has a 3-bit value. The following table shows the denary value of the colors and their 3-bit encoding.
-
-
-
-A set of three consecutives colors encode a bytecode used to program the Ozobot, except for the color White which is not being used as a value but rather signifies repeating the last color. For example, KWK is simply 000.
-
-Each of the three color codes is translated to a decimal number. The resulting number is then converted to hexadecimal to produce a bytecode that can be used to lookup instructions that are featured on the Ozobot. 
-
-\subsection{Instructions}
-After the color codes are translated to bytecodes, the resulting bytecode value is used to lookup instructions. As the Ozobot functions as a stack machine, operands are sent before operations.
-Values of less than 128 are considered literals pushed to the stack, while values of 128 or higher are instructions. The table created by Feniello shows the bytecodes and their matched instructions. 
+In this part of the study, the participants were asked to experiment with clipping blocks together, using two different sets of blocks. One set of puzzle pieces had magnets on both sides of the blocks and the other was a simple block with no magnets.
+The group put 4-5 blocks together for each type.
+All the participants were attracted to the first type of blocks due to the magnets that eased the task of attaching blocks. The participants reported that the absence of magnets created gaps in their code sequence and made it difficult to keep blocks together. For this reason, magnets were incorporated in all blocks.
 
 
 \section{Summary}
+To sum up, the prototype test with the participants was mostly successful. It helped me identify design improvements such as redesigning the loop symbols. The testing also revealed that some user may struggle to understand the meaning of some symbols when first introduced to the system. Thus, I have added a block recognition feature in my software, that delivers an audio output describing the symbol and the action on the block. This allows children with mixed visual abilities to use the system without prior knowledge about certain signs.
+
 % -----------------------------------------------------------------------------
+
+
 
 
 % -----------------------------------------------------------------------------
@@ -918,13 +1079,20 @@ Values of less than 128 are considered literals pushed to the stack, while value
 Considering the advantages of the existing systems to teach computational concepts discussed in previous chapters and my iterative design process with experts and the students, I designed a tangible Ozobot programming system. In this chapter, I present the implementation of the different components of my system.
 
 \section{Architecture}
-My system is composed of a set of tangible progamming blocks, an Ozobot robot, a computer application, a webcam with a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
-
+My system is composed of a set of tangible programming blocks, an Ozobot robot, a computer application, a webcam with a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{flowchart.eps}
+    \caption{Flowchart of the architecture of my system}
+    \label{fig-flowchart}
+\end{figure}
+\FloatBarrier
 In the following section, I analyze the architecture in further detail, for the two main aspects to my system, physical and technical.
 \section{Physical Implementation}
 In this section, I will present the final physical implementation of my system, after my iterative design process discussed in chapter 4. It consists of wooden blocks that can be put together, a webcam and a workspace set up to detect the wooden blocks.
 \subsection{Blocks}
-The wooden blocks are the main component of my system. They introduce a tangible alternative to the Ozoblockly platform, and are accessible to all visual abilities.
+The wooden blocks are the main component of my system. They introduce a tangible alternative to the OzoBlockly platform, and are accessible to all visual abilities.
 \subsubsection{Material}
 The blocks are constructed from 6mm thick pieces of plywood. Plywood was chosen over acrylic and other plastic materials as it is more robust than acrylic and can be easily recycled. Furthermore, as plywood is easier to paint, I have chosen it over other alternatives to create a high colour contrast on the blocks to make them accessible to children with low vision.
 \subsubsection{Shape}
@@ -1023,7 +1191,30 @@ This is the last step in the ‘Translate to Ozopy’ workflow. This stage uses 
 
 
 % -----------------------------------------------------------------------------
-\chapter{Post Prototype User Study}
+\chapter{Post Prototype User Testing}
+\label{chap:testing}
+
+After creating a final prototype of my system, I conducted user testing to gather feedback on its design and evaluate its usability. The evaluation required participants to complete three short tasks by creating a program that would enable the Ozobot to complete a route drawn on the system's map. Participants were then asked to complete a questionnaire about their experience using the system. The tasks were recorded to later analyse the choices users make while constructing programs.
+
+\section{Participants}
+Four participants took part in this user study, three of which were also participated in the previous system design study. All participants were chosen as they fit the participation criteria; over 18 years of age, are students, and have little experience with coding. No participants had a disability or impairment.
+
+\section{Testing Procedure}
+
+Each participant completed the study alone or within a pair. P1 and P2 performed the tasks alone while P3 and P4 were paired together. This was a deliberate decision to test if my system accomplishes two main aims: supporting independent use as well as collaborative learning. 
+The first part of the study involved describing the aim of the user testing to the participants. The participants were then shown the system and its different components and explained the different actions that the Ozobot can do. They were then informed that they would need to complete a questionnaire about their experience at the end of the task. 
+In the second part of the study, I described the tasks the participants were required to complete. I then demonstrated how to calibrate and load programs onto the Ozobot using the GUI on my system. The system's graphical user interface was then loaded, and the user was instructed to complete the following tasks.
+\subsection{Task Design}
+\subsubsection{Task 1}
+
+\subsubsection{Task 2}
+\subsubsection{Task 3}
+
+\subsection{Questionnaire}
+After the user testing, participants were sent a Google Forms questionnaire to provide feedback about their experience using the system. The survey is a mixture of scale, multiple choice, and long answer questions to get their opinion on the design and usability of the system as a whole. The questionnaire can be found in appendix A.
+
+\section{Task Results}
+
 
 % -----------------------------------------------------------------------------
 
