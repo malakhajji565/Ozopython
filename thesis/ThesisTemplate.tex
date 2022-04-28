@@ -30,6 +30,7 @@
 \usepackage{float}
 
 \usepackage{multirow}
+\usepackage{subcaption}
 \usepackage{placeins}
 \begin{document}
 
@@ -682,8 +683,7 @@ To analyse the frames rendered by the imutils library, I have used the OpenCV li
     \label{fig-marker}
 \end{figure}
 \FloatBarrier
-Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. The OpenCV library has a built-in ArUco marker generator through its 
-cv2.aruco.drawMarker function. The main parameters of this function is the marker dictionary and the ID of the marker which has to be a valid ID in the ArUco dictionary. By specifying the marker dictionary and the marker ID, the drawMarker function then returns the output image with the required ArUco marker drawn on it. 
+Before their detection, ArUco markers need to be generated then printed in order to be placed in the environment. The OpenCV library has a built-in ArUco marker generator through its cv2.aruco.drawMarker function. The main parameters of this function is the marker dictionary and the ID of the marker which has to be a valid ID in the ArUco dictionary. By specifying the marker dictionary and the marker ID, the drawMarker function then returns the output image with the required ArUco marker drawn on it. 
 
 There are 21 different ArUco dictionaries built into OpenCV. The majority of these dictionaries follow a specific naming convention, \texttt{cv2.aruco.DICT\_NxN\_M}, with an NxN size followed by an integer value, M. For example \texttt{DICT\_6X6\_250} means this dictionary is composed of 250 markers and a marker size of 6x6 bits. There are some settings to consider in order to choose the ideal dictionary, and these differ from system to system. It is generally more ideal to pick a dictionary with a larger NxN grid size, balanced with a low number of unique ArUco IDs such that the inter-marker distance can be used to correct misread markers. [ref]
 Therefore, for my system, I have chosen the \texttt{DICT\_7X7\_50} (\ref{fig-marker}), because my system requires 15 unique IDs for 15 different actions, and this dictionary has the smallest number of unique IDs (50 IDs). The marker size of 7x7 bits also provides more accurate detection results than other marker sizes due to the larger grid size and inter-marker distance. 
@@ -898,10 +898,10 @@ Thus, I created an initial prototype \ref{fig-initial} with blocks made from 6mm
 
 
 \section{System Design with Experts}
-To inform the design of my system, I interviewed a Special Educational Needs teacher (SEN) and a qualified teacher of the visually impaired, both had extensive experience in teaching and mentoring visually impaired children. The participants were involved in the design process for their knowledge of the difficulties that VI children face with programming, especially in light of their outreach and mentoring experiences. Both interviews were semi-structured and conducted on different occasions. 
+To inform the design of my system, I interviewed a Special Educational Needs teacher (SEN) and a qualified teacher of the visually impaired (QTVI), both had extensive experience in teaching and mentoring visually impaired children. The participants were involved in the design process for their knowledge of the difficulties that VI children face with programming, especially in light of their outreach and mentoring experiences. Both interviews were semi-structured and conducted separately.
 
 The participants gave feedback on my initial design prototype and explored other mechanisms for interaction, in order to identify the ideal design features for the tangible blocks. The interviewees also defined design requirements for the workspace of the system and suitable activities for trial sessions with children. 
-The interviews were audio recorded and fully transcribed using Thematic analysis[ref] to extract design recommendations for the system. Here, I will summarize the main themes and insights I have gained from these sessions.
+The interviews were audio recorded and fully transcribed to extract design recommendations for the system. Here, I will summarize the main themes and insights I have gained from these sessions.
 
 \subsection{Tactile Features}
 The participants first examined my initial prototype and identified features to improve on.
@@ -987,24 +987,24 @@ Map  & Map with a route for Ozobot to follow, includes audio feedback.    \\ \hl
 
 
 
-\section{System Design User Study}
-After setting final design requirements, I set out to create more prototypes of my blocks, to test different designs with users, as the next step step in my iterative design process, before a final implementation. 
-The user study aims to answer questions that were left unanswered after the interview with the QTVI, due to multiple viable design decisions.
-To ensure I am implementing the best design, the different designs are presented to participants and tested, to gather feedback.  I performed interviews with seven adults with the main questions answered described below. Each study was either audio recorded and transcripts were generated for use when conducting thematic analysis.
-
+\section{Design Workshop}
+As the next step in my iterative design process, I set out to create more prototypes of my blocks in order to test different designs with users. 
+Due to multiple viable design decisions, the design workshop aimed to answer questions that were left unanswered after the expert interview. The explored themes are described below. 
+Participants were shown and tested various possible designs in order to gather feedback and determine final design requirements for a final implementation. 
+The research was audio recorded, and transcripts were created to document the main design outcomes.
 \begin{enumerate}
     \item What action do you associate with the presented symbols?
-    \item How would you combine instruction blocks with variable blocks?
+    \item How would you combine function blocks with variable blocks?
     \item How would you put blocks together?
    
     
 \end{enumerate}
 \subsection{Participants}
 
-Seven participants partook in my study, I performed the user study in person in a group setting. I chose to conduct the study in a group scenario to create a dynamic conversation and allow other members to express their opinions on the design and counter or approve each other's opinions. The study also aimed to determine the system's best features, so a group discussion would result in a final design decision based on the majority's opinion.  All participants fit the participation criteria, which required the person to be over 18, have limited experience coding robots and are a student. No participants had any disability or impairment.
-All participants were recruited by online communications. Each participant was given a Participant Information Sheet before the study that detailed the interview process and what was required if they chose to take part. If the participant consented to proceed with the study, a consent form was communicated via email and signed digitally by the participant. 
+Seven participants partook in my study. All participants fit the participation criteria, which required the person to be over 18, have limited experience coding robots and are a student. No participants had any disability or impairment. I conducted the design workshop in person in a group setting to create a dynamic conversation and allow other members to express their opinions on the design and counter or approve each other's opinions. The study also aimed to determine the system's best features, so a group discussion would result in a final design decision based on the majority's opinion.  
+All participants were recruited by online communications. Each participant was given a Participant Information Sheet before the study that detailed the interview process and what was required if they chose to take part. If the participant consented to proceed with the study, the consent forms were handed over and signed in-person.
 
-\subsection{Study Results}
+\subsection{Results}
 In this section, I will discuss the different outcomes of each question.
 
 \subsubsection{Question: What action do you associate with the presented symbols?}
@@ -1013,7 +1013,7 @@ The participants were presented with different symbols that I have laser cut int
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{thesis/design.eps}
-    \caption{Initial Designs of Symbols (to be replaced with actual pictures)}
+    \caption{Initial Designs of Symbols on CorelDraw}
     \label{fig-design-initial}
 \end{figure}
 \FloatBarrier
@@ -1021,44 +1021,157 @@ The participants were presented with different symbols that I have laser cut int
 All participants associated the symbols in figure 1 and 2 with the go forward and go backwards actions, respectively. The general comments were that the orientation of the icon relative to the participant helped the user understand the action. 
 
 \subsubsection{Turn 90 degrees Left and Turn 90 degrees Right}
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/turns.eps}
+    \caption{'Turn Right' and 'Turn Left' Symbols}
+    \label{fig-turn}
+\end{figure}
+\FloatBarrier
 The participants successfully guessed the action depicted by the symbols. They discussed that the 90 degrees angle and the arrow pointing in different directions after a straight line depicts a clear turning action. 
 
 \subsubsection{U-Turn Left and Right}
 \FloatBarrier
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.3\textwidth]{thesis/uturn.eps}
-    \caption{Suggested U-turn design}
-    \label{fig-turn}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width =.5\textwidth]{thesis/uturns.eps}
+  \caption{U-turn Symbol}
+  \label{fig:initial-turn}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\textwidth]{thesis/uturn.eps}
+  \caption{Suggested u-turn design}
+  \label{fig:suggested-turn}
+\end{minipage}
 \end{figure}
 \FloatBarrier
-The seven participants guessed the action correctly, commenting that the curved arrow was similar to that of the u-turn traffic sign and thus easy to recognise. One participant discussed the possibility of combining two left turns or two right turns arrows to depict a u-turn, as shown in his drawing on figure \ref{fig-turn}. However, the majority of participants protested that it might be confusing for visually impaired children to have two arrows that close to each other and that it resembled the Turn 90 degrees symbols. Another participant commented that it would also take up a lot of space on the blocks.
+The seven participants guessed the action correctly, commenting that the curved arrow was similar to that of the u-turn traffic sign and thus easy to recognise. One participant discussed the possibility of combining two left turns or two right turns arrows to depict a u-turn, as shown in his drawing on figure \ref{fig:suggested-turn}. However, the majority of participants protested that it might be confusing for visually impaired children to have two arrows that close to each other and that it resembled the Turn 90 degrees symbols. Another participant commented that it would also take up a lot of space on the blocks.
 
 \subsubsection{Start Blocks}
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/start.eps}
+    \caption{'Start Program' Symbol}
+    \label{fig-start-initial}
+\end{figure}
+\FloatBarrier
 In this case, participants took longer to answer than with other blocks. One participant deduced that the circle resembles the shape of the Go sign used in traffic and concluded that it could be a go or start sign. Four of other participants agreed but two participants remained unsure.  I confirmed that the symbol does in fact relate to the start action. One participant felt that other alternatives should be explored, such as using a triangle, like the play button to convey the 'start' meaning. However, it was decided that this required too much explanation and the use of a triangle may be confused with the arrows.
 
 \subsubsection{End Block}
+
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/end.eps}
+    \caption{'End Program' Symbol}
+    \label{fig-end-initial}
+\end{figure}
+\FloatBarrier
 After examining the start symbol, it was much easier for participants to guess the meaning behind the stop symbol. All participants understood the meaning of the symbol correctly. One participant mentioned using a cross symbol instead due to the fact that the children may be unable to understand the icon if they are unaware of road signs. However, four participants mentioned that a cross may be confused with other meanings, such as cancel, or may be mistaken for arrows by visually impaired students. One participant expressed that the teacher could explain the concept of road signs to the child before beginning the task, allowing them to understand this symbol and previous ones. All participants agreed to use the presented symbol, a circle with a line through the centre, as it was the most ”universally understood” symbol. 
 
 All participants mentioned that they related the start symbol to the stop symbol. With the line going through the circle, it was easy to match the pattern to the start symbol and deduce the stop action. From the responses to this question, I concluded that the symbols relate like I planned to and it was easier to recognise them after recognising the pattern i.e. the circle. 
 
 \subsubsection{Start-Loop Block}
-In this case, six out of the seven participants guessed the wrong  action associated with the symbol, interpreting it as a 'rotation' action. One participant voiced that they thought it resembled a 'redo' or 'undo' symbol. I explained that real meaning behind the symbol is a loop or repetition. As this icon was majorly misinterpreted, I gathered feedback about other potential designs. All participants drew suggestions using pen and paper individually, and then the designs were compared and discussed in a group. The common theme was a circular icon and arrows, one participant drew a spiral with an arrow at the end, others drew two arrows pointing at each other. We had a group discussion to determine the best icon. Other participants commented that the spiral design as seen on , could be confusing and hard to recognise tactually. Additionally, laser cutting a spiral would take up too much space on the block. As for design , other participants felt that it could be mistaken for the u-turn symbol like the initial design. Most of the participants agreed that design and design accurately portray the meaning of 'repeat' the best. The final design decision was to use design, as participants felt two semi-circles and arrows would save space and also goes in theme with 'loop'. 
 
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{thesis/loopstart.eps}
+    \caption{'Start-Loop' Symbol}
+    \label{fig-startloop}
+\end{figure}
+\FloatBarrier
+In this case, all participants struggled to understand the meaning of the symbol in \ref{fig-startloop}, with five participants interpreting it as a 'rotation' action. One participant voiced that they thought it resembled a 'redo' or 'undo' symbol. I explained that the real meaning behind the symbol is a loop or repetition. As this icon was majorly misinterpreted, I gathered feedback about other potential designs. All participants drew suggestions using pen and paper, and then the designs were compared and discussed in a group. The common theme was a circular icon and arrows, one participant drew a spiral with an arrow at the end \ref{fig:sub1}, others drew two arrows pointing at each other. We had a group discussion to determine the best icon. Other participants commented that the spiral design as seen on , could be confusing and hard to recognise tactually. Additionally, laser cutting a spiral would take up too much space on the block. As for the design shown in \ref{fig:sub2} , other participants felt that it could be mistaken for the u-turn symbol like the initial design. Most of the participants agreed that design \ref{fig:sub3} and design \ref{fig:sub4} accurately portray the meaning of 'repeat' the best. The final design decision was to use design \ref{fig:sub4}, as participants felt two semi-circles and arrows would save more space and also goes in theme with the 'loop' meaning.
+\FloatBarrier
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=3cm]{thesis/spiral.eps}
+  \caption{}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=3cm]{thesis/spotify.eps}
+  \caption{} 
+  \label{fig:sub2}
+\end{subfigure}%
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=3cm]{thesis/repeat2.eps}
+  \caption{}
+  \label{fig:sub3}
+\end{subfigure}%
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=3cm]{thesis/repeat.eps}
+  \caption{}
+  \label{fig:sub4}
+\end{subfigure}
+\caption{Shapes created by participants}
+\label{fig:test}
+\end{figure}
+\FloatBarrier
 \subsubsection{End-Loop Block}
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{endloop.eps}
+    \caption{'End Loop' Symbol}
+    \label{fig-endloop}
+\end{figure}
+\FloatBarrier
 The end-loop block as quickly recognised by the participants as it features the previous symbol with an 'X' next to it. One participant suggested using the end symbol used in the end block, to stick to one symbol meaning 'stop' or 'end'. The other users agreed that relating the symbols together would be beneficial as students would have to remember less icons and their meanings.
 
 \subsubsection{Variable Block}
+
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{thesis/variables.eps}
+    \caption{Different variable blocks}
+    \label{fig-variable}
+\end{figure}
+\FloatBarrier
+
 The participants understood the meaning behind the variable blocks. Some users compared it to a 'domino', or dice. The general feedback was that the dots were a clear indication of numbers and invite the user to count them.
 
 \subsubsection{Question: How would you combine function blocks with variable blocks?}
+
+\FloatBarrier
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{thesis/hollow.eps}
+  \caption{Prototype A: Hollow Function Block}
+  \label{fig-hollow}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{thesis/engraved.eps}
+  \caption{Prototype B: Engraved Function Block} 
+  \label{fig-engraved}
+\end{subfigure}
+\caption{Function Blocks}
+\label{fig-function}
+\end{figure}
+\FloatBarrier
+
 For this part of the study, participants were presented with two different prototypes that satisfy the design requirements for function blocks. The design process with experts specified that the function blocks (i.e. Go Forward/Backwards, loops) should have slots for variable blocks to be fit in, to specify the number of steps or repetitions. The following prototypes were made to satisfy that design decision.
 
 
-Prototype (a) represents a function block with a hollow shape to fit the variable blocks. Prototype (B) represents a function block that has been engraved in the area where variable blocks will be placed. 
+Figure \ref{fig-hollow} represents a function block with a hollow shape to fit the variable blocks. Figure \ref{fig-engraved} represents a function block that has been engraved in the area where variable blocks will be placed. 
 The participants experimented with utilising both blocks and picked up variable blocks to fit in them. 
-The general consensus was that prototype (B) was preferred to prototype (A) for the following reasons. Firstly, participants stated that it was difficult to fit the variable blocks in and even harder to remove them from block (A), with some participants having to push the variable block from the bottom to pop it out of its position. However, with block (b), it was engraved deep enough to put the variable block on top without it moving around and it was easy to take the block out, as it was not fully inserted in the function block. Secondly, one participant commented that the hollowness in the first block might be confusing to visually impaired people because there is nothing to tactually explore in that area. However, Block (B) has a different texture on its surface, which visually impaired students can recognise by touch. In fact, the participant's comment corresponds to the QTVI's assertion that VI people are frequently taught to distinguish between objects by applying different textures to disparate objects. The difference in texture would alert the VI child to the fact that that section of the block is distinct from the rest, allowing them to recognise it as the variable block location.
-For those reasons, I have decided to use prototype (B) in my final implementation.
+The general consensus was that Prototype (B) was preferred to Prototype (A) for the following reasons. Firstly, participants stated that it was difficult to fit the variable blocks in and even harder to remove them from Block (A) \ref{fig-hollow}, with some participants having to push the variable block from the bottom to pop it out of its position. However, with Block (B) \ref{fig-engraved}, it was engraved deep enough to put the variable block on top without it shifting and it was easy to take the block out, as it was not fully inserted in the function block. Secondly, one participant commented that the hollowness in the first block might be confusing to visually impaired people because there is nothing to tactually explore in that area. On the other hand, Block (B) has a different texture on the engraved surface, which visually impaired students can recognise by touch. In fact, the participant's comment corresponds to the QTVI's assertion that VI people are frequently taught to distinguish between objects by applying different textures to disparate objects. The difference in texture would alert the VI child to the fact that that section of the block is distinct from the rest, allowing them to recognise it as the variable block location.
+For those reasons, I have decided to use Prototype (B) \ref{fig-engraved} in my final implementation.
 
 \subsubsection{Question: How would you put blocks together?}
 In this part of the study, the participants were asked to experiment with clipping blocks together, using two different sets of blocks. One set of puzzle pieces had magnets on both sides of the blocks and the other was a simple block with no magnets.
@@ -1066,8 +1179,14 @@ The group put 4-5 blocks together for each type.
 All the participants were attracted to the first type of blocks due to the magnets that eased the task of attaching blocks. The participants reported that the absence of magnets created gaps in their code sequence and made it difficult to keep blocks together. For this reason, magnets were incorporated in all blocks.
 
 
-\section{Summary}
-To sum up, the prototype test with the participants was mostly successful. It helped me identify design improvements such as redesigning the loop symbols. The testing also revealed that some user may struggle to understand the meaning of some symbols when first introduced to the system. Thus, I have added a block recognition feature in my software, that delivers an audio output describing the symbol and the action on the block. This allows children with mixed visual abilities to use the system without prior knowledge about certain signs.
+\section{Design Changes}
+To summarise, the design workshop built my confidence in certain design decisions while also assisting me in identifying design flaws, such as the loop symbols. The workshop also revealed that some user may struggle to understand the meaning of some symbols when first introduced to the system. Thus, I have added a block recognition feature in my software, that delivers an audio output describing the symbol and the action on the block. This allows children with mixed visual abilities to use the system without prior knowledge about certain signs. The main design changes are:
+\begin{itemize}
+    \item Change the start-loop and end-loop symbols to the suggest design.
+    \item Adopt an engraved block for all function blocks.
+    \item Incorporate magnets in the blocks to help clip them together.
+\end{itemize}
+
 
 % -----------------------------------------------------------------------------
 
@@ -1076,10 +1195,10 @@ To sum up, the prototype test with the participants was mostly successful. It he
 
 % -----------------------------------------------------------------------------
 \chapter{System Implementation}
-Considering the advantages of the existing systems to teach computational concepts discussed in previous chapters and my iterative design process with experts and the students, I designed a tangible Ozobot programming system. In this chapter, I present the implementation of the different components of my system.
+Based on the advantages of the existing systems discussed in chapters \ref{chap:context} and my iterative design process with experts and the students in chapter \ref{chap:conclusion}, I designed a tangible Ozobot programming system. In this chapter, I present the implementation of the different components of my system.
 
 \section{Architecture}
-My system is composed of a set of tangible programming blocks, an Ozobot robot, a computer application, a webcam with a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions.
+My system is composed of a set of tangible programming blocks, an Ozobot robot, a computer application, a webcam with a tripod, and a workspace. Students can manipulate the tangible blocks to construct a program with the desired actions for the robot to execute. The blocks are placed in the workspace underneath the webcam device held by the tripod. The webcam is connected to a computer, where the designed application can recognize the ArUco marker in the blocks and translate them to a flashing light sequence. The Ozobot is held up to the screen to scan the flashing light and then execute the dictated actions. Alternatively, the system can execute the ‘Recognise Block’ feature. This is a separate action that does not program the Ozobot, instead the system uses the OpenCV fiducial marker detection algorithm to detect the blocks and play an audio file describing the action that the block represents. Figure \ref{fig-flowchart} represents the process of the two aforementioned system functions.
 \FloatBarrier
 \begin{figure}[h]
     \centering
